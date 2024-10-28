@@ -52,6 +52,12 @@
     <Compile Include="Brand.Designer.cs">
       <DependentUpon>Brand.cs</DependentUpon>
     </Compile>
+    <Compile Include="Control\Class.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Control\Class.Designer.cs">
+      <DependentUpon>Class.cs</DependentUpon>
+    </Compile>
     <Compile Include="Control\Customer.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -99,6 +105,9 @@
     <EmbeddedResource Include="Brand.resx">
       <DependentUpon>Brand.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Control\Class.resx">
+      <DependentUpon>Class.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Control\Customer.resx">
       <DependentUpon>Customer.cs</DependentUpon>
     </EmbeddedResource>
@@ -107,9 +116,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Control\Purchase.resx">
       <DependentUpon>Purchase.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Control\Supplement.resx">
-      <DependentUpon>Supplement.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>

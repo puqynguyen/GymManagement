@@ -10,11 +10,13 @@ using System.Windows.Forms;
 
 namespace GUI.Control
 {
-    public partial class Supplement : UserControl
+    public partial class Class : UserControl
     {
-        public Supplement()
+        public Class()
         {
             InitializeComponent();
         }
+
+
     }
 }
