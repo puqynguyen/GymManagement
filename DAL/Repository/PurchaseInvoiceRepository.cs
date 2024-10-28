@@ -31,7 +31,7 @@ namespace DAL.Repository
             {
                 // Thiết lập InvoiceID cho từng PurchaseDetail
                 detail.InvoiceID = invoiceId;
-
+                _context.PurchaseDetails.Add(detail);
                 // Tính tổng cộng: quantity * price cho mỗi chi tiết
                 totalAmount += (detail.quantity ?? 0) * (detail.price ?? 0);
 
@@ -40,9 +40,7 @@ namespace DAL.Repository
             }
 
             // Cập nhật total_amount cho invoice
-            invoice.total_amount = totalAmount;
-
-            // Lưu thay đổi vào cơ sở dữ liệu
+            invoice.totalAmount = totalAmount;
             _context.SaveChanges();
         }
     }
