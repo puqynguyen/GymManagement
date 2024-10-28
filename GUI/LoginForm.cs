@@ -11,9 +11,9 @@ using System.Windows.Forms;
 namespace GUI
 {
 
-    public partial class Form1 : Form
+    public partial class LoginForm : Form
     {
-        public Form1()
+        public LoginForm()
         {
             InitializeComponent();
         }
@@ -26,7 +26,7 @@ namespace GUI
         private void btnSignIn_Click(object sender, EventArgs e)
         {
             this.Hide();
-            Form2 f = new Form2();
+            HomebaseForm f = new HomebaseForm();
             f.ShowDialog();
 
         }
