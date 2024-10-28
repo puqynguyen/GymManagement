@@ -32,7 +32,7 @@ namespace BUS
         {
             _repository.Update(instructor);
         }
-        public IEnumerable<Instructor> GetCustomers()
+        public IEnumerable<Instructor> GetAll()
         {
             return _repository.GetAll();
         }

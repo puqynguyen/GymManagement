@@ -43,6 +43,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Entities\ACCOUNT.cs" />
+    <Compile Include="Entities\Brand.cs" />
+    <Compile Include="Entities\Class.cs" />
+    <Compile Include="Entities\Customer.cs" />
+    <Compile Include="Entities\CustomerMembership.cs" />
+    <Compile Include="Entities\DBContext.cs" />
+    <Compile Include="Entities\Instructor.cs" />
+    <Compile Include="Entities\Membership.cs" />
+    <Compile Include="Entities\PurchaseDetail.cs" />
+    <Compile Include="Entities\PurchaseInvoice.cs" />
+    <Compile Include="Entities\Supplement.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -53,5 +64,6 @@
   <ItemGroup>
     <None Include="App.Config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

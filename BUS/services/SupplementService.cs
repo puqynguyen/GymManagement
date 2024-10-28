@@ -13,7 +13,7 @@ namespace BUS.services
             _repository = repository;
         }
 
-        public void AddSupplement(Supplement supplement)
+        public void Add(Supplement supplement)
         {
             _repository.Add(supplement);
         }
@@ -27,17 +27,17 @@ namespace BUS.services
             }
         }
 
-        public Supplement GetSupplementById(int id)
+        public Supplement GetById(int id)
         {
             return _repository.GetById(id);
         }
 
-        public IEnumerable<Supplement> GetAllSupplements()
+        public IEnumerable<Supplement> GetAll()
         {
             return _repository.GetAll();
         }
 
-        public void UpdateSupplement(Supplement supplement)
+        public void Update(Supplement supplement)
         {
             _repository.Update(supplement);
         }

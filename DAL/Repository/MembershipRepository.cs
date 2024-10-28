@@ -4,7 +4,7 @@ using DTO.Entities;
 
 namespace DAL.Repository
 {
-    internal class MembershipRepository : GenericRepository<Membership>
+    public class MembershipRepository : GenericRepository<Membership>
     {
         private readonly DBContext _context;
 
@@ -26,14 +26,11 @@ namespace DAL.Repository
             {
                 throw new Exception("Membership not found");
             }
-
-            var endDate = startDate.AddMonths(membership.membership_length ?? 0);
             var customerMembership = new CustomerMembership
             {
                 CustomerID = customerId,
                 MembershipID = membershipId,
-                start_date = startDate,
-                end_date = endDate
+                start_date = startDate
             };
             _context.Set<CustomerMembership>().Add(customerMembership);
             _context.SaveChanges();

@@ -15,19 +15,19 @@ namespace BUS
         }
 
         // Thêm mới hóa đơn
-        public void AddPurchaseInvoice(PurchaseInvoice invoice)
+        public void Add(PurchaseInvoice invoice)
         {
             _invoiceRepository.Add(invoice);
         }
 
         // Lấy hóa đơn theo ID
-        public PurchaseInvoice GetPurchaseInvoiceById(int invoiceId)
+        public PurchaseInvoice GetById(int invoiceId)
         {
             return _invoiceRepository.GetById(invoiceId);
         }
 
         // Xóa hóa đơn theo ID
-        public void DeletePurchaseInvoice(int invoiceId)
+        public void Delete(int invoiceId)
         {
             var invoice = _invoiceRepository.GetById(invoiceId);
             if (invoice != null)
@@ -37,7 +37,7 @@ namespace BUS
         }
 
         // Lấy tất cả hóa đơn
-        public IEnumerable<PurchaseInvoice> GetAllPurchaseInvoices()
+        public IEnumerable<PurchaseInvoice> GetAll()
         {
             return _invoiceRepository.GetAll();
         }
@@ -49,7 +49,7 @@ namespace BUS
         }
 
         // Cập nhật hóa đơn
-        public void UpdatePurchaseInvoice(PurchaseInvoice invoice)
+        public void Update(PurchaseInvoice invoice)
         {
             _invoiceRepository.Update(invoice);
         }
