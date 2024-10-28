@@ -43,17 +43,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Entities\Class.cs" />
-    <Compile Include="Entities\Customer.cs" />
-    <Compile Include="Entities\CustomerMembership.cs" />
-    <Compile Include="Entities\DBContext.cs" />
-    <Compile Include="Entities\Equipment.cs" />
-    <Compile Include="Entities\Instructor.cs" />
-    <Compile Include="Entities\Membership.cs" />
-    <Compile Include="Entities\PurchaseDetail.cs" />
-    <Compile Include="Entities\PurchaseInvoice.cs" />
-    <Compile Include="Entities\Supplement.cs" />
-    <Compile Include="Entities\sysdiagram.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
