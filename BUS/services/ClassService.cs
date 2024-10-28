@@ -55,5 +55,6 @@ namespace BUS
         {
             _repository.RegisterCustomerToClass(customerId, classId);
         }
+        //asd
     }
 }
