@@ -1,6 +1,6 @@
 ﻿namespace GUI.Control
 {
-    partial class Class
+    partial class UCtrlClass
     {
         /// <summary> 
         /// Required designer variable.

@@ -19,7 +19,7 @@ namespace GUI
         UCtrlSupplement supplement = new UCtrlSupplement();
         UCtrlPurchase purchase = new UCtrlPurchase();
         UCtrlInstructor instructor = new UCtrlInstructor();
-        Class Class = new Class();
+        UCtrlClass Class = new UCtrlClass();
         public HomebaseForm()
         {
             InitializeComponent();
