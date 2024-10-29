@@ -10,13 +10,17 @@ using System.Windows.Forms;
 
 namespace GUI.Control
 {
-    public partial class Customer : UserControl
+    public partial class UCtrlMembership : UserControl
     {
-        public Customer()
+        public UCtrlMembership()
         {
             InitializeComponent();
         }
+        Membership_Edit membership = new Membership_Edit();
 
-
+        private void membershipToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            membership.Show();
+        }
     }
 }

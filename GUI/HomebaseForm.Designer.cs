@@ -38,6 +38,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -45,6 +46,7 @@
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.panel1.Controls.Add(this.btnSupp);
+            this.panel1.Controls.Add(this.button1);
             this.panel1.Controls.Add(this.btnPurchase);
             this.panel1.Controls.Add(this.btnClass);
             this.panel1.Controls.Add(this.btnInstructor);
@@ -54,8 +56,9 @@
             this.panel1.Controls.Add(this.label1);
             this.panel1.ForeColor = System.Drawing.Color.Transparent;
             this.panel1.Location = new System.Drawing.Point(1, 2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(127, 505);
+            this.panel1.Size = new System.Drawing.Size(169, 622);
             this.panel1.TabIndex = 0;
             // 
             // btnSupp
@@ -68,9 +71,10 @@
             this.btnSupp.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSupp.ForeColor = System.Drawing.Color.White;
             this.btnSupp.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSupp.Location = new System.Drawing.Point(0, 200);
+            this.btnSupp.Location = new System.Drawing.Point(0, 246);
+            this.btnSupp.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnSupp.Name = "btnSupp";
-            this.btnSupp.Size = new System.Drawing.Size(127, 50);
+            this.btnSupp.Size = new System.Drawing.Size(169, 62);
             this.btnSupp.TabIndex = 2;
             this.btnSupp.Text = "Supplement";
             this.btnSupp.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -87,9 +91,10 @@
             this.btnPurchase.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPurchase.ForeColor = System.Drawing.Color.White;
             this.btnPurchase.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnPurchase.Location = new System.Drawing.Point(0, 367);
+            this.btnPurchase.Location = new System.Drawing.Point(0, 452);
+            this.btnPurchase.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnPurchase.Name = "btnPurchase";
-            this.btnPurchase.Size = new System.Drawing.Size(127, 49);
+            this.btnPurchase.Size = new System.Drawing.Size(169, 60);
             this.btnPurchase.TabIndex = 2;
             this.btnPurchase.Text = "Purchase";
             this.btnPurchase.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -106,13 +111,15 @@
             this.btnClass.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClass.ForeColor = System.Drawing.Color.White;
             this.btnClass.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnClass.Location = new System.Drawing.Point(0, 312);
+            this.btnClass.Location = new System.Drawing.Point(0, 384);
+            this.btnClass.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnClass.Name = "btnClass";
-            this.btnClass.Size = new System.Drawing.Size(127, 49);
+            this.btnClass.Size = new System.Drawing.Size(169, 60);
             this.btnClass.TabIndex = 2;
             this.btnClass.Text = "Class";
             this.btnClass.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnClass.UseVisualStyleBackColor = false;
+            this.btnClass.Click += new System.EventHandler(this.btnClass_Click);
             // 
             // btnInstructor
             // 
@@ -124,9 +131,10 @@
             this.btnInstructor.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnInstructor.ForeColor = System.Drawing.Color.White;
             this.btnInstructor.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnInstructor.Location = new System.Drawing.Point(3, 257);
+            this.btnInstructor.Location = new System.Drawing.Point(4, 316);
+            this.btnInstructor.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnInstructor.Name = "btnInstructor";
-            this.btnInstructor.Size = new System.Drawing.Size(127, 49);
+            this.btnInstructor.Size = new System.Drawing.Size(169, 60);
             this.btnInstructor.TabIndex = 2;
             this.btnInstructor.Text = "Instructor";
             this.btnInstructor.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -143,9 +151,10 @@
             this.btnCus.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCus.ForeColor = System.Drawing.Color.White;
             this.btnCus.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCus.Location = new System.Drawing.Point(0, 89);
+            this.btnCus.Location = new System.Drawing.Point(0, 110);
+            this.btnCus.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnCus.Name = "btnCus";
-            this.btnCus.Size = new System.Drawing.Size(127, 49);
+            this.btnCus.Size = new System.Drawing.Size(169, 60);
             this.btnCus.TabIndex = 2;
             this.btnCus.Text = "Customer";
             this.btnCus.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -162,9 +171,10 @@
             this.btnMem.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnMem.ForeColor = System.Drawing.Color.White;
             this.btnMem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnMem.Location = new System.Drawing.Point(0, 145);
+            this.btnMem.Location = new System.Drawing.Point(0, 178);
+            this.btnMem.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnMem.Name = "btnMem";
-            this.btnMem.Size = new System.Drawing.Size(127, 49);
+            this.btnMem.Size = new System.Drawing.Size(169, 60);
             this.btnMem.TabIndex = 2;
             this.btnMem.Text = "Membership";
             this.btnMem.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -176,9 +186,10 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Mongolian Baiti", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(32, 26);
+            this.label2.Location = new System.Drawing.Point(43, 32);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(62, 23);
+            this.label2.Size = new System.Drawing.Size(80, 29);
             this.label2.TabIndex = 1;
             this.label2.Text = "GYM";
             // 
@@ -187,29 +198,52 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Mongolian Baiti", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.LightGreen;
-            this.label1.Location = new System.Drawing.Point(7, 0);
+            this.label1.Location = new System.Drawing.Point(9, 0);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(112, 60);
+            this.label1.Size = new System.Drawing.Size(142, 80);
             this.label1.TabIndex = 1;
             this.label1.Text = "DIDDY\r\n\r\n";
             // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.panel2.Location = new System.Drawing.Point(143, 28);
+            this.panel2.Location = new System.Drawing.Point(191, 34);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(882, 479);
+            this.panel2.Size = new System.Drawing.Size(1252, 665);
             this.panel2.TabIndex = 1;
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.Color.White;
+            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button1.Location = new System.Drawing.Point(0, 520);
+            this.button1.Margin = new System.Windows.Forms.Padding(4);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(169, 60);
+            this.button1.TabIndex = 2;
+            this.button1.Text = "Chart";
+            this.button1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.btnPurchase_Click);
             // 
             // HomebaseForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Gray;
-            this.ClientSize = new System.Drawing.Size(1037, 519);
+            this.ClientSize = new System.Drawing.Size(1477, 730);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.ForeColor = System.Drawing.Color.Transparent;
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "HomebaseForm";
             this.Text = "Form2";
             this.panel1.ResumeLayout(false);
@@ -230,5 +264,6 @@
         private System.Windows.Forms.Button btnClass;
         private System.Windows.Forms.Button btnCus;
         private System.Windows.Forms.Button btnPurchase;
+        private System.Windows.Forms.Button button1;
     }
 }

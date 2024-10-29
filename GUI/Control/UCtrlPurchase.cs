@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace GUI.Control
 {
-    public partial class Supplement : UserControl
+    public partial class UCtrlPurchase : UserControl
     {
-        public Supplement()
+        public UCtrlPurchase()
         {
             InitializeComponent();
         }

@@ -1,6 +1,6 @@
 ﻿namespace GUI.Control
 {
-    partial class Purchase
+    partial class UCtrlPurchase
     {
         /// <summary> 
         /// Required designer variable.

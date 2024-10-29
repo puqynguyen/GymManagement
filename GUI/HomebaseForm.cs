@@ -14,10 +14,12 @@ namespace GUI
 {
     public partial class HomebaseForm : Form
     {
-        Customer customer = new Customer();
-        Membership membership = new Membership();   
-        Supplement supplement = new Supplement();
-        Purchase purchase = new Purchase();
+        UCtrlCustomer customer = new UCtrlCustomer();
+        UCtrlMembership membership = new UCtrlMembership();   
+        UCtrlSupplement supplement = new UCtrlSupplement();
+        UCtrlPurchase purchase = new UCtrlPurchase();
+        UCtrlInstructor instructor = new UCtrlInstructor();
+        Class Class = new Class();
         public HomebaseForm()
         {
             InitializeComponent();
@@ -47,7 +49,9 @@ namespace GUI
 
         private void btnInstructor_Click(object sender, EventArgs e)
         {
-
+            panel2.Controls.Clear();
+            panel2.Controls.Add(instructor);
+            instructor.Dock = DockStyle.Fill;
         }
 
         private void btnPurchase_Click(object sender, EventArgs e)
@@ -55,6 +59,13 @@ namespace GUI
             panel2.Controls.Clear();
             panel2.Controls.Add(purchase);
             purchase.Dock = DockStyle.Fill;
+        }
+
+        private void btnClass_Click(object sender, EventArgs e)
+        {
+            panel2.Controls.Clear();
+            panel2.Controls.Add(Class);
+            Class.Dock = DockStyle.Fill;
         }
     }
 }

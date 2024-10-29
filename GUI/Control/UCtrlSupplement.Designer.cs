@@ -1,6 +1,6 @@
 ﻿namespace GUI.Control
 {
-    partial class Supplement
+    partial class UCtrlSupplement
     {
         /// <summary> 
         /// Required designer variable.

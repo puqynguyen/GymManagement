@@ -12,6 +12,21 @@
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -35,6 +50,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -52,41 +68,47 @@
     <Compile Include="Brand.Designer.cs">
       <DependentUpon>Brand.cs</DependentUpon>
     </Compile>
-    <Compile Include="Control\Class.cs">
+    <Compile Include="Control\UCtrlClass.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Control\Class.Designer.cs">
-      <DependentUpon>Class.cs</DependentUpon>
+    <Compile Include="Control\UCtrlClass.Designer.cs">
+      <DependentUpon>UCtrlClass.cs</DependentUpon>
     </Compile>
-    <Compile Include="Control\Customer.cs">
+    <Compile Include="Control\UCtrlCustomer.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Control\Customer.Designer.cs">
-      <DependentUpon>Customer.cs</DependentUpon>
+    <Compile Include="Control\UCtrlCustomer.Designer.cs">
+      <DependentUpon>UCtrlCustomer.cs</DependentUpon>
     </Compile>
-    <Compile Include="Control\Instructor.cs">
+    <Compile Include="Control\UCtrlInstructor.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Control\Instructor.Designer.cs">
-      <DependentUpon>Instructor.cs</DependentUpon>
+    <Compile Include="Control\UCtrlInstructor.Designer.cs">
+      <DependentUpon>UCtrlInstructor.cs</DependentUpon>
     </Compile>
-    <Compile Include="Control\Membership.cs">
+    <Compile Include="Control\UCtrlMembership.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Control\Membership.Designer.cs">
-      <DependentUpon>Membership.cs</DependentUpon>
+    <Compile Include="Control\UCtrlMembership.Designer.cs">
+      <DependentUpon>UCtrlMembership.cs</DependentUpon>
     </Compile>
-    <Compile Include="Control\Purchase.cs">
+    <Compile Include="Control\UCtrlPurchase.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Control\Purchase.Designer.cs">
-      <DependentUpon>Purchase.cs</DependentUpon>
+    <Compile Include="Control\UCtrlPurchase.Designer.cs">
+      <DependentUpon>UCtrlPurchase.cs</DependentUpon>
     </Compile>
-    <Compile Include="Control\Supplement.cs">
+    <Compile Include="Control\UCtrlSupplement.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Control\Supplement.Designer.cs">
-      <DependentUpon>Supplement.cs</DependentUpon>
+    <Compile Include="Control\UCtrlSupplement.Designer.cs">
+      <DependentUpon>UCtrlSupplement.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Control\UCtrlChart.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Control\UCtrlChart.Designer.cs">
+      <DependentUpon>UCtrlChart.cs</DependentUpon>
     </Compile>
     <Compile Include="LoginForm.cs">
       <SubType>Form</SubType>
@@ -111,17 +133,20 @@
     <EmbeddedResource Include="Brand.resx">
       <DependentUpon>Brand.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Control\Class.resx">
-      <DependentUpon>Class.cs</DependentUpon>
+    <EmbeddedResource Include="Control\UCtrlChart.resx">
+      <DependentUpon>UCtrlChart.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Control\Customer.resx">
-      <DependentUpon>Customer.cs</DependentUpon>
+    <EmbeddedResource Include="Control\UCtrlClass.resx">
+      <DependentUpon>UCtrlClass.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Control\Membership.resx">
-      <DependentUpon>Membership.cs</DependentUpon>
+    <EmbeddedResource Include="Control\UCtrlCustomer.resx">
+      <DependentUpon>UCtrlCustomer.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Control\Purchase.resx">
-      <DependentUpon>Purchase.cs</DependentUpon>
+    <EmbeddedResource Include="Control\UCtrlMembership.resx">
+      <DependentUpon>UCtrlMembership.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Control\UCtrlPurchase.resx">
+      <DependentUpon>UCtrlPurchase.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
@@ -153,6 +178,18 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.7.2 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
