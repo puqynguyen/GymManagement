@@ -17,6 +17,7 @@ namespace DTO.Entities
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int SupplementID { get; set; }
 
+        [Required]
         [StringLength(100)]
         public string name { get; set; }
 

@@ -1,11 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data.Entity;
+using System.Data.SqlClient;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using DTO.Entities;
-
 namespace DAL.Repository
 {
     public class ClassRepository : GenericRepository<Class>
@@ -50,5 +47,38 @@ namespace DAL.Repository
             }
             else throw new Exception("Customer was already in class");
         }
+        public IEnumerable<Class> GetAllAvailableClass()
+        {
+            return _context.Database.SqlQuery<Class>("SELECT * FROM GetAllAvailableClass").ToList();
+        }
+        public IEnumerable<Customer> GetCustomersInClass(int classId)
+        {
+            return _context.Database.SqlQuery<Customer>(
+                "EXEC GetCustomersInClass @ClassId",
+                new SqlParameter("@ClassId", classId)
+            ).ToList();
+        }
+        public IEnumerable<Instructor> GetInstructorsInClass(int classId)
+        {
+            return _context.Database.SqlQuery<Instructor>(
+                "EXEC GetInstructorsInClass @ClassId",
+                new SqlParameter("@ClassId", classId)
+            ).ToList();
+        }
+        public IEnumerable<Customer> GetCustomersNotInClass(int classId)
+        {
+            return _context.Database.SqlQuery<Customer>(
+                "EXEC GetCusNotRegisToClass @ClassId",
+                new SqlParameter("@ClassId", classId)
+            ).ToList();
+        }
+        public IEnumerable<Instructor> GetInstructorsNotInClass(int classId)
+        {
+            return _context.Database.SqlQuery<Instructor>(
+                "EXEC GetInstructorsNotInClass @ClassId",
+                new SqlParameter("@ClassId", classId)
+            ).ToList();
+        }
+
     }
 }

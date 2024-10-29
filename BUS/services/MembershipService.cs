@@ -7,51 +7,51 @@ namespace BUS.Services
 {
     internal class MembershipService
     {
-        private readonly MembershipRepository _membershipRepository;
+        private readonly MembershipRepository _repository;
 
-        public MembershipService(MembershipRepository membershipRepository)
+        public MembershipService(MembershipRepository repository)
         {
-            _membershipRepository = membershipRepository;
+            _repository = repository;
         }
 
         // Thêm mới Membership
         public void Add(Membership membership)
         {
-            _membershipRepository.Add(membership);
+            _repository.Add(membership);
         }
 
         // Lấy Membership theo ID
         public Membership GetById(int membershipId)
         {
-            return _membershipRepository.GetById(membershipId);
+            return _repository.GetById(membershipId);
         }
 
         // Xóa Membership theo ID
         public void Delete(int membershipId)
         {
-            var membership = _membershipRepository.GetById(membershipId);
+            var membership = _repository.GetById(membershipId);
             if (membership != null)
             {
-                _membershipRepository.Delete(membership);
+                _repository.Delete(membership);
             }
         }
 
         // Cập nhật Membership
         public void Update(Membership membership)
         {
-            _membershipRepository.Update(membership);
+            _repository.Update(membership);
         }
 
         // Lấy tất cả Memberships
         public IEnumerable<Membership> GetAll()
         {
-            return _membershipRepository.GetAll();
+            return _repository.GetAll();
         }
 
         // Thêm Membership cho Customer
         public void AddMembershipToCustomer(int customerId, int membershipId, DateTime startDate)
         {
-            _membershipRepository.AddMembershipToCustomer(customerId, membershipId, startDate);
+            _repository.AddMembershipToCustomer(customerId, membershipId, startDate);
         }
     }
 }

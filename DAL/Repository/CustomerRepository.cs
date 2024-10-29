@@ -1,15 +1,16 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using DAL;
+using DAL.Repository;
 using DTO.Entities;
 
 namespace BUS.Services
 {
-    public class CustomerRepository
+    public class CustomerRepository : GenericRepository<Customer>
     {
         private readonly DBContext _context;
 
-        public CustomerRepository(DBContext context)
+        public CustomerRepository(DBContext context) : base(context)
         {
             _context = context;
         }

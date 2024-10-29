@@ -19,17 +19,17 @@ namespace DTO.Entities
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int ClassID { get; set; }
 
-        public int? class_size { get; set; }
+        public int class_size { get; set; }
 
         [StringLength(50)]
         public string class_type { get; set; }
 
-        public decimal? cost { get; set; }
+        public decimal cost { get; set; }
 
-        public TimeSpan? time { get; set; }
+        public int? closed { get; set; }
 
-        [Column(TypeName = "date")]
-        public DateTime? date { get; set; }
+        [StringLength(255)]
+        public string desciption { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Customer> Customers { get; set; }

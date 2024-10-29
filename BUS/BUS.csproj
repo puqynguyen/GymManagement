@@ -55,7 +55,7 @@
       <Name>DAL</Name>
     </ProjectReference>
     <ProjectReference Include="..\DTO\DTO.csproj">
-      <Project>{1C65BF12-5D02-4F58-BE11-421472A8E388}</Project>
+      <Project>{1c65bf12-5d02-4f58-be11-421472a8e388}</Project>
       <Name>DTO</Name>
     </ProjectReference>
   </ItemGroup>

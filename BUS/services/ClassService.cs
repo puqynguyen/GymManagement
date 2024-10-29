@@ -1,70 +1,85 @@
 ﻿using System.Collections.Generic;
 using System.Data.Entity;
+using System.Data.SqlClient;
 using System.Linq;
-using DAL;
+using System.Runtime.Remoting.Contexts;
 using DAL.Repository;
 using DTO.Entities;
 
-namespace BUS
+namespace BUS.services
 {
-    public class CustomerService
+    public class ClassService
     {
-        private readonly IGenericRepository<Customer> _repository;
-        private readonly DBContext _context;
+        private readonly ClassRepository _repository;
 
-        public CustomerService(IGenericRepository<Customer> repository, DBContext context)
+        public ClassService(ClassRepository repository)
         {
             _repository = repository;
-            _context = context;
         }
 
         // Thêm mới Customer
-        public void Add(Customer customer)
+        public void Add(Class cls)
         {
-            _repository.Add(customer);
+            _repository.Add(cls);
         }
 
         // Xóa Customer theo ID
-        public void Delete(int customerId)
+        public void Delete(int clsId)
         {
-            var customer = _repository.GetById(customerId);
-            if (customer != null)
+            var cls = _repository.GetById(clsId);
+            if (cls != null)
             {
-                _repository.Delete(customer);
+                _repository.Delete(cls);
             }
         }
 
         // Lấy Customer theo ID
-        public Customer GetById(int id)
+        public Class GetById(int id)
         {
             return _repository.GetById(id);
         }
 
         // Cập nhật thông tin Customer
-        public void Update(Customer customer)
+        public void Update(Class cls)
         {
-            _repository.Update(customer);
+            _repository.Update(cls);
         }
 
         // Lấy tất cả các Customer
-        public IEnumerable<Customer> GetAll()
+        public IEnumerable<Class> GetAll()
         {
             return _repository.GetAll();
         }
 
-        // Lấy danh sách khách hàng cần gia hạn hoặc không cần gia hạn dựa trên tham số `needRenew`
-        public IEnumerable<Customer> GetAllNeedRenew(bool needRenew = true)
+
+        public IEnumerable<Class> GetAllAvailableClass()
         {
-            if (needRenew)
-            {
-                // Truy vấn `GetAllNeedRenew` nếu `needRenew` là true
-                return _context.Database.SqlQuery<Customer>("SELECT * FROM GetAllNeedRenew").ToList();
-            }
-            else
-            {
-                // Truy vấn `GetAllNotNeedRenew` nếu `needRenew` là false
-                return _context.Database.SqlQuery<Customer>("SELECT * FROM GetAllNotNeedRenew").ToList();
-            }
+            return _repository.GetAllAvailableClass();
+        }
+
+        public void AssignInstructorToClass(int instructorId, int classId)
+        {
+            _repository.AssignInstructorToClass(instructorId, classId);
+        }
+        public void RegisterCustomerToClass(int customerId, int classId)
+        {
+            _repository.RegisterCustomerToClass(customerId, classId);
+        }
+        public IEnumerable<Customer> GetCustomersInClass(int classId)
+        {
+            return _repository.GetCustomersInClass(classId);
+        }
+        public IEnumerable<Instructor> GetInstructorsInClass(int classId)
+        {
+            return _repository.GetInstructorsInClass(classId);
+        }
+        public IEnumerable<Customer> GetCustomersNotInClass(int classId)
+        {
+            return _repository.GetCustomersNotInClass(classId);
+        }
+        public IEnumerable<Instructor> GetInstructorsNotInClass(int classId)
+        {
+            return _repository.GetInstructorsNotInClass(classId);
         }
     }
 }
