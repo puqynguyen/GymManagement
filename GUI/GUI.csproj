@@ -64,6 +64,12 @@
     <Compile Include="Control\Customer.Designer.cs">
       <DependentUpon>Customer.cs</DependentUpon>
     </Compile>
+    <Compile Include="Control\Instructor.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Control\Instructor.Designer.cs">
+      <DependentUpon>Instructor.cs</DependentUpon>
+    </Compile>
     <Compile Include="Control\Membership.cs">
       <SubType>UserControl</SubType>
     </Compile>
