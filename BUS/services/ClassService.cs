@@ -80,5 +80,13 @@ namespace BUS.services
         {
             return _repository.GetInstructorsNotInClass(classId);
         }
+        public void RemoveCustomerFromClass(int customerId, int classId)
+        {
+            _repository.RemoveCustomerFromClass(customerId, classId);
+        }
+        public void RemoveInstructorFromClass(int instructorId, int classId)
+        {
+            _repository.RemoveInstructorFromClass(instructorId, classId);
+        }
     }
 }

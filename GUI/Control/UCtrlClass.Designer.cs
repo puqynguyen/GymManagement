@@ -291,6 +291,7 @@
             // 
             // btnAddCustomer
             // 
+            this.btnAddCustomer.Enabled = false;
             this.btnAddCustomer.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.btnAddCustomer.Location = new System.Drawing.Point(403, 17);
             this.btnAddCustomer.Name = "btnAddCustomer";
@@ -298,6 +299,7 @@
             this.btnAddCustomer.TabIndex = 4;
             this.btnAddCustomer.Text = "Add";
             this.btnAddCustomer.UseVisualStyleBackColor = true;
+            this.btnAddCustomer.Click += new System.EventHandler(this.btnAddCustomer_Click);
             // 
             // btnRemoveCustomer
             // 
@@ -308,6 +310,7 @@
             this.btnRemoveCustomer.TabIndex = 5;
             this.btnRemoveCustomer.Text = "Remove";
             this.btnRemoveCustomer.UseVisualStyleBackColor = true;
+            this.btnRemoveCustomer.Click += new System.EventHandler(this.btnRemoveCustomer_Click);
             // 
             // txtInstructorId
             // 
@@ -368,6 +371,7 @@
             // 
             // btnAddInstructor
             // 
+            this.btnAddInstructor.Enabled = false;
             this.btnAddInstructor.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.btnAddInstructor.Location = new System.Drawing.Point(411, 17);
             this.btnAddInstructor.Name = "btnAddInstructor";
@@ -375,6 +379,7 @@
             this.btnAddInstructor.TabIndex = 4;
             this.btnAddInstructor.Text = "Add";
             this.btnAddInstructor.UseVisualStyleBackColor = true;
+            this.btnAddInstructor.Click += new System.EventHandler(this.btnAddInstructor_Click);
             // 
             // btnRemoveInstructor
             // 
@@ -385,6 +390,7 @@
             this.btnRemoveInstructor.TabIndex = 5;
             this.btnRemoveInstructor.Text = "Remove";
             this.btnRemoveInstructor.UseVisualStyleBackColor = true;
+            this.btnRemoveInstructor.Click += new System.EventHandler(this.btnRemoveInstructor_Click);
             // 
             // InstructorId
             // 

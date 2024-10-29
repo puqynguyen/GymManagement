@@ -110,6 +110,12 @@
     <Compile Include="Control\UCtrlChart.Designer.cs">
       <DependentUpon>UCtrlChart.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormAddToClass.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormAddToClass.Designer.cs">
+      <DependentUpon>FormAddToClass.cs</DependentUpon>
+    </Compile>
     <Compile Include="LoginForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -147,6 +153,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Control\UCtrlPurchase.resx">
       <DependentUpon>UCtrlPurchase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormAddToClass.resx">
+      <DependentUpon>FormAddToClass.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>

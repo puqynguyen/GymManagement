@@ -15,6 +15,7 @@ namespace GUI.Control
     public partial class UCtrlClass : UserControl
     {
         ClassService classService = new ClassService();
+        private int _selectedClassId;
         public UCtrlClass()
         {
             InitializeComponent();
@@ -63,10 +64,14 @@ namespace GUI.Control
         {
             if (e.RowIndex >= 0 && dgvClass.Columns[0].Index >= 0)
             {
+                btnAddCustomer.Enabled = true;
+                btnRemoveCustomer.Enabled = false;
+                btnAddInstructor.Enabled = true;
+                btnRemoveInstructor.Enabled = false;
                 Clear();
-                int classId = Convert.ToInt32(dgvClass.Rows[e.RowIndex].Cells[0].Value);
-                IEnumerable<Customer> customers = classService.GetCustomersInClass(classId);
-                IEnumerable<Instructor> instructors = classService.GetInstructorsInClass(classId);
+                _selectedClassId = Convert.ToInt32(dgvClass.Rows[e.RowIndex].Cells[0].Value);
+                IEnumerable<Customer> customers = classService.GetCustomersInClass(_selectedClassId);
+                IEnumerable<Instructor> instructors = classService.GetInstructorsInClass(_selectedClassId);
                 BindGridCustomer(customers);
                 BindGridInstructor(instructors);
             }
@@ -104,6 +109,7 @@ namespace GUI.Control
                 txtCustomerId.Text = dgvCustomer.Rows[e.RowIndex].Cells[0].Value.ToString();
                 txtCustomerName.Text = dgvCustomer.Rows[e.RowIndex].Cells[1].Value.ToString();
                 txtContact.Text = dgvCustomer.Rows[e.RowIndex].Cells[2].Value.ToString();
+                btnRemoveCustomer.Enabled = true;
             }
         }
 
@@ -114,6 +120,7 @@ namespace GUI.Control
                 txtInstructorId.Text = dgvInstructor.Rows[e.RowIndex].Cells[0].Value.ToString();
                 txtInstructorName.Text = dgvInstructor.Rows[e.RowIndex].Cells[1].Value.ToString();
                 txtCertifications.Text = dgvInstructor.Rows[e.RowIndex].Cells[2].Value.ToString();
+                btnRemoveInstructor.Enabled = true;
             }
         }
         private void Clear()
@@ -157,6 +164,35 @@ namespace GUI.Control
                 IEnumerable<Class> classes = classService.GetAll();
                 BindGridClass(classes);
             }
+        }
+
+        private void btnAddCustomer_Click(object sender, EventArgs e)
+        {
+            // Step 3: Use the _selectedClassId in the FormAddToClass constructor
+            FormAddToClass formAddToClass = new FormAddToClass(true, _selectedClassId);
+
+            // Show the form or take necessary actions
+            formAddToClass.ShowDialog();
+        }
+
+        private void btnAddInstructor_Click(object sender, EventArgs e)
+        {
+            FormAddToClass formAddToClass = new FormAddToClass(false, _selectedClassId);
+
+            // Show the form or take necessary actions
+            formAddToClass.ShowDialog();
+        }
+
+        private void btnRemoveCustomer_Click(object sender, EventArgs e)
+        {
+            int cusId = Convert.ToInt32(txtCustomerId.Text);
+            classService.RemoveCustomerFromClass(cusId, _selectedClassId);
+        }
+
+        private void btnRemoveInstructor_Click(object sender, EventArgs e)
+        {
+            int insId = Convert.ToInt32(txtInstructorId.Text);
+            classService.RemoveInstructorFromClass(insId, _selectedClassId);
         }
     }
 }

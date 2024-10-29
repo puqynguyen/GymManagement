@@ -79,6 +79,50 @@ namespace DAL.Repository
                 new SqlParameter("@ClassId", classId)
             ).ToList();
         }
+        public void RemoveCustomerFromClass(int customerId, int classId)
+        {
+            // Find the class by ID
+            Class @class = _dbSet.Find(classId);
+            if (@class == null) throw new Exception("Class not found");
+
+            // Find the customer by ID
+            Customer customer = _context.Set<Customer>().Find(customerId);
+            if (customer == null) throw new Exception("Customer not found");
+
+            // Check if the customer is already in the class
+            if (@class.Customers.Contains(customer))
+            {
+                // Remove the customer from the class
+                @class.Customers.Remove(customer);
+                _context.SaveChanges();
+            }
+            else
+            {
+                throw new Exception("Customer is not in this class");
+            }
+        }
+        public void RemoveInstructorFromClass(int instructorId, int classId)
+        {
+            // Find the class by ID
+            Class @class = _dbSet.Find(classId);
+            if (@class == null) throw new Exception("Class not found");
+
+            // Find the instructor by ID
+            Instructor instructor = _context.Set<Instructor>().Find(instructorId);
+            if (instructor == null) throw new Exception("Instructor not found");
+
+            // Check if the instructor is already in the class
+            if (@class.Instructors.Contains(instructor))
+            {
+                // Remove the instructor from the class
+                @class.Instructors.Remove(instructor);
+                _context.SaveChanges();
+            }
+            else
+            {
+                throw new Exception("Instructor is not in this class");
+            }
+        }
 
     }
 }
