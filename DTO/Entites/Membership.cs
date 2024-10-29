@@ -6,30 +6,25 @@ namespace DTO.Entities
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    public partial class Supplement
+    [Table("Membership")]
+    public partial class Membership
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Supplement()
+        public Membership()
         {
-            PurchaseDetails = new HashSet<PurchaseDetail>();
+            CustomerMemberships = new HashSet<CustomerMembership>();
         }
 
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
-        public int SupplementID { get; set; }
+        public int MembershipID { get; set; }
 
-        [Required]
-        [StringLength(100)]
-        public string name { get; set; }
-
-        public int? BrandID { get; set; }
+        [Column(TypeName = "date")]
+        public DateTime? date_created { get; set; }
 
         public decimal? price { get; set; }
 
-        public int? stock_quantity { get; set; }
-
-        public virtual Brand Brand { get; set; }
+        public int? membership_length { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<PurchaseDetail> PurchaseDetails { get; set; }
+        public virtual ICollection<CustomerMembership> CustomerMemberships { get; set; }
     }
 }

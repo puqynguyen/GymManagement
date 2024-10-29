@@ -51,6 +51,9 @@
     <Compile Include="services\SupplementService.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
     <ProjectReference Include="..\DAL\DAL.csproj">
       <Project>{0fbcfa98-dcce-4863-8a29-3d226ae9fbe4}</Project>
       <Name>DAL</Name>
@@ -59,9 +62,6 @@
       <Project>{63480376-36cd-41ce-8425-fb4cf11f9bcf}</Project>
       <Name>DTO</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="App.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

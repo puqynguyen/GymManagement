@@ -47,6 +47,12 @@
             this.label14 = new System.Windows.Forms.Label();
             this.textBox9 = new System.Windows.Forms.TextBox();
             this.dataGridView3 = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.descriptionedit = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Time = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
@@ -54,8 +60,8 @@
             this.label5 = new System.Windows.Forms.Label();
             this.button8 = new System.Windows.Forms.Button();
             this.dgvClass = new System.Windows.Forms.DataGridView();
-            this.IdClass = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TypeClass = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ClassName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Enrollment = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Description = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -81,19 +87,13 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.dgvClassCus = new System.Windows.Forms.DataGridView();
+            this.dgvCustomer = new System.Windows.Forms.DataGridView();
             this.IdCus = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NameCus = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PhoneCus = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.AgeCus = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.GenderCus = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.descriptionedit = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Time = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabPage3.SuspendLayout();
             this.groupBox5.SuspendLayout();
             this.groupBox6.SuspendLayout();
@@ -104,7 +104,7 @@
             this.groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvClassInstruc)).BeginInit();
             this.groupBox3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvClassCus)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCustomer)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -328,12 +328,55 @@
             this.dataGridView3.Size = new System.Drawing.Size(1100, 329);
             this.dataGridView3.TabIndex = 17;
             // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.HeaderText = "Id Class";
+            this.dataGridViewTextBoxColumn4.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.dataGridViewTextBoxColumn4.Width = 125;
+            // 
+            // Column4
+            // 
+            this.Column4.HeaderText = "Cost";
+            this.Column4.MinimumWidth = 6;
+            this.Column4.Name = "Column4";
+            this.Column4.Width = 125;
+            // 
+            // Column5
+            // 
+            this.Column5.HeaderText = "Size";
+            this.Column5.MinimumWidth = 6;
+            this.Column5.Name = "Column5";
+            this.Column5.Width = 125;
+            // 
+            // descriptionedit
+            // 
+            this.descriptionedit.HeaderText = "Description";
+            this.descriptionedit.MinimumWidth = 6;
+            this.descriptionedit.Name = "descriptionedit";
+            this.descriptionedit.Width = 125;
+            // 
+            // Name
+            // 
+            this.Name.HeaderText = "Name";
+            this.Name.MinimumWidth = 6;
+            this.Name.Name = "Name";
+            this.Name.Width = 125;
+            // 
+            // Time
+            // 
+            this.Time.HeaderText = "Time";
+            this.Time.MinimumWidth = 6;
+            this.Time.Name = "Time";
+            this.Time.Width = 125;
+            // 
             // tabPage1
             // 
             this.tabPage1.Controls.Add(this.groupBox1);
             this.tabPage1.Controls.Add(this.dgvClass);
             this.tabPage1.Controls.Add(this.groupBox4);
             this.tabPage1.Controls.Add(this.groupBox3);
+            this.tabPage1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.tabPage1.Location = new System.Drawing.Point(4, 25);
             this.tabPage1.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage1.Name = "tabPage1";
@@ -401,54 +444,52 @@
             // 
             // dgvClass
             // 
+            this.dgvClass.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvClass.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvClass.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.IdClass,
-            this.TypeClass,
+            this.Id,
+            this.ClassName,
             this.Enrollment,
             this.Status,
             this.Description});
             this.dgvClass.Location = new System.Drawing.Point(427, 374);
             this.dgvClass.Margin = new System.Windows.Forms.Padding(4);
             this.dgvClass.Name = "dgvClass";
+            this.dgvClass.RowHeadersVisible = false;
             this.dgvClass.RowHeadersWidth = 51;
             this.dgvClass.Size = new System.Drawing.Size(788, 266);
             this.dgvClass.TabIndex = 20;
+            this.dgvClass.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvClass_CellContentClick);
             // 
-            // IdClass
+            // Id
             // 
-            this.IdClass.HeaderText = "Id";
-            this.IdClass.MinimumWidth = 6;
-            this.IdClass.Name = "IdClass";
-            this.IdClass.Width = 125;
+            this.Id.HeaderText = "Id";
+            this.Id.MinimumWidth = 6;
+            this.Id.Name = "Id";
             // 
-            // TypeClass
+            // ClassName
             // 
-            this.TypeClass.HeaderText = "Class";
-            this.TypeClass.MinimumWidth = 6;
-            this.TypeClass.Name = "TypeClass";
-            this.TypeClass.Width = 125;
+            this.ClassName.HeaderText = "Class";
+            this.ClassName.MinimumWidth = 6;
+            this.ClassName.Name = "ClassName";
             // 
             // Enrollment
             // 
             this.Enrollment.HeaderText = "Enrollment";
             this.Enrollment.MinimumWidth = 6;
             this.Enrollment.Name = "Enrollment";
-            this.Enrollment.Width = 125;
             // 
             // Status
             // 
             this.Status.HeaderText = "Status";
             this.Status.MinimumWidth = 6;
             this.Status.Name = "Status";
-            this.Status.Width = 125;
             // 
             // Description
             // 
             this.Description.HeaderText = "Description";
             this.Description.MinimumWidth = 6;
             this.Description.Name = "Description";
-            this.Description.Width = 125;
             // 
             // groupBox4
             // 
@@ -556,6 +597,7 @@
             // 
             // dgvClassInstruc
             // 
+            this.dgvClassInstruc.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvClassInstruc.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvClassInstruc.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.IdIns,
@@ -563,9 +605,10 @@
             this.AgeIns,
             this.Certifications,
             this.GenderIns});
-            this.dgvClassInstruc.Location = new System.Drawing.Point(0, 111);
+            this.dgvClassInstruc.Location = new System.Drawing.Point(0, 105);
             this.dgvClassInstruc.Margin = new System.Windows.Forms.Padding(4);
             this.dgvClassInstruc.Name = "dgvClassInstruc";
+            this.dgvClassInstruc.RowHeadersVisible = false;
             this.dgvClassInstruc.RowHeadersWidth = 51;
             this.dgvClassInstruc.Size = new System.Drawing.Size(583, 178);
             this.dgvClassInstruc.TabIndex = 24;
@@ -575,35 +618,30 @@
             this.IdIns.HeaderText = "Id";
             this.IdIns.MinimumWidth = 6;
             this.IdIns.Name = "IdIns";
-            this.IdIns.Width = 125;
             // 
             // NameIns
             // 
             this.NameIns.HeaderText = "Name";
             this.NameIns.MinimumWidth = 6;
             this.NameIns.Name = "NameIns";
-            this.NameIns.Width = 125;
             // 
             // AgeIns
             // 
             this.AgeIns.HeaderText = "Age";
             this.AgeIns.MinimumWidth = 6;
             this.AgeIns.Name = "AgeIns";
-            this.AgeIns.Width = 125;
             // 
             // Certifications
             // 
             this.Certifications.HeaderText = "Certifications";
             this.Certifications.MinimumWidth = 6;
             this.Certifications.Name = "Certifications";
-            this.Certifications.Width = 125;
             // 
             // GenderIns
             // 
             this.GenderIns.HeaderText = "Gender";
             this.GenderIns.MinimumWidth = 6;
             this.GenderIns.Name = "GenderIns";
-            this.GenderIns.Width = 125;
             // 
             // groupBox3
             // 
@@ -614,7 +652,7 @@
             this.groupBox3.Controls.Add(this.textBox1);
             this.groupBox3.Controls.Add(this.label3);
             this.groupBox3.Controls.Add(this.label1);
-            this.groupBox3.Controls.Add(this.dgvClassCus);
+            this.groupBox3.Controls.Add(this.dgvCustomer);
             this.groupBox3.Location = new System.Drawing.Point(-5, 4);
             this.groupBox3.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox3.Name = "groupBox3";
@@ -709,56 +747,53 @@
             this.label1.TabIndex = 20;
             this.label1.Text = "Id Cus";
             // 
-            // dgvClassCus
+            // dgvCustomer
             // 
-            this.dgvClassCus.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvClassCus.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgvCustomer.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvCustomer.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvCustomer.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.IdCus,
             this.NameCus,
             this.PhoneCus,
             this.AgeCus,
             this.GenderCus});
-            this.dgvClassCus.Location = new System.Drawing.Point(13, 108);
-            this.dgvClassCus.Margin = new System.Windows.Forms.Padding(4);
-            this.dgvClassCus.Name = "dgvClassCus";
-            this.dgvClassCus.RowHeadersWidth = 51;
-            this.dgvClassCus.Size = new System.Drawing.Size(583, 178);
-            this.dgvClassCus.TabIndex = 19;
+            this.dgvCustomer.Location = new System.Drawing.Point(5, 108);
+            this.dgvCustomer.Margin = new System.Windows.Forms.Padding(4);
+            this.dgvCustomer.Name = "dgvCustomer";
+            this.dgvCustomer.RowHeadersVisible = false;
+            this.dgvCustomer.RowHeadersWidth = 51;
+            this.dgvCustomer.Size = new System.Drawing.Size(631, 178);
+            this.dgvCustomer.TabIndex = 19;
             // 
             // IdCus
             // 
             this.IdCus.HeaderText = "Id";
             this.IdCus.MinimumWidth = 6;
             this.IdCus.Name = "IdCus";
-            this.IdCus.Width = 125;
             // 
             // NameCus
             // 
             this.NameCus.HeaderText = "Name";
             this.NameCus.MinimumWidth = 6;
             this.NameCus.Name = "NameCus";
-            this.NameCus.Width = 125;
             // 
             // PhoneCus
             // 
             this.PhoneCus.HeaderText = "Contact Infor";
             this.PhoneCus.MinimumWidth = 6;
             this.PhoneCus.Name = "PhoneCus";
-            this.PhoneCus.Width = 125;
             // 
             // AgeCus
             // 
             this.AgeCus.HeaderText = "Age";
             this.AgeCus.MinimumWidth = 6;
             this.AgeCus.Name = "AgeCus";
-            this.AgeCus.Width = 125;
             // 
             // GenderCus
             // 
             this.GenderCus.HeaderText = "Gender";
             this.GenderCus.MinimumWidth = 6;
             this.GenderCus.Name = "GenderCus";
-            this.GenderCus.Width = 125;
             // 
             // tabControl1
             // 
@@ -771,55 +806,13 @@
             this.tabControl1.Size = new System.Drawing.Size(1256, 677);
             this.tabControl1.TabIndex = 0;
             // 
-            // dataGridViewTextBoxColumn4
-            // 
-            this.dataGridViewTextBoxColumn4.HeaderText = "Id Class";
-            this.dataGridViewTextBoxColumn4.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            this.dataGridViewTextBoxColumn4.Width = 125;
-            // 
-            // Column4
-            // 
-            this.Column4.HeaderText = "Cost";
-            this.Column4.MinimumWidth = 6;
-            this.Column4.Name = "Column4";
-            this.Column4.Width = 125;
-            // 
-            // Column5
-            // 
-            this.Column5.HeaderText = "Size";
-            this.Column5.MinimumWidth = 6;
-            this.Column5.Name = "Column5";
-            this.Column5.Width = 125;
-            // 
-            // descriptionedit
-            // 
-            this.descriptionedit.HeaderText = "Description";
-            this.descriptionedit.MinimumWidth = 6;
-            this.descriptionedit.Name = "descriptionedit";
-            this.descriptionedit.Width = 125;
-            // 
-            // Name
-            // 
-            this.Name.HeaderText = "Name";
-            this.Name.MinimumWidth = 6;
-            this.Name.Name = "Name";
-            this.Name.Width = 125;
-            // 
-            // Time
-            // 
-            this.Time.HeaderText = "Time";
-            this.Time.MinimumWidth = 6;
-            this.Time.Name = "Time";
-            this.Time.Width = 125;
-            // 
-            // Class
+            // UCtrlClass
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.tabControl1);
             this.Margin = new System.Windows.Forms.Padding(4);
-            //this.Name = "Class";
+            this.Name = "UCtrlClass";
             this.Size = new System.Drawing.Size(1424, 779);
             this.tabPage3.ResumeLayout(false);
             this.groupBox5.ResumeLayout(false);
@@ -836,7 +829,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvClassInstruc)).EndInit();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvClassCus)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCustomer)).EndInit();
             this.tabControl1.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -871,7 +864,7 @@
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DataGridView dgvClassCus;
+        private System.Windows.Forms.DataGridView dgvCustomer;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.DataGridView dgvClass;
         private System.Windows.Forms.Button btnRemove;
@@ -889,11 +882,6 @@
         private System.Windows.Forms.TextBox textBox5;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button button8;
-        private System.Windows.Forms.DataGridViewTextBoxColumn IdClass;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TypeClass;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Enrollment;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Status;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Description;
         private System.Windows.Forms.DataGridViewTextBoxColumn IdIns;
         private System.Windows.Forms.DataGridViewTextBoxColumn NameIns;
         private System.Windows.Forms.DataGridViewTextBoxColumn AgeIns;
@@ -910,5 +898,12 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn descriptionedit;
         private System.Windows.Forms.DataGridViewTextBoxColumn Name;
         private System.Windows.Forms.DataGridViewTextBoxColumn Time;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Class;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ClassName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Enrollment;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Status;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Description;
+        //private System.Windows.Forms.DataGridViewTextBoxColumn Name;
     }
 }

@@ -16,7 +16,6 @@ namespace DTO.Entities
         }
 
         [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int InvoiceID { get; set; }
 
         public int? CustomerID { get; set; }

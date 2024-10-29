@@ -16,7 +16,6 @@ namespace BUS.services
         {
             _repository = new ClassRepository(new DBContext());
         }
-
         // Thêm mới Customer
         public void Add(Class cls)
         {

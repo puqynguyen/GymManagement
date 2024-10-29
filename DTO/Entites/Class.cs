@@ -16,7 +16,6 @@ namespace DTO.Entities
             Instructors = new HashSet<Instructor>();
         }
 
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int ClassID { get; set; }
 
         public int class_size { get; set; }

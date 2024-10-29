@@ -16,7 +16,6 @@ namespace DTO.Entities
             Classes = new HashSet<Class>();
         }
 
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int CustomerID { get; set; }
 
         [Required]
