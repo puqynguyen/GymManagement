@@ -361,3 +361,7 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+/GUI/Control
+/GymManagement.sln
+/DTO/Entities/Class.cs
+/DTO/Properties/AssemblyInfo.cs
