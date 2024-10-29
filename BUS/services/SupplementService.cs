@@ -8,9 +8,9 @@ namespace BUS.services
     {
         private readonly IGenericRepository<Supplement> _repository;
 
-        public SupplementService(IGenericRepository<Supplement> repository)
+        public SupplementService()
         {
-            _repository = repository;
+            _repository = new GenericRepository<Supplement>(new DBContext());
         }
 
         public void Add(Supplement supplement)

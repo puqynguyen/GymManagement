@@ -9,9 +9,9 @@ namespace BUS
     {
         private readonly PurchaseInvoiceRepository _invoiceRepository;
 
-        public PurchaseInvoiceService(PurchaseInvoiceRepository invoiceRepository)
+        public PurchaseInvoiceService()
         {
-            _invoiceRepository = invoiceRepository;
+            _invoiceRepository = new PurchaseInvoiceRepository(new DBContext());
         }
 
         // Thêm mới hóa đơn

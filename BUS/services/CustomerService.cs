@@ -8,9 +8,9 @@ namespace BUS.Services
     {
         private readonly CustomerRepository _repository;
 
-        public CustomerService(CustomerRepository repository)
+        public CustomerService()
         {
-            _repository = repository;
+            _repository = new CustomerRepository(new DBContext());
         }
 
         // Thêm mới Customer

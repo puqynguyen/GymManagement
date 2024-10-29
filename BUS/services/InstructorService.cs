@@ -11,9 +11,10 @@ namespace BUS
     internal class InstructorService
     {
         private readonly IGenericRepository<Instructor> _repository;
-        public InstructorService(IGenericRepository<Instructor> repository)
+
+        public InstructorService()
         {
-            _repository = repository;
+            _repository = new GenericRepository<Instructor>(new DBContext());
         }
 
         public void Add(Instructor instructor)

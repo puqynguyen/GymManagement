@@ -9,9 +9,9 @@ namespace BUS.Services
     {
         private readonly MembershipRepository _repository;
 
-        public MembershipService(MembershipRepository repository)
+        public MembershipService()
         {
-            _repository = repository;
+            _repository = new MembershipRepository(new DBContext());
         }
 
         // Thêm mới Membership

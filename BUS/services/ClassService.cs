@@ -12,9 +12,9 @@ namespace BUS.services
     {
         private readonly ClassRepository _repository;
 
-        public ClassService(ClassRepository repository)
+        public ClassService()
         {
-            _repository = repository;
+            _repository = new ClassRepository(new DBContext());
         }
 
         // Thêm mới Customer
