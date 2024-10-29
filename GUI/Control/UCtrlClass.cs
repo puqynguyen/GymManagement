@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using BUS.services;
 using DTO.Entities;
+
 namespace GUI.Control
 {
     public partial class UCtrlClass : UserControl
@@ -17,6 +18,18 @@ namespace GUI.Control
         public UCtrlClass()
         {
             InitializeComponent();
+            dgvClass.DefaultCellStyle.ForeColor = Color.Black;
+            dgvClass.DefaultCellStyle.BackColor = Color.White;
+            dgvClass.DefaultCellStyle.SelectionForeColor = Color.White;
+            dgvClass.DefaultCellStyle.SelectionBackColor = Color.DarkBlue;
+            dgvInstructor.DefaultCellStyle.ForeColor = Color.Black;
+            dgvInstructor.DefaultCellStyle.BackColor = Color.White;
+            dgvInstructor.DefaultCellStyle.SelectionForeColor = Color.White;
+            dgvInstructor.DefaultCellStyle.SelectionBackColor = Color.DarkBlue;
+            dgvCustomer.DefaultCellStyle.ForeColor = Color.Black;
+            dgvCustomer.DefaultCellStyle.BackColor = Color.White;
+            dgvCustomer.DefaultCellStyle.SelectionForeColor = Color.White;
+            dgvCustomer.DefaultCellStyle.SelectionBackColor = Color.DarkBlue;
             IEnumerable<Class> classes = classService.GetAll();
             BindGridClass(classes);
         }
@@ -46,5 +59,104 @@ namespace GUI.Control
             }
         }
 
+        private void dgvClass_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0 && dgvClass.Columns[0].Index >= 0)
+            {
+                Clear();
+                int classId = Convert.ToInt32(dgvClass.Rows[e.RowIndex].Cells[0].Value);
+                IEnumerable<Customer> customers = classService.GetCustomersInClass(classId);
+                IEnumerable<Instructor> instructors = classService.GetInstructorsInClass(classId);
+                BindGridCustomer(customers);
+                BindGridInstructor(instructors);
+            }
+        }
+        private void BindGridCustomer(IEnumerable<Customer> customers)
+        {
+            dgvCustomer.Rows.Clear();
+            foreach (Customer customer in customers)
+            {
+                int index = dgvCustomer.Rows.Add();
+                dgvCustomer.Rows[index].Cells[0].Value = customer.CustomerID;
+                dgvCustomer.Rows[index].Cells[1].Value = customer.name;
+                dgvCustomer.Rows[index].Cells[2].Value = customer.contact_info;
+                dgvCustomer.Rows[index].Cells[3].Value = customer.age;
+                dgvCustomer.Rows[index].Cells[4].Value = customer.sex;
+            }
+        }
+        private void BindGridInstructor(IEnumerable<Instructor> instructors)
+        {
+            dgvInstructor.Rows.Clear();
+            foreach (Instructor instructor in instructors)
+            {
+                int index = dgvInstructor.Rows.Add();
+                dgvInstructor.Rows[index].Cells[0].Value = instructor.InstructorID;
+                dgvInstructor.Rows[index].Cells[1].Value = instructor.name;
+                dgvInstructor.Rows[index].Cells[2].Value = instructor.certifications;
+                dgvInstructor.Rows[index].Cells[3].Value = instructor.sex;
+            }
+        }
+
+        private void dgvCustomer_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0 && dgvCustomer.Columns[0].Index >= 0)
+            {
+                txtCustomerId.Text = dgvCustomer.Rows[e.RowIndex].Cells[0].Value.ToString();
+                txtCustomerName.Text = dgvCustomer.Rows[e.RowIndex].Cells[1].Value.ToString();
+                txtContact.Text = dgvCustomer.Rows[e.RowIndex].Cells[2].Value.ToString();
+            }
+        }
+
+        private void dgvInstructor_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0 && dgvInstructor.Columns[0].Index >= 0)
+            {
+                txtInstructorId.Text = dgvInstructor.Rows[e.RowIndex].Cells[0].Value.ToString();
+                txtInstructorName.Text = dgvInstructor.Rows[e.RowIndex].Cells[1].Value.ToString();
+                txtCertifications.Text = dgvInstructor.Rows[e.RowIndex].Cells[2].Value.ToString();
+            }
+        }
+        private void Clear()
+        {
+            foreach (System.Windows.Forms.Control ctrl in this.Controls)
+            {
+                if (ctrl is TextBox textBox)
+                {
+                    textBox.Clear();
+                }
+                else if (ctrl.HasChildren)
+                {
+                    ClearControls(ctrl);
+                }
+            }
+        }
+        private void ClearControls(System.Windows.Forms.Control parent)
+        {
+            foreach (System.Windows.Forms.Control ctrl in parent.Controls)
+            {
+                if (ctrl is TextBox textBox)
+                {
+                    textBox.Clear();
+                }
+                else if (ctrl.HasChildren)
+                {
+                    ClearControls(ctrl);
+                }
+            }
+        }
+
+        private void ckFull_CheckedChanged(object sender, EventArgs e)
+        {
+            if (ckFull.Checked)
+            {
+                IEnumerable<Class> classes = classService.GetAllAvailableClass();
+                BindGridClass(classes);
+            }
+            else
+            {
+                IEnumerable<Class> classes = classService.GetAll();
+                BindGridClass(classes);
+            }
+        }
     }
 }

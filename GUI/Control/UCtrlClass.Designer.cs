@@ -39,22 +39,22 @@
             this.Description = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Enrollment = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtCustomerId = new System.Windows.Forms.TextBox();
+            this.txtCustomerName = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.txtContact = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.AddCustomer = new System.Windows.Forms.Button();
-            this.RemoveCustomer = new System.Windows.Forms.Button();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.btnAddCustomer = new System.Windows.Forms.Button();
+            this.btnRemoveCustomer = new System.Windows.Forms.Button();
+            this.txtInstructorId = new System.Windows.Forms.TextBox();
+            this.txtInstructorName = new System.Windows.Forms.TextBox();
+            this.txtCertifications = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnAddInstructor = new System.Windows.Forms.Button();
+            this.btnRemoveInstructor = new System.Windows.Forms.Button();
             this.InstructorId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.InstructorName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Certifications = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -64,7 +64,6 @@
             this.ContactInfor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CustomerAge = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CustomerGender = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ckbAvailable = new System.Windows.Forms.CheckBox();
             this.ckFull = new System.Windows.Forms.CheckBox();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -94,26 +93,26 @@
             // 
             // splitContainer1.Panel1
             // 
-            this.splitContainer1.Panel1.Controls.Add(this.RemoveCustomer);
-            this.splitContainer1.Panel1.Controls.Add(this.AddCustomer);
+            this.splitContainer1.Panel1.Controls.Add(this.btnRemoveCustomer);
+            this.splitContainer1.Panel1.Controls.Add(this.btnAddCustomer);
             this.splitContainer1.Panel1.Controls.Add(this.label3);
             this.splitContainer1.Panel1.Controls.Add(this.label2);
             this.splitContainer1.Panel1.Controls.Add(this.label1);
-            this.splitContainer1.Panel1.Controls.Add(this.textBox3);
-            this.splitContainer1.Panel1.Controls.Add(this.textBox2);
-            this.splitContainer1.Panel1.Controls.Add(this.textBox1);
+            this.splitContainer1.Panel1.Controls.Add(this.txtContact);
+            this.splitContainer1.Panel1.Controls.Add(this.txtCustomerName);
+            this.splitContainer1.Panel1.Controls.Add(this.txtCustomerId);
             this.splitContainer1.Panel1.Controls.Add(this.dgvCustomer);
             // 
             // splitContainer1.Panel2
             // 
-            this.splitContainer1.Panel2.Controls.Add(this.button2);
+            this.splitContainer1.Panel2.Controls.Add(this.btnRemoveInstructor);
             this.splitContainer1.Panel2.Controls.Add(this.dgvInstructor);
-            this.splitContainer1.Panel2.Controls.Add(this.button1);
-            this.splitContainer1.Panel2.Controls.Add(this.textBox4);
+            this.splitContainer1.Panel2.Controls.Add(this.btnAddInstructor);
+            this.splitContainer1.Panel2.Controls.Add(this.txtInstructorId);
             this.splitContainer1.Panel2.Controls.Add(this.label6);
-            this.splitContainer1.Panel2.Controls.Add(this.textBox5);
+            this.splitContainer1.Panel2.Controls.Add(this.txtInstructorName);
             this.splitContainer1.Panel2.Controls.Add(this.label5);
-            this.splitContainer1.Panel2.Controls.Add(this.textBox6);
+            this.splitContainer1.Panel2.Controls.Add(this.txtCertifications);
             this.splitContainer1.Panel2.Controls.Add(this.label4);
             this.splitContainer1.Size = new System.Drawing.Size(1072, 346);
             this.splitContainer1.SplitterDistance = 525;
@@ -121,8 +120,8 @@
             // 
             // panel1
             // 
+            this.panel1.BackColor = System.Drawing.SystemColors.Control;
             this.panel1.Controls.Add(this.ckFull);
-            this.panel1.Controls.Add(this.ckbAvailable);
             this.panel1.Controls.Add(this.dgvClass);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
@@ -150,6 +149,7 @@
             this.dgvClass.RowTemplate.Height = 24;
             this.dgvClass.Size = new System.Drawing.Size(1072, 275);
             this.dgvClass.TabIndex = 0;
+            this.dgvClass.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvClass_CellContentClick);
             // 
             // dgvCustomer
             // 
@@ -171,6 +171,7 @@
             this.dgvCustomer.RowTemplate.Height = 24;
             this.dgvCustomer.Size = new System.Drawing.Size(525, 250);
             this.dgvCustomer.TabIndex = 0;
+            this.dgvCustomer.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCustomer_CellContentClick);
             // 
             // dgvInstructor
             // 
@@ -191,6 +192,7 @@
             this.dgvInstructor.RowTemplate.Height = 24;
             this.dgvInstructor.Size = new System.Drawing.Size(543, 250);
             this.dgvInstructor.TabIndex = 0;
+            this.dgvInstructor.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvInstructor_CellContentClick);
             // 
             // ClassId
             // 
@@ -230,25 +232,28 @@
             this.Status.Name = "Status";
             this.Status.ReadOnly = true;
             // 
-            // textBox1
+            // txtCustomerId
             // 
-            this.textBox1.Enabled = false;
-            this.textBox1.Location = new System.Drawing.Point(77, 14);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(45, 22);
-            this.textBox1.TabIndex = 1;
+            this.txtCustomerId.Enabled = false;
+            this.txtCustomerId.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.txtCustomerId.Location = new System.Drawing.Point(77, 14);
+            this.txtCustomerId.Name = "txtCustomerId";
+            this.txtCustomerId.Size = new System.Drawing.Size(45, 22);
+            this.txtCustomerId.TabIndex = 1;
             // 
-            // textBox2
+            // txtCustomerName
             // 
-            this.textBox2.Enabled = false;
-            this.textBox2.Location = new System.Drawing.Point(77, 42);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(185, 22);
-            this.textBox2.TabIndex = 1;
+            this.txtCustomerName.Enabled = false;
+            this.txtCustomerName.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.txtCustomerName.Location = new System.Drawing.Point(77, 42);
+            this.txtCustomerName.Name = "txtCustomerName";
+            this.txtCustomerName.Size = new System.Drawing.Size(185, 22);
+            this.txtCustomerName.TabIndex = 1;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.label1.Location = new System.Drawing.Point(15, 17);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(20, 16);
@@ -258,74 +263,83 @@
             // label2
             // 
             this.label2.AutoSize = true;
+            this.label2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.label2.Location = new System.Drawing.Point(15, 45);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(44, 16);
             this.label2.TabIndex = 3;
             this.label2.Text = "Name";
             // 
-            // textBox3
+            // txtContact
             // 
-            this.textBox3.Enabled = false;
-            this.textBox3.Location = new System.Drawing.Point(77, 70);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(185, 22);
-            this.textBox3.TabIndex = 1;
+            this.txtContact.Enabled = false;
+            this.txtContact.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.txtContact.Location = new System.Drawing.Point(77, 70);
+            this.txtContact.Name = "txtContact";
+            this.txtContact.Size = new System.Drawing.Size(185, 22);
+            this.txtContact.TabIndex = 1;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
+            this.label3.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.label3.Location = new System.Drawing.Point(15, 73);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(52, 16);
             this.label3.TabIndex = 3;
             this.label3.Text = "Contact";
             // 
-            // AddCustomer
+            // btnAddCustomer
             // 
-            this.AddCustomer.Location = new System.Drawing.Point(403, 17);
-            this.AddCustomer.Name = "AddCustomer";
-            this.AddCustomer.Size = new System.Drawing.Size(105, 27);
-            this.AddCustomer.TabIndex = 4;
-            this.AddCustomer.Text = "Add";
-            this.AddCustomer.UseVisualStyleBackColor = true;
+            this.btnAddCustomer.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btnAddCustomer.Location = new System.Drawing.Point(403, 17);
+            this.btnAddCustomer.Name = "btnAddCustomer";
+            this.btnAddCustomer.Size = new System.Drawing.Size(105, 27);
+            this.btnAddCustomer.TabIndex = 4;
+            this.btnAddCustomer.Text = "Add";
+            this.btnAddCustomer.UseVisualStyleBackColor = true;
             // 
-            // RemoveCustomer
+            // btnRemoveCustomer
             // 
-            this.RemoveCustomer.Location = new System.Drawing.Point(403, 50);
-            this.RemoveCustomer.Name = "RemoveCustomer";
-            this.RemoveCustomer.Size = new System.Drawing.Size(105, 27);
-            this.RemoveCustomer.TabIndex = 5;
-            this.RemoveCustomer.Text = "Remove";
-            this.RemoveCustomer.UseVisualStyleBackColor = true;
+            this.btnRemoveCustomer.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btnRemoveCustomer.Location = new System.Drawing.Point(403, 50);
+            this.btnRemoveCustomer.Name = "btnRemoveCustomer";
+            this.btnRemoveCustomer.Size = new System.Drawing.Size(105, 27);
+            this.btnRemoveCustomer.TabIndex = 5;
+            this.btnRemoveCustomer.Text = "Remove";
+            this.btnRemoveCustomer.UseVisualStyleBackColor = true;
             // 
-            // textBox4
+            // txtInstructorId
             // 
-            this.textBox4.Enabled = false;
-            this.textBox4.Location = new System.Drawing.Point(85, 14);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(45, 22);
-            this.textBox4.TabIndex = 1;
+            this.txtInstructorId.Enabled = false;
+            this.txtInstructorId.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.txtInstructorId.Location = new System.Drawing.Point(111, 14);
+            this.txtInstructorId.Name = "txtInstructorId";
+            this.txtInstructorId.Size = new System.Drawing.Size(45, 22);
+            this.txtInstructorId.TabIndex = 1;
             // 
-            // textBox5
+            // txtInstructorName
             // 
-            this.textBox5.Enabled = false;
-            this.textBox5.Location = new System.Drawing.Point(85, 42);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(185, 22);
-            this.textBox5.TabIndex = 1;
+            this.txtInstructorName.Enabled = false;
+            this.txtInstructorName.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.txtInstructorName.Location = new System.Drawing.Point(111, 42);
+            this.txtInstructorName.Name = "txtInstructorName";
+            this.txtInstructorName.Size = new System.Drawing.Size(185, 22);
+            this.txtInstructorName.TabIndex = 1;
             // 
-            // textBox6
+            // txtCertifications
             // 
-            this.textBox6.Enabled = false;
-            this.textBox6.Location = new System.Drawing.Point(85, 70);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(185, 22);
-            this.textBox6.TabIndex = 1;
+            this.txtCertifications.Enabled = false;
+            this.txtCertifications.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.txtCertifications.Location = new System.Drawing.Point(111, 70);
+            this.txtCertifications.Name = "txtCertifications";
+            this.txtCertifications.Size = new System.Drawing.Size(185, 22);
+            this.txtCertifications.TabIndex = 1;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
+            this.label4.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.label4.Location = new System.Drawing.Point(23, 17);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(20, 16);
@@ -335,6 +349,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
+            this.label5.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.label5.Location = new System.Drawing.Point(23, 45);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(44, 16);
@@ -344,29 +359,32 @@
             // label6
             // 
             this.label6.AutoSize = true;
+            this.label6.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.label6.Location = new System.Drawing.Point(23, 73);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(52, 16);
+            this.label6.Size = new System.Drawing.Size(83, 16);
             this.label6.TabIndex = 3;
-            this.label6.Text = "Contact";
+            this.label6.Text = "Certifications";
             // 
-            // button1
+            // btnAddInstructor
             // 
-            this.button1.Location = new System.Drawing.Point(411, 17);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(105, 27);
-            this.button1.TabIndex = 4;
-            this.button1.Text = "Add";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnAddInstructor.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btnAddInstructor.Location = new System.Drawing.Point(411, 17);
+            this.btnAddInstructor.Name = "btnAddInstructor";
+            this.btnAddInstructor.Size = new System.Drawing.Size(105, 27);
+            this.btnAddInstructor.TabIndex = 4;
+            this.btnAddInstructor.Text = "Add";
+            this.btnAddInstructor.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // btnRemoveInstructor
             // 
-            this.button2.Location = new System.Drawing.Point(411, 50);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(105, 27);
-            this.button2.TabIndex = 5;
-            this.button2.Text = "Remove";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnRemoveInstructor.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btnRemoveInstructor.Location = new System.Drawing.Point(411, 50);
+            this.btnRemoveInstructor.Name = "btnRemoveInstructor";
+            this.btnRemoveInstructor.Size = new System.Drawing.Size(105, 27);
+            this.btnRemoveInstructor.TabIndex = 5;
+            this.btnRemoveInstructor.Text = "Remove";
+            this.btnRemoveInstructor.UseVisualStyleBackColor = true;
             // 
             // InstructorId
             // 
@@ -440,25 +458,18 @@
             this.CustomerGender.ReadOnly = true;
             this.CustomerGender.Width = 75;
             // 
-            // ckbAvailable
-            // 
-            this.ckbAvailable.AutoSize = true;
-            this.ckbAvailable.Location = new System.Drawing.Point(991, 3);
-            this.ckbAvailable.Name = "ckbAvailable";
-            this.ckbAvailable.Size = new System.Drawing.Size(78, 20);
-            this.ckbAvailable.TabIndex = 1;
-            this.ckbAvailable.Text = "Availble";
-            this.ckbAvailable.UseVisualStyleBackColor = true;
-            // 
             // ckFull
             // 
+            this.ckFull.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.ckFull.AutoSize = true;
-            this.ckFull.Location = new System.Drawing.Point(935, 3);
+            this.ckFull.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.ckFull.Location = new System.Drawing.Point(1019, 3);
             this.ckFull.Name = "ckFull";
             this.ckFull.Size = new System.Drawing.Size(50, 20);
             this.ckFull.TabIndex = 1;
             this.ckFull.Text = "Full";
             this.ckFull.UseVisualStyleBackColor = true;
+            this.ckFull.CheckedChanged += new System.EventHandler(this.ckFull_CheckedChanged);
             // 
             // UCtrlClass
             // 
@@ -496,21 +507,21 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Description;
         private System.Windows.Forms.DataGridViewTextBoxColumn Enrollment;
         private System.Windows.Forms.DataGridViewTextBoxColumn Status;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Button RemoveCustomer;
-        private System.Windows.Forms.Button AddCustomer;
+        private System.Windows.Forms.TextBox txtCustomerName;
+        private System.Windows.Forms.TextBox txtCustomerId;
+        private System.Windows.Forms.Button btnRemoveCustomer;
+        private System.Windows.Forms.Button btnAddCustomer;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox txtContact;
+        private System.Windows.Forms.Button btnRemoveInstructor;
+        private System.Windows.Forms.Button btnAddInstructor;
+        private System.Windows.Forms.TextBox txtInstructorId;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox txtInstructorName;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.TextBox txtCertifications;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.DataGridViewTextBoxColumn CustomerId;
         private System.Windows.Forms.DataGridViewTextBoxColumn CustomerName;
@@ -522,6 +533,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Certifications;
         private System.Windows.Forms.DataGridViewTextBoxColumn InstructorGender;
         private System.Windows.Forms.CheckBox ckFull;
-        private System.Windows.Forms.CheckBox ckbAvailable;
     }
 }
