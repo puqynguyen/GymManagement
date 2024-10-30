@@ -30,6 +30,14 @@
         {
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Mem = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnHistory = new System.Windows.Forms.Button();
             this.CustomerAdd = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
@@ -53,22 +61,12 @@
             this.txtPhone = new System.Windows.Forms.TextBox();
             this.txtAddress = new System.Windows.Forms.TextBox();
             this.txtName = new System.Windows.Forms.TextBox();
-            this.txtId = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Mem = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label7 = new System.Windows.Forms.Label();
             this.ckbActive = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -84,7 +82,6 @@
             this.txtSearch.Name = "txtSearch";
             this.txtSearch.Size = new System.Drawing.Size(167, 22);
             this.txtSearch.TabIndex = 2;
-            this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
             // 
             // dataGridView1
             // 
@@ -107,6 +104,55 @@
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.Size = new System.Drawing.Size(898, 455);
             this.dataGridView1.TabIndex = 2;
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "Id";
+            this.Column1.MinimumWidth = 6;
+            this.Column1.Name = "Column1";
+            // 
+            // Column2
+            // 
+            this.Column2.HeaderText = "Name";
+            this.Column2.MinimumWidth = 6;
+            this.Column2.Name = "Column2";
+            // 
+            // Column3
+            // 
+            this.Column3.HeaderText = "Gender";
+            this.Column3.MinimumWidth = 6;
+            this.Column3.Name = "Column3";
+            // 
+            // Column4
+            // 
+            this.Column4.HeaderText = "Age";
+            this.Column4.MinimumWidth = 6;
+            this.Column4.Name = "Column4";
+            // 
+            // Column7
+            // 
+            this.Column7.HeaderText = "Contact Information";
+            this.Column7.MinimumWidth = 6;
+            this.Column7.Name = "Column7";
+            // 
+            // Column5
+            // 
+            this.Column5.HeaderText = "Address";
+            this.Column5.MinimumWidth = 6;
+            this.Column5.Name = "Column5";
+            // 
+            // Column6
+            // 
+            this.Column6.HeaderText = "Date join";
+            this.Column6.MinimumWidth = 6;
+            this.Column6.Name = "Column6";
+            // 
+            // Mem
+            // 
+            this.Mem.HeaderText = "Membership Status";
+            this.Mem.MinimumWidth = 6;
+            this.Mem.Name = "Mem";
             // 
             // btnHistory
             // 
@@ -158,6 +204,7 @@
             // 
             // cbbMem
             // 
+            this.cbbMem.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.cbbMem.FormattingEnabled = true;
             this.cbbMem.Location = new System.Drawing.Point(135, 142);
             this.cbbMem.Name = "cbbMem";
@@ -166,6 +213,7 @@
             // 
             // cbbClass
             // 
+            this.cbbClass.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.cbbClass.FormattingEnabled = true;
             this.cbbClass.Location = new System.Drawing.Point(135, 106);
             this.cbbClass.Name = "cbbClass";
@@ -222,6 +270,7 @@
             // 
             // txtNameV
             // 
+            this.txtNameV.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.txtNameV.Location = new System.Drawing.Point(135, 58);
             this.txtNameV.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtNameV.Name = "txtNameV";
@@ -230,6 +279,7 @@
             // 
             // txtIdV
             // 
+            this.txtIdV.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.txtIdV.Location = new System.Drawing.Point(135, 19);
             this.txtIdV.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtIdV.Name = "txtIdV";
@@ -239,6 +289,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
+            this.label9.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.label9.Location = new System.Drawing.Point(33, 150);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(82, 16);
@@ -248,6 +299,7 @@
             // label
             // 
             this.label.AutoSize = true;
+            this.label.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.label.Location = new System.Drawing.Point(33, 106);
             this.label.Name = "label";
             this.label.Size = new System.Drawing.Size(41, 16);
@@ -257,6 +309,7 @@
             // label15
             // 
             this.label15.AutoSize = true;
+            this.label15.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.label15.Location = new System.Drawing.Point(33, 64);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(44, 16);
@@ -266,6 +319,7 @@
             // label16
             // 
             this.label16.AutoSize = true;
+            this.label16.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.label16.Location = new System.Drawing.Point(33, 22);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(78, 16);
@@ -282,14 +336,12 @@
             this.tabPage2.Controls.Add(this.txtPhone);
             this.tabPage2.Controls.Add(this.txtAddress);
             this.tabPage2.Controls.Add(this.txtName);
-            this.tabPage2.Controls.Add(this.txtId);
             this.tabPage2.Controls.Add(this.label1);
             this.tabPage2.Controls.Add(this.label2);
             this.tabPage2.Controls.Add(this.label3);
             this.tabPage2.Controls.Add(this.label4);
             this.tabPage2.Controls.Add(this.label5);
             this.tabPage2.Controls.Add(this.label6);
-            this.tabPage2.Controls.Add(this.label8);
             this.tabPage2.Location = new System.Drawing.Point(4, 25);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
@@ -337,6 +389,7 @@
             // rdbFemale
             // 
             this.rdbFemale.AutoSize = true;
+            this.rdbFemale.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.rdbFemale.Location = new System.Drawing.Point(250, 109);
             this.rdbFemale.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.rdbFemale.Name = "rdbFemale";
@@ -349,6 +402,7 @@
             // rdbMale
             // 
             this.rdbMale.AutoSize = true;
+            this.rdbMale.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.rdbMale.Location = new System.Drawing.Point(142, 109);
             this.rdbMale.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.rdbMale.Name = "rdbMale";
@@ -382,17 +436,10 @@
             this.txtName.Size = new System.Drawing.Size(167, 22);
             this.txtName.TabIndex = 34;
             // 
-            // txtId
-            // 
-            this.txtId.Location = new System.Drawing.Point(132, 24);
-            this.txtId.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtId.Name = "txtId";
-            this.txtId.Size = new System.Drawing.Size(167, 22);
-            this.txtId.TabIndex = 33;
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.label1.Location = new System.Drawing.Point(30, 262);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(60, 16);
@@ -402,6 +449,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
+            this.label2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.label2.Location = new System.Drawing.Point(30, 187);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(46, 16);
@@ -411,6 +459,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
+            this.label3.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.label3.Location = new System.Drawing.Point(30, 222);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(58, 16);
@@ -420,6 +469,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
+            this.label4.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.label4.Location = new System.Drawing.Point(30, 146);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(60, 16);
@@ -429,6 +479,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
+            this.label5.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.label5.Location = new System.Drawing.Point(30, 109);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(52, 16);
@@ -438,68 +489,12 @@
             // label6
             // 
             this.label6.AutoSize = true;
+            this.label6.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.label6.Location = new System.Drawing.Point(30, 66);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(44, 16);
             this.label6.TabIndex = 32;
             this.label6.Text = "Name";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(30, 24);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(78, 16);
-            this.label8.TabIndex = 26;
-            this.label8.Text = "Id Customer";
-            // 
-            // Column1
-            // 
-            this.Column1.HeaderText = "Id";
-            this.Column1.MinimumWidth = 6;
-            this.Column1.Name = "Column1";
-            // 
-            // Column2
-            // 
-            this.Column2.HeaderText = "Name";
-            this.Column2.MinimumWidth = 6;
-            this.Column2.Name = "Column2";
-            // 
-            // Column3
-            // 
-            this.Column3.HeaderText = "Gender";
-            this.Column3.MinimumWidth = 6;
-            this.Column3.Name = "Column3";
-            // 
-            // Column4
-            // 
-            this.Column4.HeaderText = "Birthdate";
-            this.Column4.MinimumWidth = 6;
-            this.Column4.Name = "Column4";
-            // 
-            // Column7
-            // 
-            this.Column7.HeaderText = "Contact Information";
-            this.Column7.MinimumWidth = 6;
-            this.Column7.Name = "Column7";
-            // 
-            // Column5
-            // 
-            this.Column5.HeaderText = "Address";
-            this.Column5.MinimumWidth = 6;
-            this.Column5.Name = "Column5";
-            // 
-            // Column6
-            // 
-            this.Column6.HeaderText = "Date join";
-            this.Column6.MinimumWidth = 6;
-            this.Column6.Name = "Column6";
-            // 
-            // Mem
-            // 
-            this.Mem.HeaderText = "Membership Status";
-            this.Mem.MinimumWidth = 6;
-            this.Mem.Name = "Mem";
             // 
             // label7
             // 
@@ -567,16 +562,16 @@
         private System.Windows.Forms.TextBox txtPhone;
         private System.Windows.Forms.TextBox txtAddress;
         private System.Windows.Forms.TextBox txtName;
-        private System.Windows.Forms.TextBox txtId;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label8;
         private System.Windows.Forms.ComboBox cbbMem;
         private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.CheckBox ckbActive;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
@@ -585,7 +580,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
         private System.Windows.Forms.DataGridViewTextBoxColumn Mem;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.CheckBox ckbActive;
     }
 }

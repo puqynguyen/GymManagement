@@ -40,5 +40,9 @@ namespace BUS.Services
         {
             return _repository.GetAllNeedRenew(needRenew);
         }
+        public Membership GetActiveMembershipByCustomerId(int customerId)
+        {
+            return _repository.GetActiveMembershipByCustomerId(customerId);
+        }
     }
 }
