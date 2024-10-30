@@ -17,7 +17,6 @@ namespace DAL.Repository
 
         public void AddPurchaseDetailsToInvoice(int invoiceId, List<PurchaseDetail> details)
         {
-            // Tìm PurchaseInvoice theo invoiceId
             var invoice = _context.Set<PurchaseInvoice>().Find(invoiceId);
             if (invoice == null)
             {
@@ -25,21 +24,13 @@ namespace DAL.Repository
             }
 
             decimal totalAmount = 0;
-
-            // Duyệt qua từng PurchaseDetail trong danh sách
             foreach (var detail in details)
             {
-                // Thiết lập InvoiceID cho từng PurchaseDetail
                 detail.InvoiceID = invoiceId;
                 _context.PurchaseDetails.Add(detail);
-                // Tính tổng cộng: quantity * price cho mỗi chi tiết
                 totalAmount += (detail.quantity ?? 0) * (detail.price ?? 0);
-
-                // Thêm chi tiết vào danh sách PurchaseDetails của invoice
                 invoice.PurchaseDetails.Add(detail);
             }
-
-            // Cập nhật total_amount cho invoice
             invoice.totalAmount = totalAmount;
             _context.SaveChanges();
         }

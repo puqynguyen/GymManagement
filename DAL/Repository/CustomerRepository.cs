@@ -19,12 +19,10 @@ namespace BUS.Services
         {
             if (needRenew)
             {
-                // Truy vấn `GetAllNeedRenew` nếu `needRenew` là true
                 return _context.Database.SqlQuery<Customer>("SELECT * FROM GetAllNeedRenew").ToList();
             }
             else
             {
-                // Truy vấn `GetAllNotNeedRenew` nếu `needRenew` là false
                 return _context.Database.SqlQuery<Customer>("SELECT * FROM GetAllNotNeedRenew").ToList();
             }
         }

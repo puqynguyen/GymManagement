@@ -39,10 +39,7 @@ namespace GUI
         }
         private void BindGridCustomer(IEnumerable<Customer> customers)
         {
-            // Clear any existing columns (optional, if you want to reset columns each time)
             dgvList.Columns.Clear();
-
-            // Check if columns are already added; if not, add them
             if (dgvList.Columns.Count == 0)
             {
                 dgvList.Columns.Add("CustomerID", "ID");
@@ -51,11 +48,7 @@ namespace GUI
                 dgvList.Columns.Add("Age", "Age");
                 dgvList.Columns.Add("Gender", "Gender");
             }
-
-            // Clear existing rows before adding new ones
             dgvList.Rows.Clear();
-
-            // Add customer data to the DataGridView
             foreach (Customer customer in customers)
             {
                 int index = dgvList.Rows.Add();
@@ -68,10 +61,7 @@ namespace GUI
         }
         private void BindGridInstructor(IEnumerable<Instructor> instructors)
         {
-            // Clear any existing columns (optional, if you want to reset columns each time)
             dgvList.Columns.Clear();
-
-            // Check if columns are already added; if not, add them
             if (dgvList.Columns.Count == 0)
             {
                 dgvList.Columns.Add("InstructorID", "ID");
@@ -79,11 +69,7 @@ namespace GUI
                 dgvList.Columns.Add("Certifications", "Certifications");
                 dgvList.Columns.Add("Gender", "Gender");
             }
-
-            // Clear existing rows before adding new ones
             dgvList.Rows.Clear();
-
-            // Add instructor data to the DataGridView
             foreach (Instructor instructor in instructors)
             {
                 int index = dgvList.Rows.Add();

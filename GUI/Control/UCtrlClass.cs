@@ -152,18 +152,13 @@ namespace GUI.Control
 
         private void btnAddCustomer_Click(object sender, EventArgs e)
         {
-            // Step 3: Use the _selectedClassId in the FormAddToClass constructor
             FormAddToClass formAddToClass = new FormAddToClass(true, _selectedClassId);
-
-            // Show the form or take necessary actions
             formAddToClass.ShowDialog();
         }
 
         private void btnAddInstructor_Click(object sender, EventArgs e)
         {
             FormAddToClass formAddToClass = new FormAddToClass(false, _selectedClassId);
-
-            // Show the form or take necessary actions
             formAddToClass.ShowDialog();
         }
 
