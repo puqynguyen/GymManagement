@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using DTO.Entities;
 using BUS.Services;
+using BUS.services;
 namespace GUI.Control
 {
     public partial class UCtrlCustomer : UserControl
@@ -57,7 +58,17 @@ namespace GUI.Control
 
         private void dgvAdjust_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+            //if (e.RowIndex >= 0 && dgvAdjust.Columns[0].Index >= 0)
+            //{
+            //    txtName = dgvClass.Rows[e.RowIndex].Cells[0].Value;
+            //    IEnumerable<Customer> customers = classService.GetCustomersInClass(_selectedClassId);
+            //    IEnumerable<Instructor> instructors = classService.GetInstructorsInClass(_selectedClassId);
+            //}
         }
 
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
