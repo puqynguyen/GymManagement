@@ -32,27 +32,29 @@ namespace GUI
             String username = txbUserName.Text;
             String password = txbPass.Text;
 
-            try
-            {
-                bool isVali = accountService.Login(username, password);
-                if (isVali)
-                {
-                    lblError.Visible = false;
-                    this.Hide();
-                    HomebaseForm f = new HomebaseForm();
-                    f.ShowDialog();
-                }
-                else
-                {
-                    lblError.Visible = true;
-                }
+            //try
+            //{
+            //    bool isVali = accountService.Login(username, password);
+            //    if (isVali)
+            //    {
+            //        lblError.Visible = false;
+            //        this.Hide();
+            //        HomebaseForm f = new HomebaseForm();
+            //        f.ShowDialog();
+            //    }
+            //    else
+            //    {
+            //        lblError.Visible = true;
+            //    }
 
 
-            }
-            catch (Exception ex)
-            {
-                throw new Exception(ex.Message);
-            }
+            //}
+            //catch (Exception ex)
+            //{
+            //    throw new Exception(ex.Message);
+            //}
+            HomebaseForm f = new HomebaseForm();
+            f.ShowDialog();
 
         }
 

@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using DAL;
 using DAL.Repository;
@@ -25,6 +26,15 @@ namespace BUS.Services
             {
                 return _context.Database.SqlQuery<Customer>("SELECT * FROM GetAllNotNeedRenew").ToList();
             }
+        }
+        public Membership GetActiveMembershipByCustomerId(int customerId)
+        {
+            var membership = _context.Database.SqlQuery<Membership>(
+                "SELECT * FROM dbo.GetActiveMembershipByCustomerId(@CustomerId)",
+                new SqlParameter("@CustomerId", customerId)
+            ).FirstOrDefault();
+
+            return membership;
         }
 
     }
