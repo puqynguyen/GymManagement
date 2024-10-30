@@ -78,7 +78,7 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label17 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cbbMembership = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAdjust)).BeginInit();
             this.CustomerAdd.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -229,7 +229,7 @@
             this.tableLayoutPanel1.Controls.Add(this.label12, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.txtName, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.label16, 0, 8);
-            this.tableLayoutPanel1.Controls.Add(this.comboBox1, 1, 8);
+            this.tableLayoutPanel1.Controls.Add(this.cbbMembership, 1, 8);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(7, 5);
             this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -708,14 +708,14 @@
             this.label16.TabIndex = 29;
             this.label16.Text = "Membership";
             // 
-            // comboBox1
+            // cbbMembership
             // 
-            this.comboBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(116, 216);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(158, 23);
-            this.comboBox1.TabIndex = 41;
+            this.cbbMembership.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbbMembership.FormattingEnabled = true;
+            this.cbbMembership.Location = new System.Drawing.Point(116, 216);
+            this.cbbMembership.Name = "cbbMembership";
+            this.cbbMembership.Size = new System.Drawing.Size(158, 23);
+            this.cbbMembership.TabIndex = 41;
             // 
             // UCtrlCustomer
             // 
@@ -796,6 +796,6 @@
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cbbMembership;
     }
 }
