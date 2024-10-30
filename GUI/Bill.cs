@@ -16,5 +16,13 @@ namespace GUI
         {
             InitializeComponent();
         }
+
+        private void Bill_Load(object sender, EventArgs e)
+        {
+
+            this.reportViewer1.RefreshReport();
+            this.reportViewer2.RefreshReport();
+            this.reportViewer3.RefreshReport();
+        }
     }
 }
