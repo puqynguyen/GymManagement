@@ -20,11 +20,20 @@ namespace GUI.Control
         {
             InitializeComponent();
             DataTable MonthlyMembershipRevenue = membershipService.GetMonthlyMembershipRevenue();
+            if (MonthlyMembershipRevenue == null || MonthlyMembershipRevenue.Rows.Count == 0)
+            {
+                MessageBox.Show("No data available to display in the chart.");
+                return;
+            }
+
             PopulateChart(MonthlyMembershipRevenue);
         }
         private void PopulateChart(DataTable dataTable)
         {
+            chart1.Invalidate();
             chart1.Series.Clear();
+            chart1.ChartAreas[0].RecalculateAxesScale();
+
             Series series = new Series("Membership Revenue");
             series.ChartType = SeriesChartType.Column;
             foreach (DataRow row in dataTable.Rows)

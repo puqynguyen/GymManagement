@@ -113,10 +113,10 @@ namespace GUI.Control
         {
             try
             {
-                int length = Convert.ToInt32(txtLength2.Text);
                 decimal @price = Convert.ToDecimal(txtPrice2.Text);
-                DateTime dateTime = dtpDateCreate2.Value.ToUniversalTime();
-                Supplement supplement = new Membership() { name = txtName2, brand};
+                int brandId = (int)cbbBrand2.SelectedValue;
+                int quantity = Convert.ToInt32(txtQuantity2.Text);
+                Supplement supplement = new Supplement() { name = txtName2.Text, BrandID = brandId, price = @price, stock_quantity = quantity};
                 supplementService.Add(supplement);
                 Load();
             }

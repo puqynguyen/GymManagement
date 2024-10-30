@@ -40,27 +40,21 @@ namespace DAL.Repository
         public DataTable GetMonthlyMembershipRevenue()
         {
             var dataTable = new DataTable();
-            string connectionString = _context.Database.Connection.ConnectionString;
-
-            using (var conn = new SqlConnection(connectionString))
+            using (var conn = _context.Database.Connection)
             {
-                using (var cmd = new SqlCommand("GetMonthlyMembershipRevenue", conn))
+                using (var cmd = conn.CreateCommand())
                 {
+                    cmd.CommandText = "GetMonthlyMembershipRevenue";
                     cmd.CommandType = CommandType.StoredProcedure;
-
                     conn.Open();
-
                     using (var reader = cmd.ExecuteReader())
                     {
                         dataTable.Load(reader);
                     }
-
                     conn.Close();
                 }
             }
-
             return dataTable;
         }
-
     }
 }
