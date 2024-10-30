@@ -41,7 +41,7 @@
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.txbError = new System.Windows.Forms.TextBox();
+            this.lblError = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -51,7 +51,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.panel1.Controls.Add(this.txbError);
+            this.panel1.Controls.Add(this.lblError);
             this.panel1.Controls.Add(this.btnSignIn);
             this.panel1.Controls.Add(this.CBShowPass);
             this.panel1.Controls.Add(this.txbPass);
@@ -172,15 +172,15 @@
             this.pictureBox1.TabIndex = 2;
             this.pictureBox1.TabStop = false;
             // 
-            // txbError
+            // lblError
             // 
-            this.txbError.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txbError.ForeColor = System.Drawing.Color.Red;
-            this.txbError.Location = new System.Drawing.Point(95, 283);
-            this.txbError.Name = "txbError";
-            this.txbError.Size = new System.Drawing.Size(232, 22);
-            this.txbError.TabIndex = 5;
-            this.txbError.Text = "Invalid username or\r\n password!!!!";
+            this.lblError.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblError.ForeColor = System.Drawing.Color.Red;
+            this.lblError.Location = new System.Drawing.Point(101, 280);
+            this.lblError.Name = "lblError";
+            this.lblError.Size = new System.Drawing.Size(219, 24);
+            this.lblError.TabIndex = 6;
+            this.lblError.Text = "Invalid username or password\r\n";
             // 
             // LoginForm
             // 
@@ -216,7 +216,7 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.ErrorProvider errorProvider1;
-        private System.Windows.Forms.TextBox txbError;
+        private System.Windows.Forms.Label lblError;
     }
 }
 

@@ -19,7 +19,7 @@ namespace GUI
         {
             InitializeComponent();
             accountService = new AccountService();
-            txbError.Visible = false;
+            lblError.Visible = false;
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -37,14 +37,14 @@ namespace GUI
                 bool isVali = accountService.Login(username, password);
                 if (isVali)
                 {
-                    txbError.Visible = false;
+                    lblError.Visible = false;
                     this.Hide();
                     HomebaseForm f = new HomebaseForm();
                     f.ShowDialog();
                 }
                 else
                 {
-                    txbError.Visible = true;
+                    lblError.Visible = true;
                 }
 
 
