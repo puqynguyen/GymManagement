@@ -54,7 +54,7 @@
             this.Certifications = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.datajoin = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.label8 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCus)).BeginInit();
             this.tableLayoutPanel2.SuspendLayout();
@@ -79,7 +79,7 @@
             this.btnRemove.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRemove.ForeColor = System.Drawing.Color.White;
             this.btnRemove.Location = new System.Drawing.Point(166, 382);
-            this.btnRemove.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnRemove.Margin = new System.Windows.Forms.Padding(2);
             this.btnRemove.Name = "btnRemove";
             this.btnRemove.Size = new System.Drawing.Size(88, 28);
             this.btnRemove.TabIndex = 8;
@@ -95,7 +95,7 @@
             this.btnAddUp.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAddUp.ForeColor = System.Drawing.Color.White;
             this.btnAddUp.Location = new System.Drawing.Point(22, 382);
-            this.btnAddUp.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnAddUp.Margin = new System.Windows.Forms.Padding(2);
             this.btnAddUp.Name = "btnAddUp";
             this.btnAddUp.Size = new System.Drawing.Size(102, 28);
             this.btnAddUp.TabIndex = 7;
@@ -108,7 +108,7 @@
             this.dtpDateJoin.CustomFormat = "dd/MM/yyyy";
             this.dtpDateJoin.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtpDateJoin.Location = new System.Drawing.Point(97, 259);
-            this.dtpDateJoin.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dtpDateJoin.Margin = new System.Windows.Forms.Padding(2);
             this.dtpDateJoin.Name = "dtpDateJoin";
             this.dtpDateJoin.Size = new System.Drawing.Size(198, 20);
             this.dtpDateJoin.TabIndex = 6;
@@ -119,7 +119,7 @@
             this.dtpBirth.CustomFormat = "dd/MM/yyyy";
             this.dtpBirth.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtpBirth.Location = new System.Drawing.Point(97, 146);
-            this.dtpBirth.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dtpBirth.Margin = new System.Windows.Forms.Padding(2);
             this.dtpBirth.Name = "dtpBirth";
             this.dtpBirth.Size = new System.Drawing.Size(198, 20);
             this.dtpBirth.TabIndex = 6;
@@ -129,7 +129,7 @@
             this.rdbFemale.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.rdbFemale.AutoSize = true;
             this.rdbFemale.Location = new System.Drawing.Point(97, 116);
-            this.rdbFemale.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.rdbFemale.Margin = new System.Windows.Forms.Padding(2);
             this.rdbFemale.Name = "rdbFemale";
             this.rdbFemale.Size = new System.Drawing.Size(198, 17);
             this.rdbFemale.TabIndex = 4;
@@ -142,7 +142,7 @@
             this.rdbMale.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.rdbMale.AutoSize = true;
             this.rdbMale.Location = new System.Drawing.Point(97, 91);
-            this.rdbMale.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.rdbMale.Margin = new System.Windows.Forms.Padding(2);
             this.rdbMale.Name = "rdbMale";
             this.rdbMale.Size = new System.Drawing.Size(198, 17);
             this.rdbMale.TabIndex = 3;
@@ -154,7 +154,7 @@
             // 
             this.txtCertification.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.txtCertification.Location = new System.Drawing.Point(97, 199);
-            this.txtCertification.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtCertification.Margin = new System.Windows.Forms.Padding(2);
             this.txtCertification.Name = "txtCertification";
             this.txtCertification.Size = new System.Drawing.Size(198, 20);
             this.txtCertification.TabIndex = 2;
@@ -163,7 +163,7 @@
             // 
             this.txtName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.txtName.Location = new System.Drawing.Point(97, 54);
-            this.txtName.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtName.Margin = new System.Windows.Forms.Padding(2);
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(198, 20);
             this.txtName.TabIndex = 2;
@@ -172,7 +172,7 @@
             // 
             this.txtId.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.txtId.Location = new System.Drawing.Point(97, 11);
-            this.txtId.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtId.Margin = new System.Windows.Forms.Padding(2);
             this.txtId.Name = "txtId";
             this.txtId.Size = new System.Drawing.Size(198, 20);
             this.txtId.TabIndex = 2;
@@ -180,7 +180,7 @@
             // txtSearch
             // 
             this.txtSearch.Location = new System.Drawing.Point(51, 20);
-            this.txtSearch.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtSearch.Margin = new System.Windows.Forms.Padding(2);
             this.txtSearch.Name = "txtSearch";
             this.txtSearch.Size = new System.Drawing.Size(126, 20);
             this.txtSearch.TabIndex = 2;
@@ -214,9 +214,9 @@
             this.groupBox2.Controls.Add(this.label7);
             this.groupBox2.Controls.Add(this.txtSearch);
             this.groupBox2.Location = new System.Drawing.Point(377, 8);
-            this.groupBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(2);
             this.groupBox2.Size = new System.Drawing.Size(300, 48);
             this.groupBox2.TabIndex = 4;
             this.groupBox2.TabStop = false;
@@ -281,7 +281,7 @@
             this.Certifications,
             this.datajoin});
             this.dgvCus.Location = new System.Drawing.Point(309, 60);
-            this.dgvCus.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dgvCus.Margin = new System.Windows.Forms.Padding(2);
             this.dgvCus.Name = "dgvCus";
             this.dgvCus.RowHeadersVisible = false;
             this.dgvCus.RowHeadersWidth = 51;
@@ -345,7 +345,7 @@
             this.tableLayoutPanel2.Controls.Add(this.label3, 0, 2);
             this.tableLayoutPanel2.Controls.Add(this.dtpBirth, 1, 4);
             this.tableLayoutPanel2.Location = new System.Drawing.Point(10, 80);
-            this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(2);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 7;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
@@ -358,28 +358,28 @@
             this.tableLayoutPanel2.Size = new System.Drawing.Size(297, 297);
             this.tableLayoutPanel2.TabIndex = 7;
             // 
-            // label8
+            // label10
             // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(74, 15);
-            this.label8.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(139, 31);
-            this.label8.TabIndex = 9;
-            this.label8.Text = "Instructor";
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("MS Reference Sans Serif", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.ForeColor = System.Drawing.Color.Blue;
+            this.label10.Location = new System.Drawing.Point(51, 12);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(203, 44);
+            this.label10.TabIndex = 12;
+            this.label10.Text = "Instructor";
             // 
             // UCtrlInstructor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.label8);
+            this.Controls.Add(this.label10);
             this.Controls.Add(this.btnRemove);
             this.Controls.Add(this.tableLayoutPanel2);
             this.Controls.Add(this.btnAddUp);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.dgvCus);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "UCtrlInstructor";
             this.Size = new System.Drawing.Size(968, 468);
             this.groupBox2.ResumeLayout(false);
@@ -420,6 +420,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Certifications;
         private System.Windows.Forms.DataGridViewTextBoxColumn datajoin;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
-        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label10;
     }
 }

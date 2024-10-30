@@ -19,8 +19,7 @@ namespace GUI
         {
             InitializeComponent();
             InitializeComponent();
-            invoiceDetails = details;
-            totalAmount = total;
+
         }
 
         private void Bill_Load(object sender, EventArgs e)

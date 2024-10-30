@@ -44,6 +44,7 @@
             this.btnRemove = new System.Windows.Forms.Button();
             this.btnUpdate = new System.Windows.Forms.Button();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.btnAdd1 = new System.Windows.Forms.Button();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.dtpDateCreate2 = new System.Windows.Forms.DateTimePicker();
             this.label5 = new System.Windows.Forms.Label();
@@ -60,7 +61,7 @@
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnAdd1 = new System.Windows.Forms.Button();
+            this.label10 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -295,6 +296,22 @@
             this.tabPage2.Text = "Add";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
+            // btnAdd1
+            // 
+            this.btnAdd1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnAdd1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(178)))), ((int)(((byte)(50)))));
+            this.btnAdd1.FlatAppearance.BorderSize = 0;
+            this.btnAdd1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAdd1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAdd1.ForeColor = System.Drawing.Color.White;
+            this.btnAdd1.Location = new System.Drawing.Point(100, 273);
+            this.btnAdd1.Margin = new System.Windows.Forms.Padding(2);
+            this.btnAdd1.Name = "btnAdd1";
+            this.btnAdd1.Size = new System.Drawing.Size(93, 28);
+            this.btnAdd1.TabIndex = 8;
+            this.btnAdd1.Text = "Add";
+            this.btnAdd1.UseVisualStyleBackColor = false;
+            // 
             // tableLayoutPanel2
             // 
             this.tableLayoutPanel2.ColumnCount = 2;
@@ -480,26 +497,22 @@
             this.Column5.Name = "Column5";
             this.Column5.ReadOnly = true;
             // 
-            // btnAdd1
+            // label10
             // 
-            this.btnAdd1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnAdd1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(178)))), ((int)(((byte)(50)))));
-            this.btnAdd1.FlatAppearance.BorderSize = 0;
-            this.btnAdd1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAdd1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAdd1.ForeColor = System.Drawing.Color.White;
-            this.btnAdd1.Location = new System.Drawing.Point(100, 273);
-            this.btnAdd1.Margin = new System.Windows.Forms.Padding(2);
-            this.btnAdd1.Name = "btnAdd1";
-            this.btnAdd1.Size = new System.Drawing.Size(93, 28);
-            this.btnAdd1.TabIndex = 8;
-            this.btnAdd1.Text = "Add";
-            this.btnAdd1.UseVisualStyleBackColor = false;
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("MS Reference Sans Serif", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.ForeColor = System.Drawing.Color.Blue;
+            this.label10.Location = new System.Drawing.Point(86, 14);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(243, 44);
+            this.label10.TabIndex = 7;
+            this.label10.Text = "Membership";
             // 
             // UCtrlMembership
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.label10);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.dataGridView1);
             this.Margin = new System.Windows.Forms.Padding(2);
@@ -514,6 +527,7 @@
             this.tableLayoutPanel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -552,5 +566,6 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.Button btnAdd1;
+        private System.Windows.Forms.Label label10;
     }
 }
