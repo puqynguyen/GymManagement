@@ -16,7 +16,7 @@ namespace GUI.Control
         {
             InitializeComponent();
         }
-        Membership_Edit membership = new Membership_Edit();
+        FormMembership_Edit membership = new FormMembership_Edit();
 
         private void membershipToolStripMenuItem_Click(object sender, EventArgs e)
         {

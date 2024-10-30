@@ -5,7 +5,7 @@ using DTO.Entities;
 
 namespace BUS.Services
 {
-    internal class MembershipService
+    public class MembershipService
     {
         private readonly MembershipRepository _repository;
 
