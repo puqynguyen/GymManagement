@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using BUS.services;
+using BUS.Services;
 using DTO.Entities;
 
 namespace GUI.Control
@@ -31,10 +32,18 @@ namespace GUI.Control
             dgvCustomer.DefaultCellStyle.BackColor = Color.White;
             dgvCustomer.DefaultCellStyle.SelectionForeColor = Color.White;
             dgvCustomer.DefaultCellStyle.SelectionBackColor = Color.DarkBlue;
+            dgvClassEdit.DefaultCellStyle.BackColor = Color.White;
+            dgvClassEdit.DefaultCellStyle.SelectionForeColor = Color.White;
+            dgvClassEdit.DefaultCellStyle.SelectionBackColor = Color.DarkBlue;
+            Load();
+        }
+        private void Load()
+        {
             IEnumerable<Class> classes = classService.GetAll();
             BindGridClass(classes);
             btnRemoveCustomer.Enabled = false;
             btnRemoveInstructor.Enabled = false;
+            Clear();
         }
         private void BindGridClass(IEnumerable<Class> classes)
         {
@@ -59,6 +68,15 @@ namespace GUI.Control
                 {
                     dgvClass.Rows[index].Cells[4].Value = "Available";
                 }
+            }
+            dgvClassEdit.Rows.Clear();
+            foreach (var item in classes)
+            {
+                int index = dgvClassEdit.Rows.Add();
+                dgvClassEdit.Rows[index].Cells[0].Value = item.ClassID;
+                dgvClassEdit.Rows[index].Cells[1].Value = item.class_type;
+                dgvClassEdit.Rows[index].Cells[2].Value = item.desciption;
+                dgvClassEdit.Rows[index].Cells[3].Value = item.class_size;
             }
         }
 
@@ -133,7 +151,13 @@ namespace GUI.Control
             lblCustomerName.Text = "...";
             lblInstructorId.Text = "...";
             lblInstructorName.Text = "...";
-
+            txtDescription.Text = "";
+            txtDescription1.Text = "";
+            txtId.Text = "";
+            txtName.Text = "";
+            txtName1.Text = "";
+            txtSize.Text = "";
+            txtSize1.Text = "";
         }
 
         private void ckFull_CheckedChanged(object sender, EventArgs e)
@@ -152,18 +176,15 @@ namespace GUI.Control
 
         private void btnAddCustomer_Click(object sender, EventArgs e)
         {
-            // Step 3: Use the _selectedClassId in the FormAddToClass constructor
             FormAddToClass formAddToClass = new FormAddToClass(true, _selectedClassId);
-
-            // Show the form or take necessary actions
+            formAddToClass.FormClosed += (s, args) => Load();
             formAddToClass.ShowDialog();
         }
 
         private void btnAddInstructor_Click(object sender, EventArgs e)
         {
             FormAddToClass formAddToClass = new FormAddToClass(false, _selectedClassId);
-
-            // Show the form or take necessary actions
+            formAddToClass.FormClosed += (s, args) => Load();
             formAddToClass.ShowDialog();
         }
 
@@ -177,6 +198,74 @@ namespace GUI.Control
         {
             int insId = Convert.ToInt32(lblInstructorId.Text);
             classService.RemoveInstructorFromClass(insId, _selectedClassId);
+        }
+
+        private void dgvClassEdit_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0 && dgvClassEdit.Columns[0].Index >= 0)
+            {
+                txtId.Text = dgvClassEdit.Rows[e.RowIndex].Cells[0].Value.ToString();
+                txtName1.Text = dgvClassEdit.Rows[e.RowIndex].Cells[1].Value.ToString();
+                txtSize1.Text = dgvClassEdit.Rows[e.RowIndex].Cells[2].Value.ToString();
+                txtDescription1.Text = dgvClassEdit.Rows[e.RowIndex].Cells[3].Value.ToString();
+            }
+        }
+
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                int Id = Convert.ToInt32(txtId.Text);
+                Class @class= classService.GetById(Id);
+                if (@class == null)
+                {
+                    throw new Exception("Membership Id not found!");
+                }
+                @class.class_size = Convert.ToInt32(txtSize.Text);
+                @class.class_type = txtName.Text;
+                @class.desciption = txtDescription.Text;
+                classService.Update(@class);
+                Load();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void btnRemove_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                int Id = Convert.ToInt32(txtId.Text);
+                Class @class = classService.GetById(Id);
+                if (@class == null)
+                {
+                    throw new Exception("Class Id not found!");
+                }
+                classService.Delete(Id);
+                Load();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                int size = Convert.ToInt32(txtSize1.Text);
+                Class @class = new Class() { class_size = size, class_type = txtName1.Text, desciption = txtDescription1.Text};
+                classService.Add(@class);
+                Clear();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            Load();
         }
     }
 }
