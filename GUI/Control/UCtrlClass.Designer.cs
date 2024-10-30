@@ -175,19 +175,19 @@
             // 
             // btnRemoveCustomer
             // 
-            this.btnRemoveCustomer.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnRemoveCustomer.BackColor = System.Drawing.Color.White;
             this.btnRemoveCustomer.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.btnRemoveCustomer.Location = new System.Drawing.Point(402, 50);
             this.btnRemoveCustomer.Name = "btnRemoveCustomer";
             this.btnRemoveCustomer.Size = new System.Drawing.Size(105, 27);
             this.btnRemoveCustomer.TabIndex = 5;
             this.btnRemoveCustomer.Text = "Remove";
-            this.btnRemoveCustomer.UseVisualStyleBackColor = true;
+            this.btnRemoveCustomer.UseVisualStyleBackColor = false;
             this.btnRemoveCustomer.Click += new System.EventHandler(this.btnRemoveCustomer_Click);
             // 
             // btnAddCustomer
             // 
-            this.btnAddCustomer.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnAddCustomer.BackColor = System.Drawing.Color.White;
             this.btnAddCustomer.Enabled = false;
             this.btnAddCustomer.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.btnAddCustomer.Location = new System.Drawing.Point(402, 17);
@@ -195,7 +195,7 @@
             this.btnAddCustomer.Size = new System.Drawing.Size(105, 27);
             this.btnAddCustomer.TabIndex = 4;
             this.btnAddCustomer.Text = "Add";
-            this.btnAddCustomer.UseVisualStyleBackColor = true;
+            this.btnAddCustomer.UseVisualStyleBackColor = false;
             this.btnAddCustomer.Click += new System.EventHandler(this.btnAddCustomer_Click);
             // 
             // label3
@@ -302,14 +302,14 @@
             // 
             // btnRemoveInstructor
             // 
-            this.btnRemoveInstructor.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnRemoveInstructor.BackColor = System.Drawing.Color.White;
             this.btnRemoveInstructor.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.btnRemoveInstructor.Location = new System.Drawing.Point(411, 50);
             this.btnRemoveInstructor.Name = "btnRemoveInstructor";
             this.btnRemoveInstructor.Size = new System.Drawing.Size(105, 27);
             this.btnRemoveInstructor.TabIndex = 5;
             this.btnRemoveInstructor.Text = "Remove";
-            this.btnRemoveInstructor.UseVisualStyleBackColor = true;
+            this.btnRemoveInstructor.UseVisualStyleBackColor = false;
             this.btnRemoveInstructor.Click += new System.EventHandler(this.btnRemoveInstructor_Click);
             // 
             // lblInstructorName
@@ -387,7 +387,7 @@
             // 
             // btnAddInstructor
             // 
-            this.btnAddInstructor.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnAddInstructor.BackColor = System.Drawing.Color.White;
             this.btnAddInstructor.Enabled = false;
             this.btnAddInstructor.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.btnAddInstructor.Location = new System.Drawing.Point(411, 17);
@@ -395,7 +395,7 @@
             this.btnAddInstructor.Size = new System.Drawing.Size(105, 27);
             this.btnAddInstructor.TabIndex = 4;
             this.btnAddInstructor.Text = "Add";
-            this.btnAddInstructor.UseVisualStyleBackColor = true;
+            this.btnAddInstructor.UseVisualStyleBackColor = false;
             this.btnAddInstructor.Click += new System.EventHandler(this.btnAddInstructor_Click);
             // 
             // label6
@@ -669,6 +669,7 @@
             // 
             // txtDescription
             // 
+            this.txtDescription.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.txtDescription.Location = new System.Drawing.Point(135, 136);
             this.txtDescription.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtDescription.Multiline = true;
@@ -678,6 +679,7 @@
             // 
             // txtSize
             // 
+            this.txtSize.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.txtSize.Location = new System.Drawing.Point(135, 93);
             this.txtSize.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtSize.Name = "txtSize";
@@ -687,6 +689,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
+            this.label8.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.label8.Location = new System.Drawing.Point(33, 142);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(75, 16);
@@ -695,6 +698,7 @@
             // 
             // txtName
             // 
+            this.txtName.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.txtName.Location = new System.Drawing.Point(135, 58);
             this.txtName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtName.Name = "txtName";
@@ -704,6 +708,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
+            this.label7.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.label7.Location = new System.Drawing.Point(33, 99);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(33, 16);
@@ -713,6 +718,7 @@
             // txtId
             // 
             this.txtId.Enabled = false;
+            this.txtId.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.txtId.Location = new System.Drawing.Point(135, 19);
             this.txtId.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtId.Name = "txtId";
@@ -722,6 +728,7 @@
             // label15
             // 
             this.label15.AutoSize = true;
+            this.label15.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.label15.Location = new System.Drawing.Point(33, 64);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(44, 16);
@@ -731,6 +738,7 @@
             // label16
             // 
             this.label16.AutoSize = true;
+            this.label16.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.label16.Location = new System.Drawing.Point(33, 22);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(20, 16);
@@ -774,6 +782,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
+            this.label9.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.label9.Location = new System.Drawing.Point(27, 130);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(75, 16);
@@ -783,6 +792,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
+            this.label10.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.label10.Location = new System.Drawing.Point(27, 87);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(33, 16);
@@ -817,6 +827,7 @@
             // label13
             // 
             this.label13.AutoSize = true;
+            this.label13.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.label13.Location = new System.Drawing.Point(27, 42);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(44, 16);
