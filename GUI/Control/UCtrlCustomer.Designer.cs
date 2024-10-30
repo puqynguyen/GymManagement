@@ -41,27 +41,19 @@
             this.btnHistory = new System.Windows.Forms.Button();
             this.CustomerAdd = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.cbbMem = new System.Windows.Forms.ComboBox();
-            this.cbbClass = new System.Windows.Forms.ComboBox();
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnRemove = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
-            this.txtName = new System.Windows.Forms.TextBox();
-            this.txtId = new System.Windows.Forms.TextBox();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
-            this.label16 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.button5 = new System.Windows.Forms.Button();
-            this.dtpDateJoin = new System.Windows.Forms.DateTimePicker();
-            this.dtpBirth = new System.Windows.Forms.DateTimePicker();
-            this.rdbFemale = new System.Windows.Forms.RadioButton();
-            this.rdbMale = new System.Windows.Forms.RadioButton();
-            this.txtContact = new System.Windows.Forms.TextBox();
-            this.txtAddress = new System.Windows.Forms.TextBox();
-            this.txtName2 = new System.Windows.Forms.TextBox();
-            this.txtId2 = new System.Windows.Forms.TextBox();
+            this.dtpDateJoin1 = new System.Windows.Forms.DateTimePicker();
+            this.dtpBirth1 = new System.Windows.Forms.DateTimePicker();
+            this.rdbFemale1 = new System.Windows.Forms.RadioButton();
+            this.rdbMale1 = new System.Windows.Forms.RadioButton();
+            this.txtContact1 = new System.Windows.Forms.TextBox();
+            this.txtAddress1 = new System.Windows.Forms.TextBox();
+            this.txtName1 = new System.Windows.Forms.TextBox();
+            this.txtId1 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -70,15 +62,30 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.ckbActive = new System.Windows.Forms.CheckBox();
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.label10 = new System.Windows.Forms.Label();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.dtpDataJoin = new System.Windows.Forms.DateTimePicker();
+            this.label9 = new System.Windows.Forms.Label();
+            this.Address = new System.Windows.Forms.TextBox();
+            this.dtpBirthdate = new System.Windows.Forms.DateTimePicker();
+            this.txtContact = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.rdbFemale = new System.Windows.Forms.RadioButton();
+            this.label13 = new System.Windows.Forms.Label();
+            this.txtName = new System.Windows.Forms.TextBox();
+            this.rdbMale = new System.Windows.Forms.RadioButton();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.cbbMem = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAdjust)).BeginInit();
             this.CustomerAdd.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
-            this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
+            this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // txtSearch
@@ -103,7 +110,7 @@
             this.Column5,
             this.Column6,
             this.Mem});
-            this.dgvAdjust.Location = new System.Drawing.Point(425, 78);
+            this.dgvAdjust.Location = new System.Drawing.Point(428, 80);
             this.dgvAdjust.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dgvAdjust.Name = "dgvAdjust";
             this.dgvAdjust.RowHeadersVisible = false;
@@ -201,26 +208,6 @@
             this.tabPage1.Text = "Ajust/Remove";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
-            // cbbMem
-            // 
-            this.cbbMem.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.cbbMem.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbbMem.FormattingEnabled = true;
-            this.cbbMem.Location = new System.Drawing.Point(135, 240);
-            this.cbbMem.Name = "cbbMem";
-            this.cbbMem.Size = new System.Drawing.Size(231, 30);
-            this.cbbMem.TabIndex = 29;
-            // 
-            // cbbClass
-            // 
-            this.cbbClass.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.cbbClass.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbbClass.FormattingEnabled = true;
-            this.cbbClass.Location = new System.Drawing.Point(135, 168);
-            this.cbbClass.Name = "cbbClass";
-            this.cbbClass.Size = new System.Drawing.Size(231, 30);
-            this.cbbClass.TabIndex = 29;
-            // 
             // btnCancel
             // 
             this.btnCancel.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -269,70 +256,6 @@
             this.btnAdd.Text = "Update";
             this.btnAdd.UseVisualStyleBackColor = false;
             // 
-            // txtName
-            // 
-            this.txtName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtName.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtName.Location = new System.Drawing.Point(135, 94);
-            this.txtName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(231, 28);
-            this.txtName.TabIndex = 19;
-            // 
-            // txtId
-            // 
-            this.txtId.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtId.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtId.Location = new System.Drawing.Point(135, 22);
-            this.txtId.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtId.Name = "txtId";
-            this.txtId.Size = new System.Drawing.Size(231, 28);
-            this.txtId.TabIndex = 18;
-            // 
-            // label9
-            // 
-            this.label9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(3, 240);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(126, 25);
-            this.label9.TabIndex = 16;
-            this.label9.Text = "Membership";
-            // 
-            // label
-            // 
-            this.label.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.label.AutoSize = true;
-            this.label.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label.Location = new System.Drawing.Point(3, 167);
-            this.label.Name = "label";
-            this.label.Size = new System.Drawing.Size(126, 25);
-            this.label.TabIndex = 16;
-            this.label.Text = "Class";
-            // 
-            // label15
-            // 
-            this.label15.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.label15.AutoSize = true;
-            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.Location = new System.Drawing.Point(3, 95);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(126, 25);
-            this.label15.TabIndex = 17;
-            this.label15.Text = "Name";
-            // 
-            // label16
-            // 
-            this.label16.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.label16.AutoSize = true;
-            this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.Location = new System.Drawing.Point(3, 23);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(126, 25);
-            this.label16.TabIndex = 10;
-            this.label16.Text = "Id Customer";
-            // 
             // tabPage2
             // 
             this.tabPage2.Controls.Add(this.tableLayoutPanel2);
@@ -361,97 +284,97 @@
             this.button5.Text = "Add";
             this.button5.UseVisualStyleBackColor = false;
             // 
-            // dtpDateJoin
+            // dtpDateJoin1
             // 
-            this.dtpDateJoin.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.dtpDateJoin.CustomFormat = "dd/MM/yyyy";
-            this.dtpDateJoin.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtpDateJoin.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpDateJoin.Location = new System.Drawing.Point(154, 342);
-            this.dtpDateJoin.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.dtpDateJoin.Name = "dtpDateJoin";
-            this.dtpDateJoin.Size = new System.Drawing.Size(212, 28);
-            this.dtpDateJoin.TabIndex = 40;
+            this.dtpDateJoin1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.dtpDateJoin1.CustomFormat = "dd/MM/yyyy";
+            this.dtpDateJoin1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpDateJoin1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpDateJoin1.Location = new System.Drawing.Point(154, 342);
+            this.dtpDateJoin1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dtpDateJoin1.Name = "dtpDateJoin1";
+            this.dtpDateJoin1.Size = new System.Drawing.Size(212, 28);
+            this.dtpDateJoin1.TabIndex = 40;
             // 
-            // dtpBirth
+            // dtpBirth1
             // 
-            this.dtpBirth.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.dtpBirth.CustomFormat = "dd/MM/yyyy";
-            this.dtpBirth.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtpBirth.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpBirth.Location = new System.Drawing.Point(154, 197);
-            this.dtpBirth.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.dtpBirth.Name = "dtpBirth";
-            this.dtpBirth.Size = new System.Drawing.Size(212, 28);
-            this.dtpBirth.TabIndex = 39;
+            this.dtpBirth1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.dtpBirth1.CustomFormat = "dd/MM/yyyy";
+            this.dtpBirth1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpBirth1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpBirth1.Location = new System.Drawing.Point(154, 197);
+            this.dtpBirth1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dtpBirth1.Name = "dtpBirth1";
+            this.dtpBirth1.Size = new System.Drawing.Size(212, 28);
+            this.dtpBirth1.TabIndex = 39;
             // 
-            // rdbFemale
+            // rdbFemale1
             // 
-            this.rdbFemale.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.rdbFemale.AutoSize = true;
-            this.rdbFemale.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rdbFemale.Location = new System.Drawing.Point(154, 151);
-            this.rdbFemale.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.rdbFemale.Name = "rdbFemale";
-            this.rdbFemale.Size = new System.Drawing.Size(212, 26);
-            this.rdbFemale.TabIndex = 38;
-            this.rdbFemale.TabStop = true;
-            this.rdbFemale.Text = "Female";
-            this.rdbFemale.UseVisualStyleBackColor = true;
+            this.rdbFemale1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.rdbFemale1.AutoSize = true;
+            this.rdbFemale1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rdbFemale1.Location = new System.Drawing.Point(154, 151);
+            this.rdbFemale1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.rdbFemale1.Name = "rdbFemale1";
+            this.rdbFemale1.Size = new System.Drawing.Size(212, 26);
+            this.rdbFemale1.TabIndex = 38;
+            this.rdbFemale1.TabStop = true;
+            this.rdbFemale1.Text = "Female";
+            this.rdbFemale1.UseVisualStyleBackColor = true;
             // 
-            // rdbMale
+            // rdbMale1
             // 
-            this.rdbMale.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.rdbMale.AutoSize = true;
-            this.rdbMale.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rdbMale.Location = new System.Drawing.Point(154, 104);
-            this.rdbMale.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.rdbMale.Name = "rdbMale";
-            this.rdbMale.Size = new System.Drawing.Size(212, 26);
-            this.rdbMale.TabIndex = 37;
-            this.rdbMale.TabStop = true;
-            this.rdbMale.Text = "Male";
-            this.rdbMale.UseVisualStyleBackColor = true;
+            this.rdbMale1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.rdbMale1.AutoSize = true;
+            this.rdbMale1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rdbMale1.Location = new System.Drawing.Point(154, 104);
+            this.rdbMale1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.rdbMale1.Name = "rdbMale1";
+            this.rdbMale1.Size = new System.Drawing.Size(212, 26);
+            this.rdbMale1.TabIndex = 37;
+            this.rdbMale1.TabStop = true;
+            this.rdbMale1.Text = "Male";
+            this.rdbMale1.UseVisualStyleBackColor = true;
             // 
-            // txtContact
+            // txtContact1
             // 
-            this.txtContact.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtContact.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtContact.Location = new System.Drawing.Point(154, 244);
-            this.txtContact.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtContact.Name = "txtContact";
-            this.txtContact.Size = new System.Drawing.Size(212, 28);
-            this.txtContact.TabIndex = 36;
+            this.txtContact1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtContact1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtContact1.Location = new System.Drawing.Point(154, 244);
+            this.txtContact1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtContact1.Name = "txtContact1";
+            this.txtContact1.Size = new System.Drawing.Size(212, 28);
+            this.txtContact1.TabIndex = 36;
             // 
-            // txtAddress
+            // txtAddress1
             // 
-            this.txtAddress.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtAddress.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtAddress.Location = new System.Drawing.Point(154, 291);
-            this.txtAddress.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtAddress.Name = "txtAddress";
-            this.txtAddress.Size = new System.Drawing.Size(212, 28);
-            this.txtAddress.TabIndex = 35;
+            this.txtAddress1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtAddress1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtAddress1.Location = new System.Drawing.Point(154, 291);
+            this.txtAddress1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtAddress1.Name = "txtAddress1";
+            this.txtAddress1.Size = new System.Drawing.Size(212, 28);
+            this.txtAddress1.TabIndex = 35;
             // 
-            // txtName2
+            // txtName1
             // 
-            this.txtName2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtName2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtName2.Location = new System.Drawing.Point(154, 56);
-            this.txtName2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtName2.Name = "txtName2";
-            this.txtName2.Size = new System.Drawing.Size(212, 28);
-            this.txtName2.TabIndex = 34;
+            this.txtName1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtName1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtName1.Location = new System.Drawing.Point(154, 56);
+            this.txtName1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtName1.Name = "txtName1";
+            this.txtName1.Size = new System.Drawing.Size(212, 28);
+            this.txtName1.TabIndex = 34;
             // 
-            // txtId2
+            // txtId1
             // 
-            this.txtId2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtId2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtId2.Location = new System.Drawing.Point(154, 9);
-            this.txtId2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtId2.Name = "txtId2";
-            this.txtId2.Size = new System.Drawing.Size(212, 28);
-            this.txtId2.TabIndex = 33;
+            this.txtId1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtId1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtId1.Location = new System.Drawing.Point(154, 9);
+            this.txtId1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtId1.Name = "txtId1";
+            this.txtId1.Size = new System.Drawing.Size(212, 28);
+            this.txtId1.TabIndex = 33;
             // 
             // label1
             // 
@@ -540,47 +463,24 @@
             this.ckbActive.Text = "Active";
             this.ckbActive.UseVisualStyleBackColor = true;
             // 
-            // tableLayoutPanel1
-            // 
-            this.tableLayoutPanel1.ColumnCount = 2;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 35.77236F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 64.22765F));
-            this.tableLayoutPanel1.Controls.Add(this.cbbMem, 1, 3);
-            this.tableLayoutPanel1.Controls.Add(this.label16, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.cbbClass, 1, 2);
-            this.tableLayoutPanel1.Controls.Add(this.label15, 0, 1);
-            this.tableLayoutPanel1.Controls.Add(this.label, 0, 2);
-            this.tableLayoutPanel1.Controls.Add(this.label9, 0, 3);
-            this.tableLayoutPanel1.Controls.Add(this.txtId, 1, 0);
-            this.tableLayoutPanel1.Controls.Add(this.txtName, 1, 1);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(6, 6);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 4;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(369, 289);
-            this.tableLayoutPanel1.TabIndex = 12;
-            // 
             // tableLayoutPanel2
             // 
             this.tableLayoutPanel2.ColumnCount = 2;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40.92141F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 59.07859F));
             this.tableLayoutPanel2.Controls.Add(this.label8, 0, 0);
-            this.tableLayoutPanel2.Controls.Add(this.dtpDateJoin, 1, 7);
-            this.tableLayoutPanel2.Controls.Add(this.txtId2, 1, 0);
+            this.tableLayoutPanel2.Controls.Add(this.dtpDateJoin1, 1, 7);
+            this.tableLayoutPanel2.Controls.Add(this.txtId1, 1, 0);
             this.tableLayoutPanel2.Controls.Add(this.label1, 0, 7);
-            this.tableLayoutPanel2.Controls.Add(this.txtAddress, 1, 6);
-            this.tableLayoutPanel2.Controls.Add(this.dtpBirth, 1, 4);
-            this.tableLayoutPanel2.Controls.Add(this.txtContact, 1, 5);
+            this.tableLayoutPanel2.Controls.Add(this.txtAddress1, 1, 6);
+            this.tableLayoutPanel2.Controls.Add(this.dtpBirth1, 1, 4);
+            this.tableLayoutPanel2.Controls.Add(this.txtContact1, 1, 5);
             this.tableLayoutPanel2.Controls.Add(this.label3, 0, 6);
             this.tableLayoutPanel2.Controls.Add(this.label6, 0, 1);
-            this.tableLayoutPanel2.Controls.Add(this.rdbFemale, 1, 3);
+            this.tableLayoutPanel2.Controls.Add(this.rdbFemale1, 1, 3);
             this.tableLayoutPanel2.Controls.Add(this.label2, 0, 5);
-            this.tableLayoutPanel2.Controls.Add(this.txtName2, 1, 1);
-            this.tableLayoutPanel2.Controls.Add(this.rdbMale, 1, 2);
+            this.tableLayoutPanel2.Controls.Add(this.txtName1, 1, 1);
+            this.tableLayoutPanel2.Controls.Add(this.rdbMale1, 1, 2);
             this.tableLayoutPanel2.Controls.Add(this.label5, 0, 2);
             this.tableLayoutPanel2.Controls.Add(this.label4, 0, 4);
             this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 3);
@@ -606,6 +506,208 @@
             this.label10.TabIndex = 12;
             this.label10.Text = "Search";
             // 
+            // tableLayoutPanel1
+            // 
+            this.tableLayoutPanel1.ColumnCount = 2;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40.92141F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 59.07859F));
+            this.tableLayoutPanel1.Controls.Add(this.label12, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.txtName, 1, 0);
+            this.tableLayoutPanel1.Controls.Add(this.label14, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.rdbMale, 1, 1);
+            this.tableLayoutPanel1.Controls.Add(this.rdbFemale, 1, 2);
+            this.tableLayoutPanel1.Controls.Add(this.label15, 0, 3);
+            this.tableLayoutPanel1.Controls.Add(this.dtpBirthdate, 1, 3);
+            this.tableLayoutPanel1.Controls.Add(this.label13, 0, 4);
+            this.tableLayoutPanel1.Controls.Add(this.txtContact, 1, 4);
+            this.tableLayoutPanel1.Controls.Add(this.label11, 0, 5);
+            this.tableLayoutPanel1.Controls.Add(this.Address, 1, 5);
+            this.tableLayoutPanel1.Controls.Add(this.label9, 0, 6);
+            this.tableLayoutPanel1.Controls.Add(this.dtpDataJoin, 1, 6);
+            this.tableLayoutPanel1.Controls.Add(this.label7, 0, 7);
+            this.tableLayoutPanel1.Controls.Add(this.cbbMem, 1, 7);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(9, 6);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 8;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(369, 299);
+            this.tableLayoutPanel1.TabIndex = 29;
+            // 
+            // dtpDataJoin
+            // 
+            this.dtpDataJoin.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.dtpDataJoin.CustomFormat = "dd/MM/yyyy";
+            this.dtpDataJoin.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpDataJoin.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpDataJoin.Location = new System.Drawing.Point(154, 226);
+            this.dtpDataJoin.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dtpDataJoin.Name = "dtpDataJoin";
+            this.dtpDataJoin.Size = new System.Drawing.Size(212, 28);
+            this.dtpDataJoin.TabIndex = 40;
+            // 
+            // label9
+            // 
+            this.label9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(3, 229);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(145, 22);
+            this.label9.TabIndex = 31;
+            this.label9.Text = "Date join";
+            // 
+            // Address
+            // 
+            this.Address.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.Address.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Address.Location = new System.Drawing.Point(154, 189);
+            this.Address.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Address.Name = "Address";
+            this.Address.Size = new System.Drawing.Size(212, 28);
+            this.Address.TabIndex = 35;
+            // 
+            // dtpBirthdate
+            // 
+            this.dtpBirthdate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.dtpBirthdate.CustomFormat = "dd/MM/yyyy";
+            this.dtpBirthdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpBirthdate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpBirthdate.Location = new System.Drawing.Point(154, 115);
+            this.dtpBirthdate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dtpBirthdate.Name = "dtpBirthdate";
+            this.dtpBirthdate.Size = new System.Drawing.Size(212, 28);
+            this.dtpBirthdate.TabIndex = 39;
+            // 
+            // txtContact
+            // 
+            this.txtContact.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtContact.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtContact.Location = new System.Drawing.Point(154, 152);
+            this.txtContact.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtContact.Name = "txtContact";
+            this.txtContact.Size = new System.Drawing.Size(212, 28);
+            this.txtContact.TabIndex = 36;
+            // 
+            // label11
+            // 
+            this.label11.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Location = new System.Drawing.Point(3, 192);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(145, 22);
+            this.label11.TabIndex = 29;
+            this.label11.Text = "Address";
+            // 
+            // label12
+            // 
+            this.label12.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Location = new System.Drawing.Point(3, 7);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(145, 22);
+            this.label12.TabIndex = 32;
+            this.label12.Text = "Name";
+            // 
+            // rdbFemale
+            // 
+            this.rdbFemale.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.rdbFemale.AutoSize = true;
+            this.rdbFemale.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rdbFemale.Location = new System.Drawing.Point(154, 79);
+            this.rdbFemale.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.rdbFemale.Name = "rdbFemale";
+            this.rdbFemale.Size = new System.Drawing.Size(212, 26);
+            this.rdbFemale.TabIndex = 38;
+            this.rdbFemale.TabStop = true;
+            this.rdbFemale.Text = "Female";
+            this.rdbFemale.UseVisualStyleBackColor = true;
+            // 
+            // label13
+            // 
+            this.label13.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.Location = new System.Drawing.Point(3, 155);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(145, 22);
+            this.label13.TabIndex = 30;
+            this.label13.Text = "Contact";
+            // 
+            // txtName
+            // 
+            this.txtName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtName.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtName.Location = new System.Drawing.Point(154, 4);
+            this.txtName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtName.Name = "txtName";
+            this.txtName.Size = new System.Drawing.Size(212, 28);
+            this.txtName.TabIndex = 34;
+            // 
+            // rdbMale
+            // 
+            this.rdbMale.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.rdbMale.AutoSize = true;
+            this.rdbMale.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rdbMale.Location = new System.Drawing.Point(154, 42);
+            this.rdbMale.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.rdbMale.Name = "rdbMale";
+            this.rdbMale.Size = new System.Drawing.Size(212, 26);
+            this.rdbMale.TabIndex = 37;
+            this.rdbMale.TabStop = true;
+            this.rdbMale.Text = "Male";
+            this.rdbMale.UseVisualStyleBackColor = true;
+            // 
+            // label14
+            // 
+            this.label14.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.Location = new System.Drawing.Point(3, 44);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(145, 22);
+            this.label14.TabIndex = 27;
+            this.label14.Text = "Gender";
+            // 
+            // label15
+            // 
+            this.label15.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.Location = new System.Drawing.Point(3, 118);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(145, 22);
+            this.label15.TabIndex = 28;
+            this.label15.Text = "Birthdate";
+            // 
+            // label7
+            // 
+            this.label7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(3, 268);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(145, 22);
+            this.label7.TabIndex = 31;
+            this.label7.Text = "Membership";
+            // 
+            // cbbMem
+            // 
+            this.cbbMem.FormattingEnabled = true;
+            this.cbbMem.Location = new System.Drawing.Point(154, 262);
+            this.cbbMem.Name = "cbbMem";
+            this.cbbMem.Size = new System.Drawing.Size(209, 24);
+            this.cbbMem.TabIndex = 41;
+            // 
             // UCtrlCustomer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -622,10 +724,10 @@
             this.CustomerAdd.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);
-            this.tableLayoutPanel1.ResumeLayout(false);
-            this.tableLayoutPanel1.PerformLayout();
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();
+            this.tableLayoutPanel1.ResumeLayout(false);
+            this.tableLayoutPanel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -639,23 +741,17 @@
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.Button btnRemove;
         private System.Windows.Forms.Button btnAdd;
-        private System.Windows.Forms.TextBox txtName;
-        private System.Windows.Forms.TextBox txtId;
-        private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.Label label16;
         private System.Windows.Forms.TabPage tabPage2;
-        private System.Windows.Forms.ComboBox cbbClass;
         private System.Windows.Forms.Button btnCancel;
-        private System.Windows.Forms.Label label;
         private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.DateTimePicker dtpDateJoin;
-        private System.Windows.Forms.DateTimePicker dtpBirth;
-        private System.Windows.Forms.RadioButton rdbFemale;
-        private System.Windows.Forms.RadioButton rdbMale;
-        private System.Windows.Forms.TextBox txtContact;
-        private System.Windows.Forms.TextBox txtAddress;
-        private System.Windows.Forms.TextBox txtName2;
-        private System.Windows.Forms.TextBox txtId2;
+        private System.Windows.Forms.DateTimePicker dtpDateJoin1;
+        private System.Windows.Forms.DateTimePicker dtpBirth1;
+        private System.Windows.Forms.RadioButton rdbFemale1;
+        private System.Windows.Forms.RadioButton rdbMale1;
+        private System.Windows.Forms.TextBox txtContact1;
+        private System.Windows.Forms.TextBox txtAddress1;
+        private System.Windows.Forms.TextBox txtName1;
+        private System.Windows.Forms.TextBox txtId1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
@@ -663,8 +759,6 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.ComboBox cbbMem;
-        private System.Windows.Forms.Label label9;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
@@ -674,8 +768,23 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
         private System.Windows.Forms.DataGridViewTextBoxColumn Mem;
         private System.Windows.Forms.CheckBox ckbActive;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.TextBox txtName;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.RadioButton rdbMale;
+        private System.Windows.Forms.RadioButton rdbFemale;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.DateTimePicker dtpBirthdate;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.TextBox txtContact;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.TextBox Address;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.DateTimePicker dtpDataJoin;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.ComboBox cbbMem;
     }
 }
