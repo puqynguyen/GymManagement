@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using DAL.Repository;
 using DTO.Entities;
 
@@ -40,6 +41,10 @@ namespace BUS.Services
         public void AddMembershipToCustomer(int customerId, int membershipId, DateTime startDate)
         {
             _repository.AddMembershipToCustomer(customerId, membershipId, startDate);
+        }
+        public DataTable GetMonthlyMembershipRevenue()
+        {
+            return _repository.GetMonthlyMembershipRevenue();
         }
     }
 }
