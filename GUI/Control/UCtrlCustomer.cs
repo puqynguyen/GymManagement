@@ -17,10 +17,10 @@ namespace GUI.Control
         public UCtrlCustomer()
         {
             InitializeComponent();
-            dataGridView1.DefaultCellStyle.ForeColor = Color.Black;
-            dataGridView1.DefaultCellStyle.BackColor = Color.White;
-            dataGridView1.DefaultCellStyle.SelectionForeColor = Color.White;
-            dataGridView1.DefaultCellStyle.SelectionBackColor = Color.DarkBlue;
+            dgvAdjust.DefaultCellStyle.ForeColor = Color.Black;
+            dgvAdjust.DefaultCellStyle.BackColor = Color.White;
+            dgvAdjust.DefaultCellStyle.SelectionForeColor = Color.White;
+            dgvAdjust.DefaultCellStyle.SelectionBackColor = Color.DarkBlue;
             Load();
         }
         private void Load()
@@ -31,50 +31,33 @@ namespace GUI.Control
         }
         private void BindGrid(IEnumerable<Customer> customers)
         {
-            dataGridView1.Rows.Clear();
+            dgvAdjust.Rows.Clear();
             foreach (var item in customers)
             {
-                int index = dataGridView1.Rows.Add();
-                dataGridView1.Rows[index].Cells[0].Value = item.CustomerID;
-                dataGridView1.Rows[index].Cells[1].Value = item.name;
-                dataGridView1.Rows[index].Cells[2].Value = item.sex;
-                dataGridView1.Rows[index].Cells[3].Value = item.age;
-                dataGridView1.Rows[index].Cells[4].Value = item.contact_info;
-                dataGridView1.Rows[index].Cells[5].Value = item.address;
-                dataGridView1.Rows[index].Cells[6].Value = item.date_joined;
+                int index = dgvAdjust.Rows.Add();
+                dgvAdjust.Rows[index].Cells[0].Value = item.CustomerID;
+                dgvAdjust.Rows[index].Cells[1].Value = item.name;
+                dgvAdjust.Rows[index].Cells[2].Value = item.sex;
+                dgvAdjust.Rows[index].Cells[3].Value = item.age;
+                dgvAdjust.Rows[index].Cells[4].Value = item.contact_info;
+                dgvAdjust.Rows[index].Cells[5].Value = item.address;
+                dgvAdjust.Rows[index].Cells[6].Value = item.date_joined;
                 var membership = customerService.GetActiveMembershipByCustomerId(item.CustomerID);
 
                 if (membership != null)
                 {
-                    dataGridView1.Rows[index].Cells[7].Value = membership.name;
+                    dgvAdjust.Rows[index].Cells[7].Value = membership.name;
                 }
                 else
                 {
-                    dataGridView1.Rows[index].Cells[7].Value = "No active membership";
+                    dgvAdjust.Rows[index].Cells[7].Value = "No active membership";
                 }
             }
         }
 
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void dgvAdjust_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex >= 0 && dataGridView1.Columns[0].Index >= 0)
-            {
-                txtIdV.Text = dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString();
-                txtNameV.Text = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
-                txt.Text = dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString();
-                txtPrice.Text = dataGridView1.Rows[e.RowIndex].Cells[3].Value.ToString();
-
-                // Parse the date string to DateTime and assign it to dtpCreateDate.Value
-                DateTime dateValue;
-                if (DateTime.TryParse(dataGridView1.Rows[e.RowIndex].Cells[4].Value.ToString(), out dateValue))
-                {
-                    dtpCreateDate.Value = dateValue;
-                }
-                else
-                {
-                    MessageBox.Show("Invalid date format in the selected row.");
-                }
-            }
         }
+
     }
 }
