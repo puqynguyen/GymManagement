@@ -85,6 +85,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FormCusClass.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormCusClass.Designer.cs">
+      <DependentUpon>FormCusClass.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormBrand.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -194,6 +200,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormAddToClass.resx">
       <DependentUpon>FormAddToClass.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormCusClass.resx">
+      <DependentUpon>FormCusClass.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormHistory.resx">
       <DependentUpon>FormHistory.cs</DependentUpon>

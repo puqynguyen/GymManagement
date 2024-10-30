@@ -48,12 +48,13 @@
             this.StartDate,
             this.EndDate,
             this.Price});
-            this.dvgHistory.Location = new System.Drawing.Point(0, 117);
+            this.dvgHistory.Location = new System.Drawing.Point(102, 91);
+            this.dvgHistory.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dvgHistory.Name = "dvgHistory";
             this.dvgHistory.RowHeadersVisible = false;
             this.dvgHistory.RowHeadersWidth = 51;
             this.dvgHistory.RowTemplate.Height = 24;
-            this.dvgHistory.Size = new System.Drawing.Size(809, 377);
+            this.dvgHistory.Size = new System.Drawing.Size(654, 306);
             this.dvgHistory.TabIndex = 0;
             // 
             // Id
@@ -89,19 +90,22 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(315, 64);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(271, 31);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(109, 16);
+            this.label1.Size = new System.Drawing.Size(274, 37);
             this.label1.TabIndex = 1;
             this.label1.Text = "Registion History";
             // 
             // FormHistory
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1205, 502);
+            this.ClientSize = new System.Drawing.Size(904, 408);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dvgHistory);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "FormHistory";
             this.Text = "FormHistory";
             ((System.ComponentModel.ISupportInitialize)(this.dvgHistory)).EndInit();

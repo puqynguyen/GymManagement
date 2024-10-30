@@ -22,23 +22,23 @@ namespace GUI
         }
         public void BindGrid(IEnumerable<Brand> brands)
         {
-            dataGridView1.Rows.Clear();
+            dgvBrand.Rows.Clear();
             foreach (var item in brands)
             {
-                int index = dataGridView1.Rows.Add();
-                dataGridView1.Rows[index].Cells[0].Value = item.BrandID;
-                dataGridView1.Rows[index].Cells[1].Value = item.name;
-                dataGridView1.Rows[index].Cells[2].Value = item.contact_info;
+                int index = dgvBrand.Rows.Add();
+                dgvBrand.Rows[index].Cells[0].Value = item.BrandID;
+                dgvBrand.Rows[index].Cells[1].Value = item.name;
+                dgvBrand.Rows[index].Cells[2].Value = item.contact_info;
             }
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex >= 0 && dataGridView1.Columns[0].Index >= 0)
+            if (e.RowIndex >= 0 && dgvBrand.Columns[0].Index >= 0)
             {
-                txtId.Text = dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString();
-                txtName.Text = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
-                txtContact.Text = dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString();
+                txtId.Text = dgvBrand.Rows[e.RowIndex].Cells[0].Value.ToString();
+                txtName.Text = dgvBrand.Rows[e.RowIndex].Cells[1].Value.ToString();
+                txtContact.Text = dgvBrand.Rows[e.RowIndex].Cells[2].Value.ToString();
             }
         }
 
