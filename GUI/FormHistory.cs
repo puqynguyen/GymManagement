@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace GUI
 {
-    public partial class Membership_Edit : Form
+    public partial class FormHistory : Form
     {
-        public Membership_Edit()
+        public FormHistory()
         {
             InitializeComponent();
         }

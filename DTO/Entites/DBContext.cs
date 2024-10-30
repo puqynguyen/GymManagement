@@ -67,6 +67,10 @@ namespace DTO.Entities
                 .IsUnicode(false);
 
             modelBuilder.Entity<Membership>()
+                .Property(e => e.name)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<Membership>()
                 .Property(e => e.price)
                 .HasPrecision(10, 2);
 

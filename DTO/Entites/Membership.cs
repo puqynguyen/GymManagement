@@ -17,6 +17,10 @@ namespace DTO.Entities
 
         public int MembershipID { get; set; }
 
+        [Required]
+        [StringLength(200)]
+        public string name { get; set; }
+
         [Column(TypeName = "date")]
         public DateTime? date_created { get; set; }
 

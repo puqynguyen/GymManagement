@@ -145,6 +145,12 @@
     <Compile Include="FormAddToClass.Designer.cs">
       <DependentUpon>FormAddToClass.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormHistory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormHistory.Designer.cs">
+      <DependentUpon>FormHistory.cs</DependentUpon>
+    </Compile>
     <Compile Include="LoginForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -156,12 +162,6 @@
     </Compile>
     <Compile Include="HomebaseForm.Designer.cs">
       <DependentUpon>HomebaseForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Membership_Edit.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Membership_Edit.Designer.cs">
-      <DependentUpon>Membership_Edit.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -192,14 +192,14 @@
     <EmbeddedResource Include="FormAddToClass.resx">
       <DependentUpon>FormAddToClass.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormHistory.resx">
+      <DependentUpon>FormHistory.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="HomebaseForm.resx">
       <DependentUpon>HomebaseForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Membership_Edit.resx">
-      <DependentUpon>Membership_Edit.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
