@@ -7,20 +7,109 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using BUS.Services;
+using DTO.Entities;
 
 namespace GUI.Control
 {
     public partial class UCtrlMembership : UserControl
     {
+        MembershipService membershipService = new MembershipService();
         public UCtrlMembership()
         {
             InitializeComponent();
+            DateTime dateTime = DateTime.Now;
+            dtpDateCreate2.Value = dateTime;
         }
-        FormMembership_Edit membership = new FormMembership_Edit();
-
-        private void membershipToolStripMenuItem_Click(object sender, EventArgs e)
+        public void BindGrid(IEnumerable<Membership> memberships)
         {
-            membership.Show();
+            dataGridView1.Rows.Clear();
+            foreach (var item in memberships)
+            {
+                int index = dataGridView1.Rows.Add();
+                dataGridView1.Rows[index].Cells[0].Value = item.MembershipID;
+                dataGridView1.Rows[index].Cells[1].Value = item.name;
+                dataGridView1.Rows[index].Cells[2].Value = item.membership_length;
+                dataGridView1.Rows[index].Cells[3].Value = item.price;
+            }
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0 && dataGridView1.Columns[0].Index >= 0)
+            {
+                txtId.Text = dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString();
+                txtName.Text = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
+                txtLength.Text = dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString();
+                txtPrice.Text = dataGridView1.Rows[e.RowIndex].Cells[3].Value.ToString();
+
+                // Parse the date string to DateTime and assign it to dtpCreateDate.Value
+                DateTime dateValue;
+                if (DateTime.TryParse(dataGridView1.Rows[e.RowIndex].Cells[4].Value.ToString(), out dateValue))
+                {
+                    dtpCreateDate.Value = dateValue;
+                }
+                else
+                {
+                    MessageBox.Show("Invalid date format in the selected row.");
+                }
+            }
+        }
+
+
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+
+            try
+            {
+                int Id = Convert.ToInt32(txtId.Text);
+                Membership membership = membershipService.GetById(Id);
+                if (membership == null)
+                {
+                    throw new Exception("Membership Id not found!");
+                }
+                membership.price = Convert.ToInt32(txtPrice.Text);
+                membership.membership_length = Convert.ToInt32(txtLength.Text);
+                membership.name = txtName.Text;
+                membershipService.Update(membership);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void btnRemove_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                int Id = Convert.ToInt32(txtId.Text);
+                Membership membership = membershipService.GetById(Id);
+                if (membership == null)
+                {
+                    throw new Exception("Membership Id not found!");
+                }
+                membershipService.Delete(Id);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                int length = Convert.ToInt32(txtLength2.Text);
+                decimal @price = Convert.ToDecimal(txtPrice2.Text);
+                DateTime dateTime = dtpDateCreate2.Value.ToUniversalTime();
+                Membership membership = new Membership() { membership_length = length, date_created = dtpCreateDate.Value.ToUniversalTime(), price = @price };
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }
