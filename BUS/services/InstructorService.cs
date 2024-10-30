@@ -23,7 +23,7 @@ namespace BUS
         }
         public void Delete(int instructorId)
         {
-            _repository.Delete(_repository.GetById(instructorId));
+            _repository.Delete(GetById(instructorId));
         }
         public Instructor GetById(int id)
         {

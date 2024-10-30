@@ -33,6 +33,8 @@ namespace GUI.Control
             dgvCustomer.DefaultCellStyle.SelectionBackColor = Color.DarkBlue;
             IEnumerable<Class> classes = classService.GetAll();
             BindGridClass(classes);
+            btnRemoveCustomer.Enabled = false;
+            btnRemoveInstructor.Enabled = false;
         }
         private void BindGridClass(IEnumerable<Class> classes)
         {
@@ -106,9 +108,9 @@ namespace GUI.Control
         {
             if (e.RowIndex >= 0 && dgvCustomer.Columns[0].Index >= 0)
             {
-                txtCustomerId.Text = dgvCustomer.Rows[e.RowIndex].Cells[0].Value.ToString();
-                txtCustomerName.Text = dgvCustomer.Rows[e.RowIndex].Cells[1].Value.ToString();
-                txtContact.Text = dgvCustomer.Rows[e.RowIndex].Cells[2].Value.ToString();
+                lblCustomerId.Text = dgvCustomer.Rows[e.RowIndex].Cells[0].Value.ToString();
+                lblCustomerName.Text = dgvCustomer.Rows[e.RowIndex].Cells[1].Value.ToString();
+                lblContact.Text = dgvCustomer.Rows[e.RowIndex].Cells[2].Value.ToString();
                 btnRemoveCustomer.Enabled = true;
             }
         }
@@ -117,39 +119,21 @@ namespace GUI.Control
         {
             if (e.RowIndex >= 0 && dgvInstructor.Columns[0].Index >= 0)
             {
-                txtInstructorId.Text = dgvInstructor.Rows[e.RowIndex].Cells[0].Value.ToString();
-                txtInstructorName.Text = dgvInstructor.Rows[e.RowIndex].Cells[1].Value.ToString();
-                txtCertifications.Text = dgvInstructor.Rows[e.RowIndex].Cells[2].Value.ToString();
+                lblInstructorId.Text = dgvInstructor.Rows[e.RowIndex].Cells[0].Value.ToString();
+                lblInstructorName.Text = dgvInstructor.Rows[e.RowIndex].Cells[1].Value.ToString();
+                lblCertifications.Text = dgvInstructor.Rows[e.RowIndex].Cells[2].Value.ToString();
                 btnRemoveInstructor.Enabled = true;
             }
         }
         private void Clear()
         {
-            foreach (System.Windows.Forms.Control ctrl in this.Controls)
-            {
-                if (ctrl is TextBox textBox)
-                {
-                    textBox.Clear();
-                }
-                else if (ctrl.HasChildren)
-                {
-                    ClearControls(ctrl);
-                }
-            }
-        }
-        private void ClearControls(System.Windows.Forms.Control parent)
-        {
-            foreach (System.Windows.Forms.Control ctrl in parent.Controls)
-            {
-                if (ctrl is TextBox textBox)
-                {
-                    textBox.Clear();
-                }
-                else if (ctrl.HasChildren)
-                {
-                    ClearControls(ctrl);
-                }
-            }
+            lblCertifications.Text = "...";
+            lblContact.Text = "...";
+            lblCustomerId.Text = "...";
+            lblCustomerName.Text = "...";
+            lblInstructorId.Text = "...";
+            lblInstructorName.Text = "...";
+
         }
 
         private void ckFull_CheckedChanged(object sender, EventArgs e)
@@ -185,13 +169,13 @@ namespace GUI.Control
 
         private void btnRemoveCustomer_Click(object sender, EventArgs e)
         {
-            int cusId = Convert.ToInt32(txtCustomerId.Text);
+            int cusId = Convert.ToInt32(lblCustomerId.Text);
             classService.RemoveCustomerFromClass(cusId, _selectedClassId);
         }
 
         private void btnRemoveInstructor_Click(object sender, EventArgs e)
         {
-            int insId = Convert.ToInt32(txtInstructorId.Text);
+            int insId = Convert.ToInt32(lblInstructorId.Text);
             classService.RemoveInstructorFromClass(insId, _selectedClassId);
         }
     }

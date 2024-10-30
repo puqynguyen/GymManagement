@@ -15,17 +15,26 @@ namespace GUI
     public partial class FormAddToClass : Form
     {
         private ClassService classService = new ClassService();
+        private int classId;
+        bool customer;
         public FormAddToClass(bool customer, int classId)
         {
+            this.classId = classId;
+            this.customer = customer;
             InitializeComponent();
+            btnAdd.Enabled = false;
+
             if (customer)
             {
+                LABEL.Text = "ADD CUSTOMER INTO CLASS";
                 IEnumerable<Customer> customers = classService.GetCustomersNotInClass(classId);
                 BindGridCustomer(customers);
             }
             else
             {
-
+                LABEL.Text = "ADD INSTRUCTOR INTO CLASS"; 
+                IEnumerable<Instructor> instructors = classService.GetInstructorsNotInClass(classId);
+                BindGridInstructor(instructors);
             }    
         }
         private void BindGridCustomer(IEnumerable<Customer> customers)
@@ -82,6 +91,29 @@ namespace GUI
                 dgvList.Rows[index].Cells["Name"].Value = instructor.name;
                 dgvList.Rows[index].Cells["Certifications"].Value = instructor.certifications;
                 dgvList.Rows[index].Cells["Gender"].Value = instructor.sex;
+            }
+        }
+
+        private void dgvList_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if(e.RowIndex >= 0 && dgvList.Columns[0].Index >= 0)
+            {
+                btnAdd.Enabled = true;
+                lblId.Text = dgvList.Rows[e.RowIndex].Cells[0].Value.ToString();
+                lblName.Text = dgvList.Rows[e.RowIndex].Cells[1].Value.ToString();
+            }
+        }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            int Id = Convert.ToInt32(lblId.Text);
+            if(customer)
+            {
+                classService.RegisterCustomerToClass(Id, classId);
+            }
+            else
+            {
+                classService.AssignInstructorToClass(Id, classId);
             }
         }
     }
