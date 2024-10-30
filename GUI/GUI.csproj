@@ -171,6 +171,9 @@
     <EmbeddedResource Include="FormBill.resx">
       <DependentUpon>FormBill.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Control\UCtrlSupplement.resx">
+      <DependentUpon>UCtrlSupplement.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormBrand.resx">
       <DependentUpon>FormBrand.cs</DependentUpon>
     </EmbeddedResource>
@@ -273,6 +276,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\icons8-chart-50.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Supplement2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Supplement3.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\images %281%29.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

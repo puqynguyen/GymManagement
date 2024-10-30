@@ -105,6 +105,7 @@ namespace GUI.Control
                 decimal @price = Convert.ToDecimal(txtPrice2.Text);
                 DateTime dateTime = dtpDateCreate2.Value.ToUniversalTime();
                 Membership membership = new Membership() { membership_length = length, date_created = dtpCreateDate.Value.ToUniversalTime(), price = @price };
+                membershipService.Add(membership);
             }
             catch (Exception ex)
             {
