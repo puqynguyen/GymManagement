@@ -16,13 +16,10 @@ namespace BUS.services
         {
             _repository = new ClassRepository(new DBContext());
         }
-        // Thêm mới Customer
         public void Add(Class cls)
         {
             _repository.Add(cls);
         }
-
-        // Xóa Customer theo ID
         public void Delete(int clsId)
         {
             var cls = _repository.GetById(clsId);
@@ -31,20 +28,14 @@ namespace BUS.services
                 _repository.Delete(cls);
             }
         }
-
-        // Lấy Customer theo ID
         public Class GetById(int id)
         {
             return _repository.GetById(id);
         }
-
-        // Cập nhật thông tin Customer
         public void Update(Class cls)
         {
             _repository.Update(cls);
         }
-
-        // Lấy tất cả các Customer
         public IEnumerable<Class> GetAll()
         {
             return _repository.GetAll();
