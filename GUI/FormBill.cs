@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Reporting.WinForms;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,17 +13,28 @@ namespace GUI
 {
     public partial class FormBill : Form
     {
+        private DataTable invoiceDetails;
+        private decimal totalAmount;
         public FormBill()
         {
             InitializeComponent();
+            InitializeComponent();
+            invoiceDetails = details;
+            totalAmount = total;
         }
 
         private void Bill_Load(object sender, EventArgs e)
         {
 
-            //this.reportViewer1.RefreshReport();
-            //this.reportViewer2.RefreshReport();
-            //this.reportViewer3.RefreshReport();
+            ReportDataSource rds = new ReportDataSource("InvoiceDataSet", invoiceDetails);
+            reportViewer1.LocalReport.DataSources.Clear();
+            reportViewer1.LocalReport.DataSources.Add(rds);
+
+            // Thiết lập tham số tổng tiền
+            ReportParameter paramTotalAmount = new ReportParameter("TotalAmount", totalAmount.ToString("C"));
+            reportViewer1.LocalReport.SetParameters(paramTotalAmount);
+
+            reportViewer1.RefreshReport();
         }
     }
 }

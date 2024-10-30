@@ -35,9 +35,9 @@
             System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.chartSupplement = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.chartMonth = new System.Windows.Forms.DataVisualization.Charting.Chart();
             ((System.ComponentModel.ISupportInitialize)(this.chartSupplement)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chartMonth)).BeginInit();
             this.SuspendLayout();
             // 
             // chartSupplement
@@ -46,42 +46,45 @@
             this.chartSupplement.ChartAreas.Add(chartArea1);
             legend1.Name = "Legend1";
             this.chartSupplement.Legends.Add(legend1);
-            this.chartSupplement.Location = new System.Drawing.Point(693, 0);
+            this.chartSupplement.Location = new System.Drawing.Point(551, 0);
+            this.chartSupplement.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.chartSupplement.Name = "chartSupplement";
             series1.ChartArea = "ChartArea1";
             series1.Legend = "Legend1";
             series1.Name = "Series1";
             this.chartSupplement.Series.Add(series1);
-            this.chartSupplement.Size = new System.Drawing.Size(457, 257);
+            this.chartSupplement.Size = new System.Drawing.Size(312, 171);
             this.chartSupplement.TabIndex = 0;
             this.chartSupplement.Text = "chart1";
             // 
-            // chart1
+            // chartMonth
             // 
             chartArea2.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea2);
+            this.chartMonth.ChartAreas.Add(chartArea2);
             legend2.Name = "Legend1";
-            this.chart1.Legends.Add(legend2);
-            this.chart1.Location = new System.Drawing.Point(46, 271);
-            this.chart1.Name = "chart1";
+            this.chartMonth.Legends.Add(legend2);
+            this.chartMonth.Location = new System.Drawing.Point(0, 170);
+            this.chartMonth.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.chartMonth.Name = "chartMonth";
             series2.ChartArea = "ChartArea1";
             series2.Legend = "Legend1";
             series2.Name = "Series1";
-            this.chart1.Series.Add(series2);
-            this.chart1.Size = new System.Drawing.Size(538, 241);
-            this.chart1.TabIndex = 0;
-            this.chart1.Text = "chart1";
+            this.chartMonth.Series.Add(series2);
+            this.chartMonth.Size = new System.Drawing.Size(545, 262);
+            this.chartMonth.TabIndex = 0;
+            this.chartMonth.Text = "chart1";
             // 
             // UCtrlChart
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.chart1);
+            this.Controls.Add(this.chartMonth);
             this.Controls.Add(this.chartSupplement);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "UCtrlChart";
-            this.Size = new System.Drawing.Size(1150, 532);
+            this.Size = new System.Drawing.Size(862, 432);
             ((System.ComponentModel.ISupportInitialize)(this.chartSupplement)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chartMonth)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -89,6 +92,6 @@
         #endregion
 
         private System.Windows.Forms.DataVisualization.Charting.Chart chartSupplement;
-        private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chartMonth;
     }
 }
