@@ -28,7 +28,6 @@ namespace GUI.Control
         {
             IEnumerable<Customer> customers = customerService.GetAll();
             BindGrid(customers);
-
         }
         private void BindGrid(IEnumerable<Customer> customers)
         {

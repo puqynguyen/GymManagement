@@ -4,7 +4,7 @@ using DTO.Entities;
 
 namespace BUS.services
 {
-    internal class SupplementService
+    public class SupplementService
     {
         private readonly IGenericRepository<Supplement> _repository;
 
