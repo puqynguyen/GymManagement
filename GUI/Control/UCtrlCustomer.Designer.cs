@@ -33,27 +33,22 @@
             this.label7 = new System.Windows.Forms.Label();
             this.txtNameSearch = new System.Windows.Forms.TextBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Mem = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnHistory = new System.Windows.Forms.Button();
             this.CustomerAdd = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.cbbMem = new System.Windows.Forms.ComboBox();
+            this.cbbClass = new System.Windows.Forms.ComboBox();
+            this.btnCancel = new System.Windows.Forms.Button();
             this.btnRemove = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
             this.txtNameV = new System.Windows.Forms.TextBox();
             this.txtIdV = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
-            this.label = new System.Windows.Forms.Label();
-            this.cbbClass = new System.Windows.Forms.ComboBox();
-            this.btnCancel = new System.Windows.Forms.Button();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.button5 = new System.Windows.Forms.Button();
             this.dtpDateJoin = new System.Windows.Forms.DateTimePicker();
             this.dtpBirth = new System.Windows.Forms.DateTimePicker();
             this.rdbFemale = new System.Windows.Forms.RadioButton();
@@ -69,10 +64,14 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            this.label9 = new System.Windows.Forms.Label();
-            this.cbbMem = new System.Windows.Forms.ComboBox();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Mem = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.CustomerAdd.SuspendLayout();
@@ -139,62 +138,14 @@
             this.Column5,
             this.Column6,
             this.Mem});
-            this.dataGridView1.Location = new System.Drawing.Point(413, 82);
+            this.dataGridView1.Location = new System.Drawing.Point(425, 78);
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(884, 455);
+            this.dataGridView1.Size = new System.Drawing.Size(898, 455);
             this.dataGridView1.TabIndex = 2;
-            // 
-            // Column1
-            // 
-            this.Column1.HeaderText = "Id";
-            this.Column1.MinimumWidth = 6;
-            this.Column1.Name = "Column1";
-            // 
-            // Column2
-            // 
-            this.Column2.HeaderText = "Name";
-            this.Column2.MinimumWidth = 6;
-            this.Column2.Name = "Column2";
-            // 
-            // Column3
-            // 
-            this.Column3.HeaderText = "Gender";
-            this.Column3.MinimumWidth = 6;
-            this.Column3.Name = "Column3";
-            // 
-            // Column4
-            // 
-            this.Column4.HeaderText = "Birthdate";
-            this.Column4.MinimumWidth = 6;
-            this.Column4.Name = "Column4";
-            // 
-            // Column7
-            // 
-            this.Column7.HeaderText = "Phone";
-            this.Column7.MinimumWidth = 6;
-            this.Column7.Name = "Column7";
-            // 
-            // Column5
-            // 
-            this.Column5.HeaderText = "Address";
-            this.Column5.MinimumWidth = 6;
-            this.Column5.Name = "Column5";
-            // 
-            // Column6
-            // 
-            this.Column6.HeaderText = "Date join";
-            this.Column6.MinimumWidth = 6;
-            this.Column6.Name = "Column6";
-            // 
-            // Mem
-            // 
-            this.Mem.HeaderText = "Membership";
-            this.Mem.MinimumWidth = 6;
-            this.Mem.Name = "Mem";
             // 
             // btnHistory
             // 
@@ -241,110 +192,16 @@
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage1.Size = new System.Drawing.Size(378, 426);
             this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "tabPage1";
+            this.tabPage1.Text = "Ajust/Remove";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
-            // tabPage2
+            // cbbMem
             // 
-            this.tabPage2.Controls.Add(this.button4);
-            this.tabPage2.Controls.Add(this.button5);
-            this.tabPage2.Controls.Add(this.dtpDateJoin);
-            this.tabPage2.Controls.Add(this.dtpBirth);
-            this.tabPage2.Controls.Add(this.rdbFemale);
-            this.tabPage2.Controls.Add(this.rdbMale);
-            this.tabPage2.Controls.Add(this.txtPhone);
-            this.tabPage2.Controls.Add(this.txtAddress);
-            this.tabPage2.Controls.Add(this.txtName);
-            this.tabPage2.Controls.Add(this.txtId);
-            this.tabPage2.Controls.Add(this.label1);
-            this.tabPage2.Controls.Add(this.label2);
-            this.tabPage2.Controls.Add(this.label3);
-            this.tabPage2.Controls.Add(this.label4);
-            this.tabPage2.Controls.Add(this.label5);
-            this.tabPage2.Controls.Add(this.label6);
-            this.tabPage2.Controls.Add(this.label8);
-            this.tabPage2.Location = new System.Drawing.Point(4, 25);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(378, 426);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "tabPage2";
-            this.tabPage2.UseVisualStyleBackColor = true;
-            // 
-            // btnRemove
-            // 
-            this.btnRemove.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnRemove.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.btnRemove.FlatAppearance.BorderSize = 0;
-            this.btnRemove.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRemove.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRemove.ForeColor = System.Drawing.Color.White;
-            this.btnRemove.Location = new System.Drawing.Point(225, 211);
-            this.btnRemove.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnRemove.Name = "btnRemove";
-            this.btnRemove.Size = new System.Drawing.Size(125, 38);
-            this.btnRemove.TabIndex = 27;
-            this.btnRemove.Text = "Remove";
-            this.btnRemove.UseVisualStyleBackColor = false;
-            // 
-            // btnAdd
-            // 
-            this.btnAdd.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnAdd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(178)))), ((int)(((byte)(50)))));
-            this.btnAdd.FlatAppearance.BorderSize = 0;
-            this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAdd.ForeColor = System.Drawing.Color.White;
-            this.btnAdd.Location = new System.Drawing.Point(36, 211);
-            this.btnAdd.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(120, 38);
-            this.btnAdd.TabIndex = 26;
-            this.btnAdd.Text = "Add";
-            this.btnAdd.UseVisualStyleBackColor = false;
-            // 
-            // txtNameV
-            // 
-            this.txtNameV.Location = new System.Drawing.Point(135, 58);
-            this.txtNameV.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtNameV.Name = "txtNameV";
-            this.txtNameV.Size = new System.Drawing.Size(167, 22);
-            this.txtNameV.TabIndex = 19;
-            // 
-            // txtIdV
-            // 
-            this.txtIdV.Location = new System.Drawing.Point(135, 19);
-            this.txtIdV.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtIdV.Name = "txtIdV";
-            this.txtIdV.Size = new System.Drawing.Size(167, 22);
-            this.txtIdV.TabIndex = 18;
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(33, 64);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(44, 16);
-            this.label15.TabIndex = 17;
-            this.label15.Text = "Name";
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(33, 22);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(78, 16);
-            this.label16.TabIndex = 10;
-            this.label16.Text = "Id Customer";
-            // 
-            // label
-            // 
-            this.label.AutoSize = true;
-            this.label.Location = new System.Drawing.Point(33, 106);
-            this.label.Name = "label";
-            this.label.Size = new System.Drawing.Size(41, 16);
-            this.label.TabIndex = 16;
-            this.label.Text = "Class";
+            this.cbbMem.FormattingEnabled = true;
+            this.cbbMem.Location = new System.Drawing.Point(135, 142);
+            this.cbbMem.Name = "cbbMem";
+            this.cbbMem.Size = new System.Drawing.Size(133, 24);
+            this.cbbMem.TabIndex = 29;
             // 
             // cbbClass
             // 
@@ -369,6 +226,132 @@
             this.btnCancel.TabIndex = 28;
             this.btnCancel.Text = "Cancel Membership";
             this.btnCancel.UseVisualStyleBackColor = false;
+            // 
+            // btnRemove
+            // 
+            this.btnRemove.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnRemove.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnRemove.FlatAppearance.BorderSize = 0;
+            this.btnRemove.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRemove.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRemove.ForeColor = System.Drawing.Color.White;
+            this.btnRemove.Location = new System.Drawing.Point(235, 211);
+            this.btnRemove.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnRemove.Name = "btnRemove";
+            this.btnRemove.Size = new System.Drawing.Size(125, 38);
+            this.btnRemove.TabIndex = 27;
+            this.btnRemove.Text = "Remove";
+            this.btnRemove.UseVisualStyleBackColor = false;
+            // 
+            // btnAdd
+            // 
+            this.btnAdd.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnAdd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(178)))), ((int)(((byte)(50)))));
+            this.btnAdd.FlatAppearance.BorderSize = 0;
+            this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAdd.ForeColor = System.Drawing.Color.White;
+            this.btnAdd.Location = new System.Drawing.Point(36, 211);
+            this.btnAdd.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(120, 38);
+            this.btnAdd.TabIndex = 26;
+            this.btnAdd.Text = "Update";
+            this.btnAdd.UseVisualStyleBackColor = false;
+            // 
+            // txtNameV
+            // 
+            this.txtNameV.Location = new System.Drawing.Point(135, 58);
+            this.txtNameV.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtNameV.Name = "txtNameV";
+            this.txtNameV.Size = new System.Drawing.Size(167, 22);
+            this.txtNameV.TabIndex = 19;
+            // 
+            // txtIdV
+            // 
+            this.txtIdV.Location = new System.Drawing.Point(135, 19);
+            this.txtIdV.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtIdV.Name = "txtIdV";
+            this.txtIdV.Size = new System.Drawing.Size(167, 22);
+            this.txtIdV.TabIndex = 18;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(33, 150);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(82, 16);
+            this.label9.TabIndex = 16;
+            this.label9.Text = "Membership";
+            // 
+            // label
+            // 
+            this.label.AutoSize = true;
+            this.label.Location = new System.Drawing.Point(33, 106);
+            this.label.Name = "label";
+            this.label.Size = new System.Drawing.Size(41, 16);
+            this.label.TabIndex = 16;
+            this.label.Text = "Class";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(33, 64);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(44, 16);
+            this.label15.TabIndex = 17;
+            this.label15.Text = "Name";
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(33, 22);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(78, 16);
+            this.label16.TabIndex = 10;
+            this.label16.Text = "Id Customer";
+            // 
+            // tabPage2
+            // 
+            this.tabPage2.Controls.Add(this.button5);
+            this.tabPage2.Controls.Add(this.dtpDateJoin);
+            this.tabPage2.Controls.Add(this.dtpBirth);
+            this.tabPage2.Controls.Add(this.rdbFemale);
+            this.tabPage2.Controls.Add(this.rdbMale);
+            this.tabPage2.Controls.Add(this.txtPhone);
+            this.tabPage2.Controls.Add(this.txtAddress);
+            this.tabPage2.Controls.Add(this.txtName);
+            this.tabPage2.Controls.Add(this.txtId);
+            this.tabPage2.Controls.Add(this.label1);
+            this.tabPage2.Controls.Add(this.label2);
+            this.tabPage2.Controls.Add(this.label3);
+            this.tabPage2.Controls.Add(this.label4);
+            this.tabPage2.Controls.Add(this.label5);
+            this.tabPage2.Controls.Add(this.label6);
+            this.tabPage2.Controls.Add(this.label8);
+            this.tabPage2.Location = new System.Drawing.Point(4, 25);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(378, 426);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "Add";
+            this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // button5
+            // 
+            this.button5.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.button5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(178)))), ((int)(((byte)(50)))));
+            this.button5.FlatAppearance.BorderSize = 0;
+            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button5.ForeColor = System.Drawing.Color.White;
+            this.button5.Location = new System.Drawing.Point(103, 318);
+            this.button5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(120, 38);
+            this.button5.TabIndex = 41;
+            this.button5.Text = "Add";
+            this.button5.UseVisualStyleBackColor = false;
             // 
             // dtpDateJoin
             // 
@@ -509,54 +492,53 @@
             this.label8.TabIndex = 26;
             this.label8.Text = "Id Customer";
             // 
-            // button4
+            // Column1
             // 
-            this.button4.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.button4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.button4.FlatAppearance.BorderSize = 0;
-            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.ForeColor = System.Drawing.Color.White;
-            this.button4.Location = new System.Drawing.Point(199, 313);
-            this.button4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(125, 38);
-            this.button4.TabIndex = 42;
-            this.button4.Text = "Remove";
-            this.button4.UseVisualStyleBackColor = false;
+            this.Column1.HeaderText = "Id";
+            this.Column1.MinimumWidth = 6;
+            this.Column1.Name = "Column1";
             // 
-            // button5
+            // Column2
             // 
-            this.button5.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.button5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(178)))), ((int)(((byte)(50)))));
-            this.button5.FlatAppearance.BorderSize = 0;
-            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button5.ForeColor = System.Drawing.Color.White;
-            this.button5.Location = new System.Drawing.Point(15, 313);
-            this.button5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(120, 38);
-            this.button5.TabIndex = 41;
-            this.button5.Text = "Add/Update";
-            this.button5.UseVisualStyleBackColor = false;
+            this.Column2.HeaderText = "Name";
+            this.Column2.MinimumWidth = 6;
+            this.Column2.Name = "Column2";
             // 
-            // label9
+            // Column3
             // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(33, 150);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(82, 16);
-            this.label9.TabIndex = 16;
-            this.label9.Text = "Membership";
+            this.Column3.HeaderText = "Gender";
+            this.Column3.MinimumWidth = 6;
+            this.Column3.Name = "Column3";
             // 
-            // cbbMem
+            // Column4
             // 
-            this.cbbMem.FormattingEnabled = true;
-            this.cbbMem.Location = new System.Drawing.Point(135, 142);
-            this.cbbMem.Name = "cbbMem";
-            this.cbbMem.Size = new System.Drawing.Size(133, 24);
-            this.cbbMem.TabIndex = 29;
+            this.Column4.HeaderText = "Birthdate";
+            this.Column4.MinimumWidth = 6;
+            this.Column4.Name = "Column4";
+            // 
+            // Column7
+            // 
+            this.Column7.HeaderText = "Phone";
+            this.Column7.MinimumWidth = 6;
+            this.Column7.Name = "Column7";
+            // 
+            // Column5
+            // 
+            this.Column5.HeaderText = "Address";
+            this.Column5.MinimumWidth = 6;
+            this.Column5.Name = "Column5";
+            // 
+            // Column6
+            // 
+            this.Column6.HeaderText = "Date join";
+            this.Column6.MinimumWidth = 6;
+            this.Column6.Name = "Column6";
+            // 
+            // Mem
+            // 
+            this.Mem.HeaderText = "Membership Status";
+            this.Mem.MinimumWidth = 6;
+            this.Mem.Name = "Mem";
             // 
             // UCtrlCustomer
             // 
@@ -586,14 +568,6 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox txtNameSearch;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Mem;
         private System.Windows.Forms.Button btnHistory;
         private System.Windows.Forms.TabControl CustomerAdd;
         private System.Windows.Forms.TabPage tabPage1;
@@ -607,7 +581,6 @@
         private System.Windows.Forms.ComboBox cbbClass;
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Label label;
-        private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.DateTimePicker dtpDateJoin;
         private System.Windows.Forms.DateTimePicker dtpBirth;
@@ -626,5 +599,13 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.ComboBox cbbMem;
         private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Mem;
     }
 }
