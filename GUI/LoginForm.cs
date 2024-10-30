@@ -19,6 +19,7 @@ namespace GUI
         {
             InitializeComponent();
             accountService = new AccountService();
+            lblError.Visible = false;
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -36,15 +37,16 @@ namespace GUI
                 bool isVali = accountService.Login(username, password);
                 if (isVali)
                 {
-                    MessageBox.Show("Login successful!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    lblError.Visible = false;
                     this.Hide();
                     HomebaseForm f = new HomebaseForm();
                     f.ShowDialog();
                 }
                 else
                 {
-                    errorProvider1.SetError(txbPass, "Invalid username or password.");
+                    lblError.Visible = true;
                 }
+
 
             }
             catch (Exception ex)
@@ -52,8 +54,17 @@ namespace GUI
                 throw new Exception(ex.Message);
             }
 
-            
+        }
 
+        private void CBShowPass_CheckedChanged(object sender, EventArgs e)
+        {
+            if (CBShowPass.Checked == true)
+            {
+                txbPass.UseSystemPasswordChar = false;
+            }
+            else
+                txbPass.UseSystemPasswordChar = true;
+        
         }
     }
 }

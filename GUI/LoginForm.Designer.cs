@@ -38,18 +38,20 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.lblError = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.panel1.Controls.Add(this.lblError);
             this.panel1.Controls.Add(this.btnSignIn);
             this.panel1.Controls.Add(this.CBShowPass);
             this.panel1.Controls.Add(this.txbPass);
@@ -82,13 +84,14 @@
             this.CBShowPass.AutoSize = true;
             this.CBShowPass.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CBShowPass.ForeColor = System.Drawing.Color.Black;
-            this.CBShowPass.Location = new System.Drawing.Point(203, 300);
+            this.CBShowPass.Location = new System.Drawing.Point(190, 308);
             this.CBShowPass.Margin = new System.Windows.Forms.Padding(4);
             this.CBShowPass.Name = "CBShowPass";
             this.CBShowPass.Size = new System.Drawing.Size(130, 21);
             this.CBShowPass.TabIndex = 3;
             this.CBShowPass.Text = "Show Password";
             this.CBShowPass.UseVisualStyleBackColor = true;
+            this.CBShowPass.CheckedChanged += new System.EventHandler(this.CBShowPass_CheckedChanged);
             // 
             // txbPass
             // 
@@ -98,6 +101,7 @@
             this.txbPass.Name = "txbPass";
             this.txbPass.Size = new System.Drawing.Size(220, 22);
             this.txbPass.TabIndex = 2;
+            this.txbPass.UseSystemPasswordChar = true;
             // 
             // txbUserName
             // 
@@ -142,16 +146,9 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Welcome";
             // 
-            // pictureBox1
+            // errorProvider1
             // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(782, 2);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(318, 510);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 2;
-            this.pictureBox1.TabStop = false;
+            this.errorProvider1.ContainerControl = this;
             // 
             // pictureBox2
             // 
@@ -164,9 +161,26 @@
             this.pictureBox2.TabIndex = 3;
             this.pictureBox2.TabStop = false;
             // 
-            // errorProvider1
+            // pictureBox1
             // 
-            this.errorProvider1.ContainerControl = this;
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(782, 2);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(318, 510);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 2;
+            this.pictureBox1.TabStop = false;
+            // 
+            // lblError
+            // 
+            this.lblError.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblError.ForeColor = System.Drawing.Color.Red;
+            this.lblError.Location = new System.Drawing.Point(101, 280);
+            this.lblError.Name = "lblError";
+            this.lblError.Size = new System.Drawing.Size(219, 24);
+            this.lblError.TabIndex = 6;
+            this.lblError.Text = "Invalid username or password\r\n";
             // 
             // LoginForm
             // 
@@ -182,9 +196,9 @@
             this.Load += new System.EventHandler(this.Form1_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -202,6 +216,7 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.ErrorProvider errorProvider1;
+        private System.Windows.Forms.Label lblError;
     }
 }
 
