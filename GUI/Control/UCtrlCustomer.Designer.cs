@@ -73,6 +73,7 @@
             this.rdbMale1 = new System.Windows.Forms.RadioButton();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
             this.button5 = new System.Windows.Forms.Button();
             this.label10 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
@@ -661,6 +662,17 @@
             this.label4.Size = new System.Drawing.Size(109, 18);
             this.label4.TabIndex = 28;
             this.label4.Text = "Birthdate";
+            // 
+            // label16
+            // 
+            this.label16.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.label16.AutoSize = true;
+            this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label16.Location = new System.Drawing.Point(3, 12);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(145, 22);
+            this.label16.TabIndex = 32;
+            this.label16.Text = "ID";
             // 
             // button5
             // 

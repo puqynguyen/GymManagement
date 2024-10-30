@@ -18,8 +18,19 @@ namespace GUI.Control
         public UCtrlMembership()
         {
             InitializeComponent();
+            dataGridView1.DefaultCellStyle.ForeColor = Color.Black;
+            dataGridView1.DefaultCellStyle.BackColor = Color.White;
+            dataGridView1.DefaultCellStyle.SelectionForeColor = Color.White;
+            dataGridView1.DefaultCellStyle.SelectionBackColor = Color.DarkBlue;
             DateTime dateTime = DateTime.Now;
             dtpDateCreate2.Value = dateTime;
+            Load();
+        }
+        private void Load()
+        {
+            CLear();
+            IEnumerable<Membership> members = membershipService.GetAll();
+            BindGrid(members);
         }
         public void BindGrid(IEnumerable<Membership> memberships)
         {
@@ -31,6 +42,9 @@ namespace GUI.Control
                 dataGridView1.Rows[index].Cells[1].Value = item.name;
                 dataGridView1.Rows[index].Cells[2].Value = item.membership_length;
                 dataGridView1.Rows[index].Cells[3].Value = item.price;
+                dataGridView1.Rows[index].Cells[4].Value = item.date_created.HasValue
+    ? item.date_created.Value.ToString("dd/MM/yyyy")
+    : "";
             }
         }
 
@@ -42,12 +56,12 @@ namespace GUI.Control
                 txtName.Text = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
                 txtLength.Text = dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString();
                 txtPrice.Text = dataGridView1.Rows[e.RowIndex].Cells[3].Value.ToString();
-
-                // Parse the date string to DateTime and assign it to dtpCreateDate.Value
                 DateTime dateValue;
                 if (DateTime.TryParse(dataGridView1.Rows[e.RowIndex].Cells[4].Value.ToString(), out dateValue))
                 {
-                    dtpCreateDate.Value = dateValue;
+                    dtpCreateDate.Value = dateValue.Date;
+                    dtpCreateDate.Format = DateTimePickerFormat.Custom;
+                    dtpCreateDate.CustomFormat = "dd/MM/yyyy";
                 }
                 else
                 {
@@ -72,6 +86,7 @@ namespace GUI.Control
                 membership.membership_length = Convert.ToInt32(txtLength.Text);
                 membership.name = txtName.Text;
                 membershipService.Update(membership);
+                Load();
             }
             catch (Exception ex)
             {
@@ -90,6 +105,8 @@ namespace GUI.Control
                     throw new Exception("Membership Id not found!");
                 }
                 membershipService.Delete(Id);
+                Load();
+
             }
             catch (Exception ex)
             {
@@ -106,11 +123,23 @@ namespace GUI.Control
                 DateTime dateTime = dtpDateCreate2.Value.ToUniversalTime();
                 Membership membership = new Membership() { membership_length = length, date_created = dtpCreateDate.Value.ToUniversalTime(), price = @price };
                 membershipService.Add(membership);
+                Load();
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
         }
+        private void CLear()
+        {
+            txtId.Text = "";
+            txtLength.Text = "";
+            txtLength2.Text = "";
+            txtName.Text = "";
+            txtName2.Text = "";
+            txtPrice.Text = "";
+            txtPrice2.Text = "";
+        }
+
     }
 }
