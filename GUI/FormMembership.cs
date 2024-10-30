@@ -19,7 +19,7 @@ namespace GUI
         {
             InitializeComponent();
             DateTime dateTime = DateTime.Now;
-            txtDateCreate2.Text = dateTime.ToString();
+            dtpDateCreate2.Text = dateTime.ToString();
         }
         public void BindGrid(IEnumerable<Membership> memberships)
         {
