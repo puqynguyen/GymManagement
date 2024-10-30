@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using DAL.Repository;
 using DTO.Entities;
 
-namespace BUS
+namespace BUS.services
 {
     internal class InstructorService
     {
