@@ -32,6 +32,7 @@ namespace GUI.Control
             dgvCustomer.DefaultCellStyle.BackColor = Color.White;
             dgvCustomer.DefaultCellStyle.SelectionForeColor = Color.White;
             dgvCustomer.DefaultCellStyle.SelectionBackColor = Color.DarkBlue;
+            dgvClassEdit.DefaultCellStyle.ForeColor = Color.Black;
             dgvClassEdit.DefaultCellStyle.BackColor = Color.White;
             dgvClassEdit.DefaultCellStyle.SelectionForeColor = Color.White;
             dgvClassEdit.DefaultCellStyle.SelectionBackColor = Color.DarkBlue;
@@ -205,9 +206,9 @@ namespace GUI.Control
             if (e.RowIndex >= 0 && dgvClassEdit.Columns[0].Index >= 0)
             {
                 txtId.Text = dgvClassEdit.Rows[e.RowIndex].Cells[0].Value.ToString();
-                txtName1.Text = dgvClassEdit.Rows[e.RowIndex].Cells[1].Value.ToString();
-                txtSize1.Text = dgvClassEdit.Rows[e.RowIndex].Cells[2].Value.ToString();
-                txtDescription1.Text = dgvClassEdit.Rows[e.RowIndex].Cells[3].Value.ToString();
+                txtName.Text = dgvClassEdit.Rows[e.RowIndex].Cells[1].Value.ToString();
+                txtDescription.Text = dgvClassEdit.Rows[e.RowIndex].Cells[2].Value.ToString();
+                txtSize.Text = dgvClassEdit.Rows[e.RowIndex].Cells[3].Value.ToString();
             }
         }
 

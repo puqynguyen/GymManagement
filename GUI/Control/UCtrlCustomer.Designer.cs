@@ -28,10 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.btnSearch = new System.Windows.Forms.Button();
-            this.label7 = new System.Windows.Forms.Label();
-            this.txtNameSearch = new System.Windows.Forms.TextBox();
+            this.txtSearch = new System.Windows.Forms.TextBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.btnHistory = new System.Windows.Forms.Button();
             this.CustomerAdd = new System.Windows.Forms.TabControl();
@@ -72,58 +69,22 @@
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Mem = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.groupBox2.SuspendLayout();
+            this.label7 = new System.Windows.Forms.Label();
+            this.ckbActive = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.CustomerAdd.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.SuspendLayout();
             // 
-            // groupBox2
+            // txtSearch
             // 
-            this.groupBox2.Controls.Add(this.btnSearch);
-            this.groupBox2.Controls.Add(this.label7);
-            this.groupBox2.Controls.Add(this.txtNameSearch);
-            this.groupBox2.Location = new System.Drawing.Point(513, 17);
-            this.groupBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBox2.Size = new System.Drawing.Size(400, 59);
-            this.groupBox2.TabIndex = 1;
-            this.groupBox2.TabStop = false;
-            // 
-            // btnSearch
-            // 
-            this.btnSearch.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnSearch.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
-            this.btnSearch.FlatAppearance.BorderSize = 0;
-            this.btnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSearch.ForeColor = System.Drawing.Color.White;
-            this.btnSearch.Location = new System.Drawing.Point(252, 25);
-            this.btnSearch.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(88, 22);
-            this.btnSearch.TabIndex = 2;
-            this.btnSearch.Text = "Search";
-            this.btnSearch.UseVisualStyleBackColor = false;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(5, 25);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(44, 16);
-            this.label7.TabIndex = 0;
-            this.label7.Text = "Name";
-            // 
-            // txtNameSearch
-            // 
-            this.txtNameSearch.Location = new System.Drawing.Point(68, 25);
-            this.txtNameSearch.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtNameSearch.Name = "txtNameSearch";
-            this.txtNameSearch.Size = new System.Drawing.Size(167, 22);
-            this.txtNameSearch.TabIndex = 2;
+            this.txtSearch.Location = new System.Drawing.Point(478, 52);
+            this.txtSearch.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtSearch.Name = "txtSearch";
+            this.txtSearch.Size = new System.Drawing.Size(167, 22);
+            this.txtSearch.TabIndex = 2;
+            this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
             // 
             // dataGridView1
             // 
@@ -518,7 +479,7 @@
             // 
             // Column7
             // 
-            this.Column7.HeaderText = "Phone";
+            this.Column7.HeaderText = "Contact Information";
             this.Column7.MinimumWidth = 6;
             this.Column7.Name = "Column7";
             // 
@@ -540,18 +501,37 @@
             this.Mem.MinimumWidth = 6;
             this.Mem.Name = "Mem";
             // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(422, 55);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(50, 16);
+            this.label7.TabIndex = 10;
+            this.label7.Text = "Search";
+            // 
+            // ckbActive
+            // 
+            this.ckbActive.AutoSize = true;
+            this.ckbActive.Location = new System.Drawing.Point(1257, 52);
+            this.ckbActive.Name = "ckbActive";
+            this.ckbActive.Size = new System.Drawing.Size(66, 20);
+            this.ckbActive.TabIndex = 11;
+            this.ckbActive.Text = "Active";
+            this.ckbActive.UseVisualStyleBackColor = true;
+            // 
             // UCtrlCustomer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.ckbActive);
             this.Controls.Add(this.CustomerAdd);
+            this.Controls.Add(this.txtSearch);
             this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.groupBox2);
+            this.Controls.Add(this.label7);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "UCtrlCustomer";
             this.Size = new System.Drawing.Size(1326, 575);
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.CustomerAdd.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
@@ -559,14 +539,12 @@
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
-        private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.Button btnSearch;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox txtNameSearch;
+        private System.Windows.Forms.TextBox txtSearch;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button btnHistory;
         private System.Windows.Forms.TabControl CustomerAdd;
@@ -607,5 +585,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
         private System.Windows.Forms.DataGridViewTextBoxColumn Mem;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.CheckBox ckbActive;
     }
 }
