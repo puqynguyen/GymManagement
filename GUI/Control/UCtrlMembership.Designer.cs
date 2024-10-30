@@ -267,7 +267,7 @@
             this.controlToolStripMenuItem.Size = new System.Drawing.Size(59, 20);
             this.controlToolStripMenuItem.Text = "Control";
             // 
-            // membershipToolStripMenuItem
+            //membershipToolStripMenuItem;
             // 
             this.membershipToolStripMenuItem.Name = "membershipToolStripMenuItem";
             this.membershipToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
