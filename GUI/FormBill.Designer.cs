@@ -1,6 +1,6 @@
 ﻿namespace GUI
 {
-    partial class Bill
+    partial class FormBill
     {
         /// <summary>
         /// Required designer variable.
