@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Data;
+using System.Data.SqlClient;
 using DAL;
 using DTO.Entities;
 
@@ -34,6 +36,25 @@ namespace DAL.Repository
             };
             _context.Set<CustomerMembership>().Add(customerMembership);
             _context.SaveChanges();
+        }
+        public DataTable GetMonthlyMembershipRevenue()
+        {
+            var dataTable = new DataTable();
+            using (var conn = _context.Database.Connection)
+            {
+                using (var cmd = conn.CreateCommand())
+                {
+                    cmd.CommandText = "GetMonthlyMembershipRevenue";
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    conn.Open();
+                    using (var reader = cmd.ExecuteReader())
+                    {
+                        dataTable.Load(reader);
+                    }
+                    conn.Close();
+                }
+            }
+            return dataTable;
         }
     }
 }

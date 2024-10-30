@@ -66,14 +66,64 @@ namespace GUI.Control
             }
         }
 
-        private void btnAddUp_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnRemove_Click(object sender, EventArgs e)
         {
+            try
+            {
+                int Id = Convert.ToInt32(txtId.Text);
+                Supplement supplement = supplementService.GetById(Id);
+                if (supplement == null)
+                {
+                    throw new Exception("Supplement Id not found!");
+                }
+                supplementService.DeleteSupplement(Id);
+                Load();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
 
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                int Id = Convert.ToInt32(txtId.Text);
+                Supplement supplement = supplementService.GetById(Id);
+                if (supplement == null)
+                {
+                    throw new Exception("Supplement Id not found!");
+                }
+                supplement.name = txtName.Text;
+                supplement.BrandID = Convert.ToInt16(cbbBrand.SelectedValue);
+                supplement.name = txtName.Text;
+                supplement.price = Convert.ToInt16(txtPrice.Text);
+                supplement.stock_quantity = Convert.ToInt16(txtQuantity.Text);
+                supplementService.Update(supplement);
+                Load();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                decimal @price = Convert.ToDecimal(txtPrice2.Text);
+                int brandId = (int)cbbBrand2.SelectedValue;
+                int quantity = Convert.ToInt32(txtQuantity2.Text);
+                Supplement supplement = new Supplement() { name = txtName2.Text, BrandID = brandId, price = @price, stock_quantity = quantity};
+                supplementService.Add(supplement);
+                Load();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }

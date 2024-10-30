@@ -20,6 +20,7 @@ namespace GUI
         UCtrlPurchase purchase = new UCtrlPurchase();
         UCtrlInstructor instructor = new UCtrlInstructor();
         UCtrlClass Class = new UCtrlClass();
+        UCtrlChart Chart = new UCtrlChart();
 
         private Button currentButton;
         public HomebaseForm()
@@ -83,6 +84,14 @@ namespace GUI
             panel2.Controls.Clear();
             panel2.Controls.Add(Class);
             Class.Dock = DockStyle.Fill;
+        }
+
+        private void btnChart_Click(object sender, EventArgs e)
+        {
+            ActivateButton((Button)sender);
+            panel2.Controls.Clear();
+            panel2.Controls.Add(Chart);
+            Chart.Dock = DockStyle.Fill;
         }
     }
 }
