@@ -38,11 +38,10 @@
             this.txtCertification = new System.Windows.Forms.TextBox();
             this.txtName = new System.Windows.Forms.TextBox();
             this.txtId = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.txtSearch = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.button1 = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -55,6 +54,7 @@
             this.Certifications = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.datajoin = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.label8 = new System.Windows.Forms.Label();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCus)).BeginInit();
             this.tableLayoutPanel2.SuspendLayout();
@@ -65,9 +65,9 @@
             this.label7.AutoSize = true;
             this.label7.Location = new System.Drawing.Point(5, 25);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(44, 16);
+            this.label7.Size = new System.Drawing.Size(50, 16);
             this.label7.TabIndex = 0;
-            this.label7.Text = "Name";
+            this.label7.Text = "Search";
             // 
             // btnRemove
             // 
@@ -176,13 +176,13 @@
             this.txtId.Size = new System.Drawing.Size(241, 22);
             this.txtId.TabIndex = 2;
             // 
-            // textBox4
+            // txtSearch
             // 
-            this.textBox4.Location = new System.Drawing.Point(68, 25);
-            this.textBox4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(167, 22);
-            this.textBox4.TabIndex = 2;
+            this.txtSearch.Location = new System.Drawing.Point(68, 25);
+            this.txtSearch.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtSearch.Name = "txtSearch";
+            this.txtSearch.Size = new System.Drawing.Size(167, 22);
+            this.txtSearch.TabIndex = 2;
             // 
             // label6
             // 
@@ -208,32 +208,15 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.button1);
             this.groupBox2.Controls.Add(this.label7);
-            this.groupBox2.Controls.Add(this.textBox4);
-            this.groupBox2.Location = new System.Drawing.Point(504, 8);
+            this.groupBox2.Controls.Add(this.txtSearch);
+            this.groupBox2.Location = new System.Drawing.Point(503, 10);
             this.groupBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox2.Size = new System.Drawing.Size(400, 59);
             this.groupBox2.TabIndex = 4;
             this.groupBox2.TabStop = false;
-            // 
-            // button1
-            // 
-            this.button1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(252, 25);
-            this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(88, 22);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "Search";
-            this.button1.UseVisualStyleBackColor = false;
             // 
             // label4
             // 
@@ -354,7 +337,7 @@
             this.tableLayoutPanel2.Controls.Add(this.label4, 0, 4);
             this.tableLayoutPanel2.Controls.Add(this.label3, 0, 2);
             this.tableLayoutPanel2.Controls.Add(this.dtpBirth, 1, 4);
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(22, 56);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(13, 99);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 7;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
@@ -367,10 +350,21 @@
             this.tableLayoutPanel2.Size = new System.Drawing.Size(364, 366);
             this.tableLayoutPanel2.TabIndex = 7;
             // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(99, 18);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(168, 39);
+            this.label8.TabIndex = 9;
+            this.label8.Text = "Instructor";
+            // 
             // UCtrlInstructor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.label8);
             this.Controls.Add(this.btnRemove);
             this.Controls.Add(this.tableLayoutPanel2);
             this.Controls.Add(this.btnAddUp);
@@ -384,6 +378,7 @@
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -399,11 +394,10 @@
         private System.Windows.Forms.TextBox txtCertification;
         private System.Windows.Forms.TextBox txtName;
         private System.Windows.Forms.TextBox txtId;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox txtSearch;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
@@ -416,5 +410,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Certifications;
         private System.Windows.Forms.DataGridViewTextBoxColumn datajoin;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
+        private System.Windows.Forms.Label label8;
     }
 }

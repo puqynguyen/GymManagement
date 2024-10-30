@@ -174,13 +174,13 @@
             // 
             // lblError
             // 
-            this.lblError.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblError.AutoSize = true;
             this.lblError.ForeColor = System.Drawing.Color.Red;
-            this.lblError.Location = new System.Drawing.Point(101, 280);
+            this.lblError.Location = new System.Drawing.Point(134, 280);
             this.lblError.Name = "lblError";
-            this.lblError.Size = new System.Drawing.Size(219, 24);
-            this.lblError.TabIndex = 6;
-            this.lblError.Text = "Invalid username or password\r\n";
+            this.lblError.Size = new System.Drawing.Size(186, 16);
+            this.lblError.TabIndex = 7;
+            this.lblError.Text = "Invalid username or password";
             // 
             // LoginForm
             // 
