@@ -359,8 +359,3 @@ MigrationBackup/
 .ionide/
 
 # Fody - auto-generated XML schema
-FodyWeavers.xsd
-/DAL/App.Config
-/DTO/App.Config
-/BUS/App.config
-/GUI/App.config
