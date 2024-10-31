@@ -25,14 +25,7 @@ namespace GUI
         private void Bill_Load(object sender, EventArgs e)
         {
 
-            ReportDataSource rds = new ReportDataSource("InvoiceDataSet", invoiceDetails);
-            reportViewer1.LocalReport.DataSources.Clear();
-            reportViewer1.LocalReport.DataSources.Add(rds);
 
-            ReportParameter paramTotalAmount = new ReportParameter("TotalAmount", totalAmount.ToString("N0") + " ₫");
-            reportViewer1.LocalReport.SetParameters(paramTotalAmount);
-
-            reportViewer1.RefreshReport();
         }
     }
 }
