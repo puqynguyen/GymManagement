@@ -1,4 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Data.Entity;
+using System.Data.SqlClient;
+using System.Linq;
 using DAL.Repository;
 using DTO.Entities;
 
@@ -44,5 +48,26 @@ namespace BUS.Services
         {
             return _repository.GetActiveMembershipByCustomerId(customerId);
         }
+        public void CancelActiveMembership(int customerId)
+        {
+            using (var context = new DBContext())
+            {
+                // Lấy bản ghi membership đang hoạt động
+                var activeMembership = context.CustomerMemberships
+                    .FirstOrDefault(cm => cm.CustomerID == customerId && cm.cancel == 0 && cm.end_date > DateTime.Now);
+
+                if (activeMembership != null)
+                {
+                    activeMembership.cancel = 1;
+                    context.Entry(activeMembership).State = EntityState.Modified;
+                    context.SaveChanges();
+                }
+                else
+                {
+                    throw new Exception("No active membership found for cancellation.");
+                }
+            }
+        }
+
     }
 }

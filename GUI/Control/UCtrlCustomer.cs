@@ -67,7 +67,8 @@ namespace GUI.Control
         {
             IEnumerable<Customer> customers = customerService.GetAll();
             BindGrid(customers);
-            
+            dtpBirth1.Value = DateTime.Now.AddYears(-12);
+
         }
 
         private void dgvAdjust_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -111,7 +112,8 @@ namespace GUI.Control
                 }
                 else
                 {
-                    cbbMembership.Text = "x";
+                    cbbMembership.Enabled = true;
+                    cbbMembership.Text = "";
                 }
                 
             }
@@ -119,7 +121,75 @@ namespace GUI.Control
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
+            try
+            {
+                int cusId = Convert.ToInt32(txtId.Text);
+                customerService.CancelActiveMembership(cusId);
+                cbbMembership.Enabled = true;
+                MessageBox.Show("Membership cancelled successfully.");
+                UCtrlCustomer_Load(sender, e);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.InnerException?.Message ?? ex.Message);
+            }
 
+        }
+
+        private void btnHistory_Click(object sender, EventArgs e)
+        {
+            if (dgvAdjust.SelectedRows.Count > 0)
+            {
+                int customerId = Convert.ToInt32(dgvAdjust.SelectedRows[0].Cells["Id"].Value);
+                FormHistory historyForm = new FormHistory(customerId);
+                historyForm.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Please select a customer to view history.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+<<<<<<< HEAD
+        }
+
+        private void btnHistory_Click(object sender, EventArgs e)
+        {
+            if (dgvAdjust.SelectedRows.Count > 0)
+            {
+                int customerId = Convert.ToInt32(dgvAdjust.SelectedRows[0].Cells["Id"].Value);
+
+                FormHistory historyForm = new FormHistory(customerId);
+                historyForm.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Please select a customer to view history.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+=======
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+            int Id = Convert.ToInt32(txtId.Text);
+            Customer customer = customerService.GetById(Id);
+            if (customer != null)
+            {
+                if (rdbFemale.Checked) 
+                {
+                    customer.sex = "F";
+                }
+                else
+                {
+                    customer.sex = "M";
+                }
+                customer.name = txtName.Text;
+                customer.address = txtAddress.Text;
+                customer.contact_info = txtContact.Text;
+                customer.date_joined = dtpDateJoin.Value;
+                customer.date_of_birth = dtpBirthdate.Value;
+            }
+            customerService.Update(customer);
+            UCtrlCustomer_Load(sender, e);
+>>>>>>> c1dd2f42ada7451f97fb2ca9863794eb98f8b197
         }
     }
 }

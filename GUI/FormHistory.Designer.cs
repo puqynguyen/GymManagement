@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dvgHistory = new System.Windows.Forms.DataGridView();
             this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Membership = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -48,13 +49,21 @@
             this.StartDate,
             this.EndDate,
             this.Price});
-            this.dvgHistory.Location = new System.Drawing.Point(102, 91);
-            this.dvgHistory.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dvgHistory.DefaultCellStyle = dataGridViewCellStyle1;
+            this.dvgHistory.Location = new System.Drawing.Point(136, 112);
+            this.dvgHistory.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dvgHistory.Name = "dvgHistory";
             this.dvgHistory.RowHeadersVisible = false;
             this.dvgHistory.RowHeadersWidth = 51;
             this.dvgHistory.RowTemplate.Height = 24;
-            this.dvgHistory.Size = new System.Drawing.Size(654, 306);
+            this.dvgHistory.Size = new System.Drawing.Size(872, 377);
             this.dvgHistory.TabIndex = 0;
             // 
             // Id
@@ -91,23 +100,23 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(271, 31);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Location = new System.Drawing.Point(361, 38);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(274, 37);
+            this.label1.Size = new System.Drawing.Size(340, 46);
             this.label1.TabIndex = 1;
             this.label1.Text = "Registion History";
             // 
             // FormHistory
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(904, 408);
+            this.ClientSize = new System.Drawing.Size(1205, 502);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dvgHistory);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "FormHistory";
             this.Text = "FormHistory";
+            this.Load += new System.EventHandler(this.FormHistory_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dvgHistory)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

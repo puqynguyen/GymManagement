@@ -16,5 +16,10 @@ namespace GUI.Control
         {
             InitializeComponent();
         }
+
+        private void UCtrlInstructor_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
