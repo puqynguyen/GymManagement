@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BUS.Services;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,16 +13,23 @@ namespace GUI
 {
     public partial class FormHistory : Form
     {
-        private int customerId;
+        private readonly int _customerId;
+        private readonly CustomerService _membershipService;
         public FormHistory(int customerId)
         {
             InitializeComponent();
-            this.customerId = customerId;
+            _customerId = customerId;
+            _membershipService = new CustomerService();
         }
 
         private void FormHistory_Load(object sender, EventArgs e)
         {
-
+            LoadMembershipHistory();
+        }
+        private void LoadMembershipHistory()
+        {
+            var memberships = _membershipService.GetActiveMembershipByCustomerId(_customerId);
+            dvgHistory.DataSource = memberships;
         }
     }
 }
