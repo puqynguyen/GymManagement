@@ -32,7 +32,8 @@ namespace DAL.Repository
             {
                 CustomerID = customerId,
                 MembershipID = membershipId,
-                start_date = startDate
+                start_date = startDate,
+                cancel = 0
             };
             _context.Set<CustomerMembership>().Add(customerMembership);
             _context.SaveChanges();
