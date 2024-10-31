@@ -148,25 +148,9 @@ namespace GUI.Control
             {
                 MessageBox.Show("Please select a customer to view history.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
+
         }
 
-<<<<<<< HEAD
-        }
-
-        private void btnHistory_Click(object sender, EventArgs e)
-        {
-            if (dgvAdjust.SelectedRows.Count > 0)
-            {
-                int customerId = Convert.ToInt32(dgvAdjust.SelectedRows[0].Cells["Id"].Value);
-
-                FormHistory historyForm = new FormHistory(customerId);
-                historyForm.ShowDialog();
-            }
-            else
-            {
-                MessageBox.Show("Please select a customer to view history.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
-=======
         private void btnUpdate_Click(object sender, EventArgs e)
         {
             int Id = Convert.ToInt32(txtId.Text);
@@ -189,7 +173,6 @@ namespace GUI.Control
             }
             customerService.Update(customer);
             UCtrlCustomer_Load(sender, e);
->>>>>>> c1dd2f42ada7451f97fb2ca9863794eb98f8b197
         }
     }
 }
