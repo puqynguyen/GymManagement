@@ -1,10 +1,11 @@
-﻿using BUS.services;
-using System;
-using System.Collections.Generic;
+﻿using System;
 using System.Data;
 using System.Drawing;
+using System.Linq;
 using System.Windows.Forms;
 using DTO.Entities;
+using BUS.Services;
+using BUS.services;
 using BUS;
 
 namespace GUI.Control
@@ -13,6 +14,7 @@ namespace GUI.Control
     {
         private readonly PurchaseInvoiceService purchaseInvoiceService = new PurchaseInvoiceService();
         private readonly SupplementService supplementService = new SupplementService();
+        private readonly CustomerService customerService = new CustomerService();
         private readonly DataTable invoiceDetails = new DataTable();
         private decimal totalAmount = 0;
         private DataGridViewRow selectedRow;
@@ -21,7 +23,7 @@ namespace GUI.Control
         {
             InitializeComponent();
             InitializeInvoiceDetailsTable();
-            CustomizeDataGridView();
+            CustomizeDataGridViews();
         }
 
         private void InitializeInvoiceDetailsTable()
@@ -35,17 +37,25 @@ namespace GUI.Control
             dataGridView1.DataSource = invoiceDetails;
         }
 
-        private void CustomizeDataGridView()
+        private void CustomizeDataGridViews()
         {
+
             dataGridView1.DefaultCellStyle.ForeColor = Color.Black;
             dataGridView1.DefaultCellStyle.BackColor = Color.White;
             dataGridView1.DefaultCellStyle.SelectionForeColor = Color.White;
             dataGridView1.DefaultCellStyle.SelectionBackColor = Color.DarkBlue;
+
+
+            dataGridView2.DefaultCellStyle.ForeColor = Color.Black;
+            dataGridView2.DefaultCellStyle.BackColor = Color.White;
+            dataGridView2.DefaultCellStyle.SelectionForeColor = Color.White;
+            dataGridView2.DefaultCellStyle.SelectionBackColor = Color.DarkBlue;
         }
 
         private void UCtrlPurchase_Load(object sender, EventArgs e)
         {
             FillComboBox();
+            LoadAllCustomers();
         }
 
         private void FillComboBox()
@@ -54,6 +64,12 @@ namespace GUI.Control
             cbbSupp.DataSource = supplements;
             cbbSupp.DisplayMember = "Name";
             cbbSupp.ValueMember = "SupplementID";
+        }
+
+        private void LoadAllCustomers()
+        {
+            var customers = customerService.GetAll();
+            dataGridView2.DataSource = customers;
         }
 
         private decimal GetPriceById(int supplementId)
@@ -69,7 +85,6 @@ namespace GUI.Control
         private void UpdateTotalAmount()
         {
             totalAmount = 0;
-
             foreach (DataGridViewRow row in dataGridView1.Rows)
             {
                 if (row.Cells["TotalPrice"].Value != null)
@@ -77,7 +92,6 @@ namespace GUI.Control
                     totalAmount += Convert.ToDecimal(row.Cells["TotalPrice"].Value);
                 }
             }
-
             txtTotal.Text = totalAmount.ToString("N0") + " ₫";
         }
 
@@ -170,49 +184,33 @@ namespace GUI.Control
             }
         }
 
-        private void btnCreate_Click(object sender, EventArgs e)
+        private void btnSearch_Click(object sender, EventArgs e)
         {
-            try
-            {
-                int customerId = 1; 
-                DateTime dateCreated = DateTime.Now;
+            string searchName = txtSearch.Text.Trim();
 
-                PurchaseInvoice invoice = new PurchaseInvoice
-                {
-                    CustomerID = customerId,
-                    date = dateCreated,
-                    totalAmount = totalAmount
-                };
+            var customers = customerService.GetAll()
+                .Where(c => c.name.ToLower().Contains(searchName.ToLower()))
+                .ToList();
 
-                purchaseInvoiceService.Add(invoice);
-
-                foreach (DataRow row in invoiceDetails.Rows)
-                {
-                    PurchaseDetail detail = new PurchaseDetail
-                    {
-                        InvoiceID = invoice.InvoiceID,
-                        ItemID = (int)row["SupplementID"],
-                        quantity = (int)row["Quantity"],
-                        price = (decimal)row["UnitPrice"]
-                    };
-                    purchaseInvoiceService.AddPurchaseDetailsToInvoice(invoice.InvoiceID, new List<PurchaseDetail> { detail });
-                }
-
-                FormBill formBill = new FormBill(invoiceDetails, totalAmount);
-                formBill.ShowDialog();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("An error occurred: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            dataGridView2.DataSource = customers;
         }
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0)
             {
-                selectedRow  = dataGridView1.Rows[e.RowIndex];
+                selectedRow = dataGridView1.Rows[e.RowIndex];
                 txtName.Text = selectedRow.Cells["Name"].Value.ToString();
+            }
+        }
+
+        private void dataGridView2_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                var selectedCustomerRow = dataGridView2.Rows[e.RowIndex];
+                txtNameCus.Text = selectedCustomerRow.Cells["name"].Value.ToString();
+                txtId.Text = selectedCustomerRow.Cells["CustomerId"].Value.ToString();
             }
         }
     }

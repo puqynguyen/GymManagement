@@ -147,12 +147,6 @@
     <Compile Include="Control\UCtrlChart.Designer.cs">
       <DependentUpon>UCtrlChart.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormBill.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormBill.Designer.cs">
-      <DependentUpon>FormBill.cs</DependentUpon>
-    </Compile>
     <Compile Include="FormAddToClass.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -181,9 +175,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Control\UCtrlInstructor.resx">
       <DependentUpon>UCtrlInstructor.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormBill.resx">
-      <DependentUpon>FormBill.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Control\UCtrlSupplement.resx">
       <DependentUpon>UCtrlSupplement.cs</DependentUpon>
