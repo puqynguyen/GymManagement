@@ -147,12 +147,6 @@
     <Compile Include="Control\UCtrlChart.Designer.cs">
       <DependentUpon>UCtrlChart.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormBill.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormBill.Designer.cs">
-      <DependentUpon>FormBill.cs</DependentUpon>
-    </Compile>
     <Compile Include="FormAddToClass.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -164,6 +158,12 @@
     </Compile>
     <Compile Include="FormHistory.Designer.cs">
       <DependentUpon>FormHistory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormInvoice.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormInvoice.Designer.cs">
+      <DependentUpon>FormInvoice.cs</DependentUpon>
     </Compile>
     <Compile Include="LoginForm.cs">
       <SubType>Form</SubType>
@@ -181,9 +181,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Control\UCtrlInstructor.resx">
       <DependentUpon>UCtrlInstructor.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormBill.resx">
-      <DependentUpon>FormBill.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Control\UCtrlSupplement.resx">
       <DependentUpon>UCtrlSupplement.cs</DependentUpon>
@@ -214,6 +211,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormHistory.resx">
       <DependentUpon>FormHistory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormInvoice.resx">
+      <DependentUpon>FormInvoice.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>

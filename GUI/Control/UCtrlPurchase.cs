@@ -1,10 +1,11 @@
-﻿using BUS.services;
-using System;
-using System.Collections.Generic;
+﻿using System;
 using System.Data;
 using System.Drawing;
+using System.Linq;
 using System.Windows.Forms;
 using DTO.Entities;
+using BUS.Services;
+using BUS.services;
 using BUS;
 
 namespace GUI.Control
@@ -13,6 +14,7 @@ namespace GUI.Control
     {
         private readonly PurchaseInvoiceService purchaseInvoiceService = new PurchaseInvoiceService();
         private readonly SupplementService supplementService = new SupplementService();
+        private readonly CustomerService customerService = new CustomerService();
         private readonly DataTable invoiceDetails = new DataTable();
         private decimal totalAmount = 0;
         private DataGridViewRow selectedRow;
@@ -21,7 +23,7 @@ namespace GUI.Control
         {
             InitializeComponent();
             InitializeInvoiceDetailsTable();
-            CustomizeDataGridView();
+            CustomizeDataGridViews();
         }
 
         private void InitializeInvoiceDetailsTable()
@@ -35,17 +37,25 @@ namespace GUI.Control
             dataGridView1.DataSource = invoiceDetails;
         }
 
-        private void CustomizeDataGridView()
+        private void CustomizeDataGridViews()
         {
+
             dataGridView1.DefaultCellStyle.ForeColor = Color.Black;
             dataGridView1.DefaultCellStyle.BackColor = Color.White;
             dataGridView1.DefaultCellStyle.SelectionForeColor = Color.White;
             dataGridView1.DefaultCellStyle.SelectionBackColor = Color.DarkBlue;
+
+
+            dataGridView2.DefaultCellStyle.ForeColor = Color.Black;
+            dataGridView2.DefaultCellStyle.BackColor = Color.White;
+            dataGridView2.DefaultCellStyle.SelectionForeColor = Color.White;
+            dataGridView2.DefaultCellStyle.SelectionBackColor = Color.DarkBlue;
         }
 
         private void UCtrlPurchase_Load(object sender, EventArgs e)
         {
             FillComboBox();
+            LoadAllCustomers();
         }
 
         private void FillComboBox()
@@ -54,6 +64,12 @@ namespace GUI.Control
             cbbSupp.DataSource = supplements;
             cbbSupp.DisplayMember = "Name";
             cbbSupp.ValueMember = "SupplementID";
+        }
+
+        private void LoadAllCustomers()
+        {
+            var customers = customerService.GetAll();
+            dataGridView2.DataSource = customers;
         }
 
         private decimal GetPriceById(int supplementId)
@@ -69,7 +85,6 @@ namespace GUI.Control
         private void UpdateTotalAmount()
         {
             totalAmount = 0;
-
             foreach (DataGridViewRow row in dataGridView1.Rows)
             {
                 if (row.Cells["TotalPrice"].Value != null)
@@ -77,7 +92,6 @@ namespace GUI.Control
                     totalAmount += Convert.ToDecimal(row.Cells["TotalPrice"].Value);
                 }
             }
-
             txtTotal.Text = totalAmount.ToString("N0") + " ₫";
         }
 
@@ -134,7 +148,7 @@ namespace GUI.Control
                     int quantityToRemove = (int)numericUpDown1.Value;
                     if (quantityToRemove <= 0)
                     {
-                        MessageBox.Show("Số lượng cần xóa phải lớn hơn 0.", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        MessageBox.Show("Quantity need to higher 0", "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         return;
                     }
 
@@ -161,12 +175,42 @@ namespace GUI.Control
                 }
                 else
                 {
-                    MessageBox.Show("Hãy chọn một sản phẩm để xóa", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("Select a procduct to remove","", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Đã xảy ra lỗi: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            string searchName = txtSearch.Text.Trim();
+
+            var customers = customerService.GetAll()
+                .Where(c => c.name.ToLower().Contains(searchName.ToLower()))
+                .ToList();
+
+            dataGridView2.DataSource = customers;
+        }
+
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                selectedRow = dataGridView1.Rows[e.RowIndex];
+                txtName.Text = selectedRow.Cells["Name"].Value.ToString();
+            }
+        }
+
+        private void dataGridView2_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                var selectedCustomerRow = dataGridView2.Rows[e.RowIndex];
+                txtNameCus.Text = selectedCustomerRow.Cells["name"].Value.ToString();
+                txtIdCus.Text = selectedCustomerRow.Cells["CustomerId"].Value.ToString();
             }
         }
 
@@ -174,45 +218,28 @@ namespace GUI.Control
         {
             try
             {
-                int customerId = 1; 
-                DateTime dateCreated = DateTime.Now;
+                string customerId = txtIdCus.Text;
+                string customerName = txtNameCus.Text;
 
-                PurchaseInvoice invoice = new PurchaseInvoice
+                if (string.IsNullOrWhiteSpace(customerId) || string.IsNullOrWhiteSpace(customerName))
                 {
-                    CustomerID = customerId,
-                    date = dateCreated,
-                    totalAmount = totalAmount
-                };
-
-                purchaseInvoiceService.Add(invoice);
-
-                foreach (DataRow row in invoiceDetails.Rows)
-                {
-                    PurchaseDetail detail = new PurchaseDetail
-                    {
-                        InvoiceID = invoice.InvoiceID,
-                        ItemID = (int)row["SupplementID"],
-                        quantity = (int)row["Quantity"],
-                        price = (decimal)row["UnitPrice"]
-                    };
-                    purchaseInvoiceService.AddPurchaseDetailsToInvoice(invoice.InvoiceID, new List<PurchaseDetail> { detail });
+                    MessageBox.Show("Select customer before.", , MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
                 }
 
-                FormBill formBill = new FormBill(invoiceDetails, totalAmount);
-                formBill.ShowDialog();
+                if (invoiceDetails.Rows.Count == 0)
+                {
+                    MessageBox.Show("No product in purchase", "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                // Mở form hóa đơn và truyền dữ liệu vào
+                FormInvoice formInvoice = new FormInvoice(invoiceDetails, customerId, customerName, totalAmount);
+                formInvoice.ShowDialog();
             }
             catch (Exception ex)
             {
-                MessageBox.Show("An error occurred: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (e.RowIndex >= 0)
-            {
-                selectedRow  = dataGridView1.Rows[e.RowIndex];
-                txtName.Text = selectedRow.Cells["Name"].Value.ToString();
+                MessageBox.Show(ex.Message);
             }
         }
     }
