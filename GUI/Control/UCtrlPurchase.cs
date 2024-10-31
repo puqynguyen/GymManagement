@@ -148,7 +148,7 @@ namespace GUI.Control
                     int quantityToRemove = (int)numericUpDown1.Value;
                     if (quantityToRemove <= 0)
                     {
-                        MessageBox.Show("Số lượng cần xóa phải lớn hơn 0.", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        MessageBox.Show("Quantity need to higher 0", "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         return;
                     }
 
@@ -175,12 +175,12 @@ namespace GUI.Control
                 }
                 else
                 {
-                    MessageBox.Show("Hãy chọn một sản phẩm để xóa", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("Select a procduct to remove","", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Đã xảy ra lỗi: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(ex.Message);
             }
         }
 
@@ -210,7 +210,36 @@ namespace GUI.Control
             {
                 var selectedCustomerRow = dataGridView2.Rows[e.RowIndex];
                 txtNameCus.Text = selectedCustomerRow.Cells["name"].Value.ToString();
-                txtId.Text = selectedCustomerRow.Cells["CustomerId"].Value.ToString();
+                txtIdCus.Text = selectedCustomerRow.Cells["CustomerId"].Value.ToString();
+            }
+        }
+
+        private void btnCreate_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string customerId = txtIdCus.Text;
+                string customerName = txtNameCus.Text;
+
+                if (string.IsNullOrWhiteSpace(customerId) || string.IsNullOrWhiteSpace(customerName))
+                {
+                    MessageBox.Show("Select customer before.", , MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                if (invoiceDetails.Rows.Count == 0)
+                {
+                    MessageBox.Show("No product in purchase", "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                // Mở form hóa đơn và truyền dữ liệu vào
+                FormInvoice formInvoice = new FormInvoice(invoiceDetails, customerId, customerName, totalAmount);
+                formInvoice.ShowDialog();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
             }
         }
     }
