@@ -31,6 +31,9 @@
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.chartSupplement = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.chartMonth = new System.Windows.Forms.DataVisualization.Charting.Chart();
             ((System.ComponentModel.ISupportInitialize)(this.chartSupplement)).BeginInit();
@@ -43,32 +46,43 @@
             this.chartSupplement.ChartAreas.Add(chartArea1);
             legend1.Name = "Legend1";
             this.chartSupplement.Legends.Add(legend1);
-            this.chartSupplement.Location = new System.Drawing.Point(423, 0);
+            this.chartSupplement.Location = new System.Drawing.Point(568, 0);
+            this.chartSupplement.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.chartSupplement.Name = "chartSupplement";
             series1.ChartArea = "ChartArea1";
             series1.Legend = "Legend1";
             series1.Name = "Series1";
             this.chartSupplement.Series.Add(series1);
-            this.chartSupplement.Size = new System.Drawing.Size(457, 257);
+            this.chartSupplement.Size = new System.Drawing.Size(609, 316);
             this.chartSupplement.TabIndex = 0;
             this.chartSupplement.Text = "chart1";
             // 
             // chartMonth
             // 
-            this.chartMonth.Location = new System.Drawing.Point(54, 53);
+            chartArea2.Name = "ChartArea1";
+            this.chartMonth.ChartAreas.Add(chartArea2);
+            legend2.Name = "Legend1";
+            this.chartMonth.Legends.Add(legend2);
+            this.chartMonth.Location = new System.Drawing.Point(43, 44);
+            this.chartMonth.Margin = new System.Windows.Forms.Padding(4);
             this.chartMonth.Name = "chartMonth";
-            this.chartMonth.Size = new System.Drawing.Size(300, 300);
+            series2.ChartArea = "ChartArea1";
+            series2.Legend = "Legend1";
+            series2.Name = "Series1";
+            this.chartMonth.Series.Add(series2);
+            this.chartMonth.Size = new System.Drawing.Size(609, 316);
             this.chartMonth.TabIndex = 0;
+            this.chartMonth.Text = "chart1";
             // 
             // UCtrlChart
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.chartMonth);
             this.Controls.Add(this.chartSupplement);
-            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "UCtrlChart";
-            this.Size = new System.Drawing.Size(862, 432);
+            this.Size = new System.Drawing.Size(1149, 532);
             ((System.ComponentModel.ISupportInitialize)(this.chartSupplement)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chartMonth)).EndInit();
             this.ResumeLayout(false);

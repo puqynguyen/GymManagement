@@ -30,9 +30,9 @@ namespace GUI.Control
         }
         private void PopulateChart(DataTable dataTable)
         {
-            chart1.Invalidate();
-            chart1.Series.Clear();
-            chart1.ChartAreas[0].RecalculateAxesScale();
+            chartMonth.Invalidate();
+            chartMonth.Series.Clear();
+            chartMonth.ChartAreas[0].RecalculateAxesScale();
 
             Series series = new Series("Membership Revenue");
             series.ChartType = SeriesChartType.Column;
@@ -44,10 +44,10 @@ namespace GUI.Control
                 series.Points.AddXY(month, revenue);
             }
 
-            chart1.Series.Add(series);
-            chart1.ChartAreas[0].AxisX.Title = "Month";
-            chart1.ChartAreas[0].AxisY.Title = "Revenue (VND)";
-            chart1.ChartAreas[0].AxisX.Interval = 1;
+            chartMonth.Series.Add(series);
+            chartMonth.ChartAreas[0].AxisX.Title = "Month";
+            chartMonth.ChartAreas[0].AxisY.Title = "Revenue (VND)";
+            chartMonth.ChartAreas[0].AxisX.Interval = 1;
         }
 
     }
