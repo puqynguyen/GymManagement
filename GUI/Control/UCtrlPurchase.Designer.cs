@@ -36,14 +36,14 @@
             this.btnAdd = new System.Windows.Forms.Button();
             this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
             this.cbbSupp = new System.Windows.Forms.ComboBox();
+            this.txtName = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             this.btnCreate = new System.Windows.Forms.Button();
             this.label10 = new System.Windows.Forms.Label();
             this.txtTotal = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.txtName2 = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
@@ -63,18 +63,19 @@
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Red;
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridView1.Location = new System.Drawing.Point(119, 85);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.Size = new System.Drawing.Size(837, 346);
             this.dataGridView1.TabIndex = 0;
+            this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             // 
             // groupBox1
             // 
@@ -82,14 +83,14 @@
             this.groupBox1.Controls.Add(this.btnAdd);
             this.groupBox1.Controls.Add(this.numericUpDown1);
             this.groupBox1.Controls.Add(this.cbbSupp);
-            this.groupBox1.Controls.Add(this.txtName2);
+            this.groupBox1.Controls.Add(this.txtName);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Location = new System.Drawing.Point(92, 445);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox1.Size = new System.Drawing.Size(683, 116);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
@@ -131,7 +132,7 @@
             // numericUpDown1
             // 
             this.numericUpDown1.Location = new System.Drawing.Point(447, 22);
-            this.numericUpDown1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.numericUpDown1.Margin = new System.Windows.Forms.Padding(4);
             this.numericUpDown1.Name = "numericUpDown1";
             this.numericUpDown1.Size = new System.Drawing.Size(48, 22);
             this.numericUpDown1.TabIndex = 4;
@@ -140,10 +141,18 @@
             // 
             this.cbbSupp.FormattingEnabled = true;
             this.cbbSupp.Location = new System.Drawing.Point(159, 55);
-            this.cbbSupp.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cbbSupp.Margin = new System.Windows.Forms.Padding(4);
             this.cbbSupp.Name = "cbbSupp";
             this.cbbSupp.Size = new System.Drawing.Size(160, 24);
             this.cbbSupp.TabIndex = 3;
+            // 
+            // txtName
+            // 
+            this.txtName.Location = new System.Drawing.Point(159, 86);
+            this.txtName.Margin = new System.Windows.Forms.Padding(4);
+            this.txtName.Name = "txtName";
+            this.txtName.Size = new System.Drawing.Size(164, 22);
+            this.txtName.TabIndex = 2;
             // 
             // label2
             // 
@@ -167,6 +176,17 @@
             this.label3.TabIndex = 0;
             this.label3.Text = "Quantity";
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label5.Location = new System.Drawing.Point(35, 89);
+            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(44, 16);
+            this.label5.TabIndex = 0;
+            this.label5.Text = "Name";
+            // 
             // btnCreate
             // 
             this.btnCreate.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -175,7 +195,7 @@
             this.btnCreate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCreate.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCreate.ForeColor = System.Drawing.Color.White;
-            this.btnCreate.Location = new System.Drawing.Point(839, 527);
+            this.btnCreate.Location = new System.Drawing.Point(811, 504);
             this.btnCreate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnCreate.Name = "btnCreate";
             this.btnCreate.Size = new System.Drawing.Size(117, 34);
@@ -214,25 +234,6 @@
             this.label4.TabIndex = 0;
             this.label4.Text = "Total";
             // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label5.Location = new System.Drawing.Point(35, 89);
-            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(104, 16);
-            this.label5.TabIndex = 0;
-            this.label5.Text = "Name Customer";
-            // 
-            // txtName2
-            // 
-            this.txtName2.Location = new System.Drawing.Point(159, 86);
-            this.txtName2.Margin = new System.Windows.Forms.Padding(4);
-            this.txtName2.Name = "txtName2";
-            this.txtName2.Size = new System.Drawing.Size(164, 22);
-            this.txtName2.TabIndex = 2;
-            // 
             // UCtrlPurchase
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -243,7 +244,7 @@
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.label4);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "UCtrlPurchase";
             this.Size = new System.Drawing.Size(1247, 620);
             this.Load += new System.EventHandler(this.UCtrlPurchase_Load);
@@ -270,7 +271,8 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox txtTotal;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox txtName2;
+        private System.Windows.Forms.TextBox txtName;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CName;
     }
 }

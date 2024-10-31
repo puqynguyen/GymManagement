@@ -1,14 +1,9 @@
 ﻿using BUS.services;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using BUS.services;
 using DTO.Entities;
 using BUS;
 
@@ -16,15 +11,17 @@ namespace GUI.Control
 {
     public partial class UCtrlPurchase : UserControl
     {
-        PurchaseInvoiceService purchaseInvoiceService = new PurchaseInvoiceService();
-        SupplementService supplementService = new SupplementService();
-        BrandService brandService = new BrandService();
-        DataTable invoiceDetails = new DataTable();
-        decimal totalAmount = 0;
+        private readonly PurchaseInvoiceService purchaseInvoiceService = new PurchaseInvoiceService();
+        private readonly SupplementService supplementService = new SupplementService();
+        private readonly DataTable invoiceDetails = new DataTable();
+        private decimal totalAmount = 0;
+        private DataGridViewRow selectedRow;
+
         public UCtrlPurchase()
         {
             InitializeComponent();
             InitializeInvoiceDetailsTable();
+            CustomizeDataGridView();
         }
 
         private void InitializeInvoiceDetailsTable()
@@ -34,16 +31,24 @@ namespace GUI.Control
             invoiceDetails.Columns.Add("Quantity", typeof(int));
             invoiceDetails.Columns.Add("UnitPrice", typeof(decimal));
             invoiceDetails.Columns.Add("TotalPrice", typeof(decimal));
+
+            dataGridView1.DataSource = invoiceDetails;
         }
 
-
+        private void CustomizeDataGridView()
+        {
+            dataGridView1.DefaultCellStyle.ForeColor = Color.Black;
+            dataGridView1.DefaultCellStyle.BackColor = Color.White;
+            dataGridView1.DefaultCellStyle.SelectionForeColor = Color.White;
+            dataGridView1.DefaultCellStyle.SelectionBackColor = Color.DarkBlue;
+        }
 
         private void UCtrlPurchase_Load(object sender, EventArgs e)
         {
-            Cbbfill();
+            FillComboBox();
         }
 
-        private void Cbbfill()
+        private void FillComboBox()
         {
             var supplements = supplementService.GetAll();
             cbbSupp.DataSource = supplements;
@@ -51,20 +56,19 @@ namespace GUI.Control
             cbbSupp.ValueMember = "SupplementID";
         }
 
-
         private decimal GetPriceById(int supplementId)
         {
             var supplement = supplementService.GetById(supplementId);
             if (supplement != null)
             {
-                return supplement.price.Value;
+                return supplement.price.HasValue ? supplement.price.Value : 0;
             }
             throw new Exception("Supplement not found");
         }
 
         private void UpdateTotalAmount()
         {
-            decimal totalAmount = 0;
+            totalAmount = 0;
 
             foreach (DataGridViewRow row in dataGridView1.Rows)
             {
@@ -77,73 +81,95 @@ namespace GUI.Control
             txtTotal.Text = totalAmount.ToString("N0") + " ₫";
         }
 
-
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            int supplementId = (int)cbbSupp.SelectedValue;
-            string supplementName = cbbSupp.Text;
-            int quantity = (int)numericUpDown1.Value;
-            decimal unitPrice = GetPriceById(supplementId);
-
-            if (quantity <= 0)
+            try
             {
-                MessageBox.Show("Quantity must be greater than 0.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
+                int supplementId = (int)cbbSupp.SelectedValue;
+                string supplementName = cbbSupp.Text;
+                int quantity = (int)numericUpDown1.Value;
+                decimal unitPrice = GetPriceById(supplementId);
 
-            decimal totalPrice = quantity * unitPrice;
-
-            foreach (DataRow row in invoiceDetails.Rows)
-            {
-                if ((int)row["SupplementID"] == supplementId)
+                if (quantity <= 0)
                 {
-                    row["Quantity"] = (int)row["Quantity"] + quantity;
-                    row["TotalPrice"] = (int)row["Quantity"] * unitPrice;
-                    UpdateTotalAmount();
+                    MessageBox.Show("Quantity must be greater than 0.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
-            }
-            DataRow newRow = invoiceDetails.NewRow();
-            newRow["SupplementID"] = supplementId;
-            newRow["Name"] = supplementName;
-            newRow["Quantity"] = quantity;
-            newRow["UnitPrice"] = unitPrice;
-            newRow["TotalPrice"] = totalPrice;
-            invoiceDetails.Rows.Add(newRow);
 
-            dataGridView1.DataSource = invoiceDetails;
-            UpdateTotalAmount();
-            
+                decimal totalPrice = quantity * unitPrice;
+
+                foreach (DataRow row in invoiceDetails.Rows)
+                {
+                    if ((int)row["SupplementID"] == supplementId)
+                    {
+                        row["Quantity"] = (int)row["Quantity"] + quantity;
+                        row["TotalPrice"] = (int)row["Quantity"] * unitPrice;
+                        UpdateTotalAmount();
+                        return;
+                    }
+                }
+
+                DataRow newRow = invoiceDetails.NewRow();
+                newRow["SupplementID"] = supplementId;
+                newRow["Name"] = supplementName;
+                newRow["Quantity"] = quantity;
+                newRow["UnitPrice"] = unitPrice;
+                newRow["TotalPrice"] = totalPrice;
+                invoiceDetails.Rows.Add(newRow);
+
+                UpdateTotalAmount();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An error occurred: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void btnRemove_Click(object sender, EventArgs e)
         {
-            if (dataGridView1.SelectedRows.Count > 0)
+            try
             {
-                foreach (DataGridViewRow row in dataGridView1.SelectedRows)
+                if (selectedRow != null)
                 {
-                    if (!row.IsNewRow)
+                    int quantityToRemove = (int)numericUpDown1.Value;
+                    if (quantityToRemove <= 0)
                     {
-                        int supplementId = (int)row.Cells["SupplementID"].Value;
-                        Console.WriteLine($"Selected SupplementID: {supplementId}");
-                        DataRow[] rowsToDelete = invoiceDetails.Select("SupplementID = " + supplementId);
+                        MessageBox.Show("Số lượng cần xóa phải lớn hơn 0.", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return;
+                    }
 
-                        foreach (DataRow dataRow in rowsToDelete)
+                    int supplementId = (int)selectedRow.Cells["SupplementID"].Value;
+                    DataRow[] rowsToUpdate = invoiceDetails.Select("SupplementID = " + supplementId);
+
+                    foreach (DataRow dataRow in rowsToUpdate)
+                    {
+                        int currentQuantity = (int)dataRow["Quantity"];
+
+                        if (quantityToRemove >= currentQuantity)
                         {
                             invoiceDetails.Rows.Remove(dataRow);
                         }
-
-
-                        dataGridView1.Rows.Remove(row);
+                        else
+                        {
+                            dataRow["Quantity"] = currentQuantity - quantityToRemove;
+                            dataRow["TotalPrice"] = (int)dataRow["Quantity"] * (decimal)dataRow["UnitPrice"];
+                        }
                     }
+
+                    UpdateTotalAmount();
+                    selectedRow = null;
                 }
-                UpdateTotalAmount();
+                else
+                {
+                    MessageBox.Show("Hãy chọn một sản phẩm để xóa", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
             }
-            else
+            catch (Exception ex)
             {
-                MessageBox.Show("Chosse product to remove", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Đã xảy ra lỗi: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
         private void btnCreate_Click(object sender, EventArgs e)
         {
             try
@@ -170,18 +196,24 @@ namespace GUI.Control
                         price = (decimal)row["UnitPrice"]
                     };
                     purchaseInvoiceService.AddPurchaseDetailsToInvoice(invoice.InvoiceID, new List<PurchaseDetail> { detail });
-                    FormBill formBill = new FormBill(invoiceDetails, totalAmount);
-                    formBill.ShowDialog();
                 }
 
-
+                FormBill formBill = new FormBill(invoiceDetails, totalAmount);
+                formBill.ShowDialog();
             }
             catch (Exception ex)
             {
                 MessageBox.Show("An error occurred: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-        
         }
 
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                selectedRow  = dataGridView1.Rows[e.RowIndex];
+                txtName.Text = selectedRow.Cells["Name"].Value.ToString();
+            }
+        }
     }
 }
