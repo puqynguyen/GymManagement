@@ -368,6 +368,7 @@
             this.rdbFemale.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.rdbFemale.AutoSize = true;
             this.rdbFemale.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rdbFemale.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.rdbFemale.Location = new System.Drawing.Point(154, 99);
             this.rdbFemale.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.rdbFemale.Name = "rdbFemale";
@@ -382,6 +383,7 @@
             this.rdbMale.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.rdbMale.AutoSize = true;
             this.rdbMale.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rdbMale.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.rdbMale.Location = new System.Drawing.Point(154, 67);
             this.rdbMale.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.rdbMale.Name = "rdbMale";
@@ -642,6 +644,7 @@
             this.rdbFemale1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.rdbFemale1.AutoSize = true;
             this.rdbFemale1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rdbFemale1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.rdbFemale1.Location = new System.Drawing.Point(154, 122);
             this.rdbFemale1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.rdbFemale1.Name = "rdbFemale1";
@@ -668,6 +671,7 @@
             this.rdbMale1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.rdbMale1.AutoSize = true;
             this.rdbMale1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rdbMale1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.rdbMale1.Location = new System.Drawing.Point(154, 68);
             this.rdbMale1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.rdbMale1.Name = "rdbMale1";
@@ -730,6 +734,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
+            this.label10.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.label10.Location = new System.Drawing.Point(467, 41);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(50, 16);

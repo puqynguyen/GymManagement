@@ -74,7 +74,7 @@ namespace GUI.Control
                 }
             }
 
-            txtTotal.Text = totalAmount.ToString("C");
+            txtTotal.Text = totalAmount.ToString("N0") + " ₫";
         }
 
 
@@ -111,8 +111,9 @@ namespace GUI.Control
             newRow["TotalPrice"] = totalPrice;
             invoiceDetails.Rows.Add(newRow);
 
-            UpdateTotalAmount();
             dataGridView1.DataSource = invoiceDetails;
+            UpdateTotalAmount();
+            
         }
 
         private void btnRemove_Click(object sender, EventArgs e)
