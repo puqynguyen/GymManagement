@@ -119,7 +119,18 @@ namespace GUI.Control
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-
+            try
+            {
+                int cusId = Convert.ToInt32(txtId.Text);
+                customerService.CancelActiveMembership(cusId);
+                cbbMembership.Enabled = true;
+                MessageBox.Show("Membership cancelled successfully.");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
+
     }
 }
