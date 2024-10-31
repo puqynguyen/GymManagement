@@ -542,7 +542,9 @@
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.menuStrip1);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Name = "UCtrlSupplement";
             this.Size = new System.Drawing.Size(1235, 633);
+            this.Load += new System.EventHandler(this.UCtrlSupplement_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();

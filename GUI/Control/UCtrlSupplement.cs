@@ -125,5 +125,10 @@ namespace GUI.Control
                 MessageBox.Show(ex.Message);
             }
         }
+
+        private void UCtrlSupplement_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
