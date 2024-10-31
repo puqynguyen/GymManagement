@@ -36,15 +36,6 @@ namespace GUI.Control
             dgvClassEdit.DefaultCellStyle.BackColor = Color.White;
             dgvClassEdit.DefaultCellStyle.SelectionForeColor = Color.White;
             dgvClassEdit.DefaultCellStyle.SelectionBackColor = Color.DarkBlue;
-            Load();
-        }
-        private void Load()
-        {
-            IEnumerable<Class> classes = classService.GetAll();
-            BindGridClass(classes);
-            btnRemoveCustomer.Enabled = false;
-            btnRemoveInstructor.Enabled = false;
-            Clear();
         }
         private void BindGridClass(IEnumerable<Class> classes)
         {
@@ -69,15 +60,6 @@ namespace GUI.Control
                 {
                     dgvClass.Rows[index].Cells[4].Value = "Available";
                 }
-            }
-            dgvClassEdit.Rows.Clear();
-            foreach (var item in classes)
-            {
-                int index = dgvClassEdit.Rows.Add();
-                dgvClassEdit.Rows[index].Cells[0].Value = item.ClassID;
-                dgvClassEdit.Rows[index].Cells[1].Value = item.class_type;
-                dgvClassEdit.Rows[index].Cells[2].Value = item.desciption;
-                dgvClassEdit.Rows[index].Cells[3].Value = item.class_size;
             }
         }
 
@@ -159,6 +141,8 @@ namespace GUI.Control
             txtName1.Text = "";
             txtSize.Text = "";
             txtSize1.Text = "";
+            btnRemoveCustomer.Enabled = false;
+            btnRemoveInstructor.Enabled = false;
         }
 
         private void ckFull_CheckedChanged(object sender, EventArgs e)
@@ -178,27 +162,51 @@ namespace GUI.Control
         private void btnAddCustomer_Click(object sender, EventArgs e)
         {
             FormAddToClass formAddToClass = new FormAddToClass(true, _selectedClassId);
-            formAddToClass.FormClosed += (s, args) => Load();
+            formAddToClass.FormClosed += (s, args) => Load2();
             formAddToClass.ShowDialog();
         }
-
+        private void Load2()
+        {
+            IEnumerable<Customer> customers = classService.GetCustomersInClass(_selectedClassId);
+            IEnumerable<Instructor> instructors = classService.GetInstructorsInClass(_selectedClassId);
+            BindGridCustomer(customers);
+            BindGridInstructor(instructors);
+            Clear();
+        }
         private void btnAddInstructor_Click(object sender, EventArgs e)
         {
             FormAddToClass formAddToClass = new FormAddToClass(false, _selectedClassId);
-            formAddToClass.FormClosed += (s, args) => Load();
+            formAddToClass.FormClosed += (s, args) => Load2();
             formAddToClass.ShowDialog();
         }
 
         private void btnRemoveCustomer_Click(object sender, EventArgs e)
         {
-            int cusId = Convert.ToInt32(lblCustomerId.Text);
-            classService.RemoveCustomerFromClass(cusId, _selectedClassId);
+            if (lblCustomerId.Text != "...")
+            {
+                int cusId = Convert.ToInt32(lblCustomerId.Text);
+                classService.RemoveCustomerFromClass(cusId, _selectedClassId);
+                Load2();
+            }
         }
 
         private void btnRemoveInstructor_Click(object sender, EventArgs e)
         {
-            int insId = Convert.ToInt32(lblInstructorId.Text);
-            classService.RemoveInstructorFromClass(insId, _selectedClassId);
+            try
+            {
+                if (lblInstructorId.Text != "...")
+                {
+                    int insId = Convert.ToInt32(lblInstructorId.Text);
+                    classService.RemoveInstructorFromClass(insId, _selectedClassId);
+                    Load2();
+                }
+                
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            
         }
 
         private void dgvClassEdit_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -209,6 +217,9 @@ namespace GUI.Control
                 txtName.Text = dgvClassEdit.Rows[e.RowIndex].Cells[1].Value.ToString();
                 txtDescription.Text = dgvClassEdit.Rows[e.RowIndex].Cells[2].Value.ToString();
                 txtSize.Text = dgvClassEdit.Rows[e.RowIndex].Cells[3].Value.ToString();
+                if(dgvClassEdit.Rows[e.RowIndex].Cells[4].Value.ToString() == "Available")
+                    ckbCancel.Checked = false;
+                else ckbCancel.Checked = true;
             }
         }
 
@@ -225,8 +236,12 @@ namespace GUI.Control
                 @class.class_size = Convert.ToInt32(txtSize.Text);
                 @class.class_type = txtName.Text;
                 @class.desciption = txtDescription.Text;
+                if (ckbCancel.Checked) @class.closed = 1;
+                else @class.closed = 0;
+                    
                 classService.Update(@class);
-                Load();
+                UCtrlClass_Load(sender, e);
+
             }
             catch (Exception ex)
             {
@@ -245,7 +260,7 @@ namespace GUI.Control
                     throw new Exception("Class Id not found!");
                 }
                 classService.Delete(Id);
-                Load();
+                UCtrlClass_Load(sender , e);
             }
             catch (Exception ex)
             {
@@ -266,7 +281,60 @@ namespace GUI.Control
             {
                 MessageBox.Show(ex.Message);
             }
-            Load();
+            UCtrlClass_Load(sender, e);
         }
+
+        private void ckbClosedClass_CheckedChanged(object sender, EventArgs e)
+        {
+            IEnumerable<Class> classes = null;
+            if (ckbClosedClass.Checked)
+            {
+                classes = classService.GetAll().Where(c => c.closed == 1);
+
+                dgvClassEdit.Rows.Clear();
+                foreach (var item in classes)
+                {
+                    int index = dgvClassEdit.Rows.Add();
+                    dgvClassEdit.Rows[index].Cells[0].Value = item.ClassID;
+                    dgvClassEdit.Rows[index].Cells[1].Value = item.class_type;
+                    dgvClassEdit.Rows[index].Cells[2].Value = item.desciption;
+                    dgvClassEdit.Rows[index].Cells[3].Value = item.class_size;
+                    dgvClassEdit.Rows[index].Cells[4].Value = "Closed";
+                }
+            }
+            else
+            {
+                dgvClassEdit.Rows.Clear();
+                classes = classService.GetAll();
+                foreach (var item in classes)
+                {
+                    int index = dgvClassEdit.Rows.Add();
+                    dgvClassEdit.Rows[index].Cells[0].Value = item.ClassID;
+                    dgvClassEdit.Rows[index].Cells[1].Value = item.class_type;
+                    dgvClassEdit.Rows[index].Cells[2].Value = item.desciption;
+                    dgvClassEdit.Rows[index].Cells[3].Value = item.class_size;
+                    if (item.closed == 1)
+                    {
+                        dgvClassEdit.Rows[index].Cells[4].Value = "Closed";
+                    }
+                    else
+                    {
+                        dgvClassEdit.Rows[index].Cells[4].Value = "Available";
+                    }
+                }
+            }    
+        }
+
+        private void UCtrlClass_Load(object sender, EventArgs e)
+        {
+            dgvCustomer.Rows.Clear();
+            dgvInstructor.Rows.Clear();
+            btnRemoveCustomer.Enabled = false;
+            btnRemoveInstructor.Enabled = false;
+            Clear();
+            ckbClosedClass_CheckedChanged(sender, e);
+            ckFull_CheckedChanged(sender, e);
+        }
+
     }
 }

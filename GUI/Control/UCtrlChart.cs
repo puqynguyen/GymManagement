@@ -41,72 +41,66 @@ namespace GUI.Control
             dgvM.Rows.Clear();
             int sumS = 0;
             int sumM = 0;
+
+            // Loop through invoices and add rows to dgvS
             foreach (var item in invoices)
             {
-                int index = dgvS.Rows.Add();
-
-                // Check if CustomerID has a value before casting
+                int index = dgvS.Rows.Add(); // Add row to dgvS, not dgvM
                 if (item.CustomerID.HasValue)
                 {
                     int idCus = item.CustomerID.Value;
                     Customer customer = customerService.GetById(idCus);
-
                     if (customer != null)
                     {
-                        dgvM.Rows[index].Cells[0].Value = customer.name;
-                        dgvM.Rows[index].Cells[1].Value = customer.contact_info;
+                        dgvS.Rows[index].Cells[0].Value = customer.name;
+                        dgvS.Rows[index].Cells[1].Value = customer.contact_info;
                     }
                     else
                     {
-                        dgvM.Rows[index].Cells[0].Value = "Unknown Customer";
-                        dgvM.Rows[index].Cells[1].Value = "N/A";
+                        dgvS.Rows[index].Cells[0].Value = "Unknown Customer";
+                        dgvS.Rows[index].Cells[1].Value = "N/A";
                     }
-
                 }
+                else
+                {
+                    dgvS.Rows[index].Cells[0].Value = "Unknown Customer";
+                    dgvS.Rows[index].Cells[1].Value = "N/A";
+                }
+
                 dgvS.Rows[index].Cells[2].Value = item.date;
-                dgvS.Rows[index].Cells[3].Value = item.totalAmount ?? 0;
+                dgvS.Rows[index].Cells[3].Value = item.totalAmount;
                 sumS += (int)(item.totalAmount ?? 0);
             }
 
+            // Loop through customerMemberships and add rows to dgvM
             foreach (var item in customerMemberships)
             {
-                int index = dgvM.Rows.Add();
-
-                // Check if CustomerID has a value before casting
-                if (item.CustomerID.HasValue)
+                int index = dgvM.Rows.Add(); // Add row to dgvM, not dgvS
+                int idCus = Convert.ToInt32(item.CustomerID);
+                Customer customer = customerService.GetById(idCus);
+                if (customer != null)
                 {
-                    int idCus = item.CustomerID.Value;
-                    Customer customer = customerService.GetById(idCus);
-
-                    if (customer != null)
-                    {
-                        dgvM.Rows[index].Cells[0].Value = customer.name;
-                        dgvM.Rows[index].Cells[1].Value = customer.contact_info;
-                    }
-                    else
-                    {
-                        dgvM.Rows[index].Cells[0].Value = "Unknown Customer";
-                        dgvM.Rows[index].Cells[1].Value = "N/A";
-                    }
-
+                    dgvM.Rows[index].Cells[0].Value = customer.name;
+                    dgvM.Rows[index].Cells[1].Value = customer.contact_info;
                 }
+                else
+                {
+                    dgvM.Rows[index].Cells[0].Value = "Unknown Customer";
+                    dgvM.Rows[index].Cells[1].Value = "N/A";
+                }
+
                 dgvM.Rows[index].Cells[2].Value = item.start_date;
                 dgvM.Rows[index].Cells[3].Value = item.end_date;
-
-                if (item.cancel == 1 || item.end_date < DateTime.Now)
-                    dgvM.Rows[index].Cells[4].Value = "Outdated";
-                else
-                    dgvM.Rows[index].Cells[4].Value = "Active";
-
-                dgvM.Rows[index].Cells[5].Value = item.price ?? 0;
-                sumM += (int)(item.price ?? 0);
+                dgvM.Rows[index].Cells[4].Value = item.cancel == 1 || item.end_date < DateTime.Now ? "Outdated" : "Active";
+                dgvM.Rows[index].Cells[5].Value = item.price;
+                sumM += (int)item.price;
             }
 
             txtS.Text = sumS.ToString();
             txtM.Text = sumM.ToString();
             txtTotal.Text = $"{sumM + sumS}";
-
         }
+
 
         private void rdb_CheckedChanged(object sender, EventArgs e)
         {

@@ -67,13 +67,16 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.ckbClosedClass = new System.Windows.Forms.CheckBox();
             this.dgvClassEdit = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CustomerAdd = new System.Windows.Forms.TabControl();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.ckbCancel = new System.Windows.Forms.CheckBox();
             this.btnRemove = new System.Windows.Forms.Button();
             this.btnUpdate = new System.Windows.Forms.Button();
             this.txtDescription = new System.Windows.Forms.TextBox();
@@ -444,11 +447,11 @@
             this.ckFull.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.ckFull.AutoSize = true;
             this.ckFull.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.ckFull.Location = new System.Drawing.Point(1005, 3);
+            this.ckFull.Location = new System.Drawing.Point(932, 3);
             this.ckFull.Name = "ckFull";
-            this.ckFull.Size = new System.Drawing.Size(50, 20);
+            this.ckFull.Size = new System.Drawing.Size(123, 20);
             this.ckFull.TabIndex = 1;
-            this.ckFull.Text = "Full";
+            this.ckFull.Text = "Available Class";
             this.ckFull.UseVisualStyleBackColor = true;
             this.ckFull.CheckedChanged += new System.EventHandler(this.ckFull_CheckedChanged);
             // 
@@ -539,6 +542,7 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.ckbClosedClass);
             this.tabPage2.Controls.Add(this.dgvClassEdit);
             this.tabPage2.Controls.Add(this.CustomerAdd);
             this.tabPage2.Location = new System.Drawing.Point(4, 25);
@@ -549,6 +553,18 @@
             this.tabPage2.Text = "Edit";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
+            // ckbClosedClass
+            // 
+            this.ckbClosedClass.AutoSize = true;
+            this.ckbClosedClass.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.ckbClosedClass.Location = new System.Drawing.Point(950, 331);
+            this.ckbClosedClass.Name = "ckbClosedClass";
+            this.ckbClosedClass.Size = new System.Drawing.Size(109, 20);
+            this.ckbClosedClass.TabIndex = 28;
+            this.ckbClosedClass.Text = "Closed Class";
+            this.ckbClosedClass.UseVisualStyleBackColor = true;
+            this.ckbClosedClass.CheckedChanged += new System.EventHandler(this.ckbClosedClass_CheckedChanged);
+            // 
             // dgvClassEdit
             // 
             this.dgvClassEdit.AllowUserToAddRows = false;
@@ -558,7 +574,8 @@
             this.dataGridViewTextBoxColumn1,
             this.dataGridViewTextBoxColumn2,
             this.dataGridViewTextBoxColumn3,
-            this.Column1});
+            this.Column1,
+            this.Column2});
             this.dgvClassEdit.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.dgvClassEdit.Location = new System.Drawing.Point(3, 356);
             this.dgvClassEdit.Name = "dgvClassEdit";
@@ -602,6 +619,14 @@
             this.Column1.ReadOnly = true;
             this.Column1.Width = 125;
             // 
+            // Column2
+            // 
+            this.Column2.HeaderText = "Status";
+            this.Column2.MinimumWidth = 6;
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            this.Column2.Width = 125;
+            // 
             // CustomerAdd
             // 
             this.CustomerAdd.Controls.Add(this.tabPage3);
@@ -615,6 +640,7 @@
             // 
             // tabPage3
             // 
+            this.tabPage3.Controls.Add(this.ckbCancel);
             this.tabPage3.Controls.Add(this.btnRemove);
             this.tabPage3.Controls.Add(this.btnUpdate);
             this.tabPage3.Controls.Add(this.txtDescription);
@@ -632,6 +658,17 @@
             this.tabPage3.TabIndex = 0;
             this.tabPage3.Text = "Adjust/Remove";
             this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // ckbCancel
+            // 
+            this.ckbCancel.AutoSize = true;
+            this.ckbCancel.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.ckbCancel.Location = new System.Drawing.Point(380, 95);
+            this.ckbCancel.Name = "ckbCancel";
+            this.ckbCancel.Size = new System.Drawing.Size(108, 20);
+            this.ckbCancel.TabIndex = 28;
+            this.ckbCancel.Text = "Cancel Class";
+            this.ckbCancel.UseVisualStyleBackColor = true;
             // 
             // btnRemove
             // 
@@ -841,6 +878,7 @@
             this.Controls.Add(this.tabControl1);
             this.Name = "UCtrlClass";
             this.Size = new System.Drawing.Size(1072, 656);
+            this.Load += new System.EventHandler(this.UCtrlClass_Load);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel1.PerformLayout();
             this.splitContainer1.Panel2.ResumeLayout(false);
@@ -855,6 +893,7 @@
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);
+            this.tabPage2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvClassEdit)).EndInit();
             this.CustomerAdd.ResumeLayout(false);
             this.tabPage3.ResumeLayout(false);
@@ -918,10 +957,6 @@
         private System.Windows.Forms.TextBox txtName1;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.DataGridView dgvClassEdit;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.TextBox txtDescription;
         private System.Windows.Forms.TextBox txtSize;
         private System.Windows.Forms.Label label8;
@@ -930,5 +965,12 @@
         private System.Windows.Forms.TextBox txtSize1;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.CheckBox ckbCancel;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.CheckBox ckbClosedClass;
     }
 }

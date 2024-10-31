@@ -42,10 +42,9 @@
             // 
             this.LABEL.AutoSize = true;
             this.LABEL.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LABEL.Location = new System.Drawing.Point(9, 7);
-            this.LABEL.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.LABEL.Location = new System.Drawing.Point(12, 9);
             this.LABEL.Name = "LABEL";
-            this.LABEL.Size = new System.Drawing.Size(343, 26);
+            this.LABEL.Size = new System.Drawing.Size(428, 32);
             this.LABEL.TabIndex = 0;
             this.LABEL.Text = "ADD CLASS FOR CUSTOMER";
             // 
@@ -56,23 +55,23 @@
             this.dgvList.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvList.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.dgvList.Location = new System.Drawing.Point(0, 96);
-            this.dgvList.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dgvList.Location = new System.Drawing.Point(0, 118);
+            this.dgvList.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dgvList.Name = "dgvList";
             this.dgvList.ReadOnly = true;
             this.dgvList.RowHeadersVisible = false;
             this.dgvList.RowHeadersWidth = 51;
             this.dgvList.RowTemplate.Height = 24;
-            this.dgvList.Size = new System.Drawing.Size(623, 226);
+            this.dgvList.Size = new System.Drawing.Size(831, 278);
             this.dgvList.TabIndex = 1;
             this.dgvList.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvList_CellContentClick);
             // 
             // btnAdd
             // 
-            this.btnAdd.Location = new System.Drawing.Point(551, 54);
-            this.btnAdd.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnAdd.Location = new System.Drawing.Point(735, 66);
+            this.btnAdd.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(63, 37);
+            this.btnAdd.Size = new System.Drawing.Size(84, 46);
             this.btnAdd.TabIndex = 2;
             this.btnAdd.Text = "Add";
             this.btnAdd.UseVisualStyleBackColor = true;
@@ -81,48 +80,44 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(7, 59);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Location = new System.Drawing.Point(9, 73);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(21, 13);
+            this.label1.Size = new System.Drawing.Size(23, 16);
             this.label1.TabIndex = 3;
             this.label1.Text = "ID:";
             // 
             // lblId
             // 
             this.lblId.AutoSize = true;
-            this.lblId.Location = new System.Drawing.Point(44, 59);
-            this.lblId.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblId.Location = new System.Drawing.Point(59, 73);
             this.lblId.Name = "lblId";
-            this.lblId.Size = new System.Drawing.Size(16, 13);
+            this.lblId.Size = new System.Drawing.Size(16, 16);
             this.lblId.TabIndex = 3;
             this.lblId.Text = "...";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(7, 72);
-            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label3.Location = new System.Drawing.Point(9, 89);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(38, 13);
+            this.label3.Size = new System.Drawing.Size(47, 16);
             this.label3.TabIndex = 3;
             this.label3.Text = "Name:";
             // 
             // lblName
             // 
             this.lblName.AutoSize = true;
-            this.lblName.Location = new System.Drawing.Point(44, 72);
-            this.lblName.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblName.Location = new System.Drawing.Point(59, 89);
             this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(16, 13);
+            this.lblName.Size = new System.Drawing.Size(16, 16);
             this.lblName.TabIndex = 3;
             this.lblName.Text = "...";
             // 
             // FormAddToClass
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(623, 322);
+            this.ClientSize = new System.Drawing.Size(831, 396);
             this.Controls.Add(this.lblName);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.lblId);
@@ -130,9 +125,10 @@
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.dgvList);
             this.Controls.Add(this.LABEL);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "FormAddToClass";
             this.Text = "FormAddToClass";
+            this.Load += new System.EventHandler(this.FormAddToClass_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvList)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
