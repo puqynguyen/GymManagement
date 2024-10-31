@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgvAdjust = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -80,6 +80,7 @@
             this.txtName1 = new System.Windows.Forms.TextBox();
             this.btnAdd = new System.Windows.Forms.Button();
             this.label18 = new System.Windows.Forms.Label();
+            this.ckbNoActive = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAdjust)).BeginInit();
             this.CustomerAdd.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -103,14 +104,14 @@
             this.Column5,
             this.Column6,
             this.Mem});
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvAdjust.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvAdjust.DefaultCellStyle = dataGridViewCellStyle5;
             this.dgvAdjust.Location = new System.Drawing.Point(428, 80);
             this.dgvAdjust.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dgvAdjust.Name = "dgvAdjust";
@@ -394,6 +395,7 @@
             // 
             this.rdbMale.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.rdbMale.AutoSize = true;
+            this.rdbMale.Checked = true;
             this.rdbMale.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rdbMale.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.rdbMale.Location = new System.Drawing.Point(154, 67);
@@ -509,6 +511,7 @@
             this.btnRemove.TabIndex = 27;
             this.btnRemove.Text = "Remove";
             this.btnRemove.UseVisualStyleBackColor = false;
+            this.btnRemove.Click += new System.EventHandler(this.btnRemove_Click);
             // 
             // btnUpdate
             // 
@@ -525,7 +528,7 @@
             this.btnUpdate.TabIndex = 26;
             this.btnUpdate.Text = "Update";
             this.btnUpdate.UseVisualStyleBackColor = false;
-            //this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
             // tabPage2
             // 
@@ -684,6 +687,7 @@
             // 
             this.rdbMale1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.rdbMale1.AutoSize = true;
+            this.rdbMale1.Checked = true;
             this.rdbMale1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rdbMale1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.rdbMale1.Location = new System.Drawing.Point(154, 68);
@@ -758,10 +762,23 @@
             this.label18.TabIndex = 13;
             this.label18.Text = "Customer";
             // 
+            // ckbNoActive
+            // 
+            this.ckbNoActive.AutoSize = true;
+            this.ckbNoActive.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.ckbNoActive.Location = new System.Drawing.Point(1198, 55);
+            this.ckbNoActive.Name = "ckbNoActive";
+            this.ckbNoActive.Size = new System.Drawing.Size(87, 20);
+            this.ckbNoActive.TabIndex = 14;
+            this.ckbNoActive.Text = "No Active";
+            this.ckbNoActive.UseVisualStyleBackColor = true;
+            this.ckbNoActive.CheckedChanged += new System.EventHandler(this.ckbNoActive_CheckedChanged);
+            // 
             // UCtrlCustomer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.ckbNoActive);
             this.Controls.Add(this.label18);
             this.Controls.Add(this.CustomerAdd);
             this.Controls.Add(this.dgvAdjust);
@@ -838,5 +855,6 @@
         private System.Windows.Forms.ComboBox cbbMembership;
         private System.Windows.Forms.Button btnAddClass;
         private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.CheckBox ckbNoActive;
     }
 }

@@ -25,6 +25,12 @@ namespace GUI.Control
             dgvAdjust.DefaultCellStyle.SelectionForeColor = Color.White;
             dgvAdjust.DefaultCellStyle.SelectionBackColor = Color.DarkBlue;
         }
+        private void UCtrlCustomer_Load(object sender, EventArgs e)
+        {
+            ckbNoActive_CheckedChanged(sender, e);
+            dtpBirth1.Value = DateTime.Now.AddYears(-16);
+
+        }
         private void BindGrid(IEnumerable<Customer> customers)
         {
             IEnumerable<Membership> memberships = membershipService.GetAll();
@@ -60,16 +66,32 @@ namespace GUI.Control
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-
+            
+            try
+            {
+                if (txtAddress1.Text != "" && txtContact1.Text != "" && txtName1.Text != "" && txtContact1.Text != "")
+                {
+                    string gender = "M";
+                    if (rdbFemale1.Checked)
+                    {
+                        gender = "F";
+                    }
+                    Customer customer = new Customer() { name = txtName1.Text, sex = gender, address = txtAddress1.Text, date_of_birth = dtpBirth1.Value, date_joined = dtpDateJoin1.Value };
+                    customerService.Add(customer);
+                    UCtrlCustomer_Load(sender, e);
+                }
+                else
+                {
+                    throw new Exception("Please enter all the information!");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
-        private void UCtrlCustomer_Load(object sender, EventArgs e)
-        {
-            IEnumerable<Customer> customers = customerService.GetAll();
-            BindGrid(customers);
-            dtpBirth1.Value = DateTime.Now.AddYears(-12);
-
-        }
+        
 
         private void dgvAdjust_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -171,8 +193,43 @@ namespace GUI.Control
                 customer.date_joined = dtpDateJoin.Value;
                 customer.date_of_birth = dtpBirthdate.Value;
             }
+            if (cbbMembership.Enabled == true)
+            {
+                int membershipId = (int)cbbMembership.SelectedValue;
+                DateTime date = DateTime.Now;
+                membershipService.AddMembershipToCustomer(Id, membershipId, date);
+            }
             customerService.Update(customer);
             UCtrlCustomer_Load(sender, e);
+        }
+
+        private void ckbNoActive_CheckedChanged(object sender, EventArgs e)
+        {
+            if (ckbNoActive.Checked == true)
+            {
+                IEnumerable<Customer> customers = customerService.GetAllNeedRenew();
+                BindGrid(customers);
+            }
+            else
+            {
+                IEnumerable<Customer> customers = customerService.GetAll();
+                BindGrid(customers);
+            }
+        }
+
+        private void btnRemove_Click(object sender, EventArgs e)
+        {
+            int Id = Convert.ToInt32(txtId.Text);
+            Customer customer = customerService.GetById(Id);
+            if (customer != null)
+            {
+                customerService.Delete(Id);
+                MessageBox.Show("Delete customer success");
+                UCtrlCustomer_Load(sender, e);
+            }
+            else
+                throw new Exception("Customer Id not found");
+
         }
     }
 }
