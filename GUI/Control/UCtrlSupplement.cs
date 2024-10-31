@@ -38,6 +38,17 @@ namespace GUI.Control
             BindGrid(supplements);
             IEnumerable<Brand> brands = brandService.GetAll();
             FillCbb(brands);
+            Clear();
+        }
+        private void Clear()
+        {
+            txtId.Text = "";
+            txtName.Text = "";
+            txtPrice.Text = "";
+            txtQuantity.Text = "";
+            txtName2.Text = "";
+            txtPrice2.Text = "";
+            txtQuantity2.Text = "";
         }
         private void FillCbb(IEnumerable<Brand> brands)
         {
@@ -45,6 +56,10 @@ namespace GUI.Control
             this.cbbBrand.DisplayMember = "name";
             this.cbbBrand.ValueMember = "BrandID";
             cbbBrand.SelectedIndex = -1;
+            this.cbbBrand2.DataSource = brands;
+            this.cbbBrand2.DisplayMember = "name";
+            this.cbbBrand2.ValueMember = "BrandID";
+            cbbBrand2.SelectedIndex = -1;
         }
         private void BindGrid(IEnumerable<Supplement> supplements)
         {
@@ -104,7 +119,7 @@ namespace GUI.Control
                 supplement.name = txtName.Text;
                 supplement.BrandID = Convert.ToInt16(cbbBrand.SelectedValue);
                 supplement.name = txtName.Text;
-                supplement.price = Convert.ToInt16(txtPrice.Text);
+                supplement.price = Convert.ToDecimal(txtPrice.Text);
                 supplement.stock_quantity = Convert.ToInt16(txtQuantity.Text);
                 supplementService.Update(supplement);
                 LoadData();
@@ -131,6 +146,5 @@ namespace GUI.Control
                 MessageBox.Show(ex.Message);
             }
         }
-
     }
 }

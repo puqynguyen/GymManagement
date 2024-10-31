@@ -49,7 +49,7 @@ namespace GUI.Control
                 txtLength.Text = dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString();
                 txtPrice.Text = dataGridView1.Rows[e.RowIndex].Cells[3].Value.ToString();
                 DateTime dateValue;
-                if (DateTime.TryParse(dataGridView1.Rows[e.RowIndex].Cells[4].Value.ToString(), out dateValue))
+                if (DateTime.TryParseExact(dataGridView1.Rows[e.RowIndex].Cells[4].Value.ToString(), "dd/MM/yyyy", null, System.Globalization.DateTimeStyles.None, out dateValue))
                 {
                     dtpCreateDate.Value = dateValue.Date;
                     dtpCreateDate.Format = DateTimePickerFormat.Custom;
@@ -59,6 +59,7 @@ namespace GUI.Control
                 {
                     MessageBox.Show("Invalid date format in the selected row.");
                 }
+
             }
         }
 
@@ -74,7 +75,7 @@ namespace GUI.Control
                 {
                     throw new Exception("Membership Id not found!");
                 }
-                membership.price = Convert.ToInt32(txtPrice.Text);
+                membership.price = Convert.ToDecimal(txtPrice.Text);
                 membership.membership_length = Convert.ToInt32(txtLength.Text);
                 membership.name = txtName.Text;
                 membershipService.Update(membership);
@@ -114,8 +115,8 @@ namespace GUI.Control
             {
                 int length = Convert.ToInt32(txtLength2.Text);
                 decimal @price = Convert.ToDecimal(txtPrice2.Text);
-                DateTime dateTime = dtpDateCreate2.Value.ToUniversalTime();
-                Membership membership = new Membership() { membership_length = length, date_created = dtpCreateDate.Value.ToUniversalTime(), price = @price };
+                DateTime dateTime = dtpDateCreate2.Value;
+                Membership membership = new Membership() { name = txtName2.Text, membership_length = length, date_created = dateTime, price = @price };
                 membershipService.Add(membership);
                 UCtrlMembership_Load(sender, e);
             }

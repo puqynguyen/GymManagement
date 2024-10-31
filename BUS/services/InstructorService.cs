@@ -8,7 +8,7 @@ using DTO.Entities;
 
 namespace BUS.services
 {
-    internal class InstructorService
+    public class InstructorService
     {
         private readonly IGenericRepository<Instructor> _repository;
 
