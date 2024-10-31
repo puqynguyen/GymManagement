@@ -37,9 +37,5 @@ namespace BUS
         {
             _invoiceRepository.AddPurchaseDetailsToInvoice(invoiceId, details);
         }
-        public void Update(PurchaseInvoice invoice)
-        {
-            _invoiceRepository.Update(invoice);
-        }
     }
 }

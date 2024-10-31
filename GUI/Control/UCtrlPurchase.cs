@@ -223,7 +223,7 @@ namespace GUI.Control
 
                 if (string.IsNullOrWhiteSpace(customerId) || string.IsNullOrWhiteSpace(customerName))
                 {
-                    MessageBox.Show("Select customer before.", , MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("Select customer before.", "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
 

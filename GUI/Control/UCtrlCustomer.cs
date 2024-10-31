@@ -229,7 +229,6 @@ namespace GUI.Control
             }
             else
                 throw new Exception("Customer Id not found");
-
         }
     }
 }
