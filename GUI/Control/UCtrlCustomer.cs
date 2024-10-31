@@ -10,11 +10,13 @@ using System.Windows.Forms;
 using DTO.Entities;
 using BUS.Services;
 using BUS.services;
+using System.Xml.Linq;
 namespace GUI.Control
 {
     public partial class UCtrlCustomer : UserControl
     {
         CustomerService customerService = new CustomerService();
+        MembershipService membershipService = new MembershipService();
         public UCtrlCustomer()
         {
             InitializeComponent();
@@ -22,15 +24,14 @@ namespace GUI.Control
             dgvAdjust.DefaultCellStyle.BackColor = Color.White;
             dgvAdjust.DefaultCellStyle.SelectionForeColor = Color.White;
             dgvAdjust.DefaultCellStyle.SelectionBackColor = Color.DarkBlue;
-            Load();
-        }
-        private void Load()
-        {
-            IEnumerable<Customer> customers = customerService.GetAll();
-            BindGrid(customers);
         }
         private void BindGrid(IEnumerable<Customer> customers)
         {
+            IEnumerable<Membership> memberships = membershipService.GetAll();
+            cbbMembership.DataSource = memberships;
+            this.cbbMembership.DisplayMember = "name"; 
+            this.cbbMembership.ValueMember = "MembershipId";
+            cbbMembership.Text = "";
             dgvAdjust.Rows.Clear();
             foreach (var item in customers)
             {
@@ -38,10 +39,12 @@ namespace GUI.Control
                 dgvAdjust.Rows[index].Cells[0].Value = item.CustomerID;
                 dgvAdjust.Rows[index].Cells[1].Value = item.name;
                 dgvAdjust.Rows[index].Cells[2].Value = item.sex;
-                dgvAdjust.Rows[index].Cells[3].Value = item.age;
+                dgvAdjust.Rows[index].Cells[3].Value = item.date_of_birth.HasValue
+    ? item.date_of_birth.Value.ToString("dd/MM/yyyy") : "";
                 dgvAdjust.Rows[index].Cells[4].Value = item.contact_info;
                 dgvAdjust.Rows[index].Cells[5].Value = item.address;
-                dgvAdjust.Rows[index].Cells[6].Value = item.date_joined;
+                dgvAdjust.Rows[index].Cells[6].Value = item.date_joined.HasValue
+    ? item.date_joined.Value.ToString("dd/MM/yyyy") : "";
                 var membership = customerService.GetActiveMembershipByCustomerId(item.CustomerID);
 
                 if (membership != null)
@@ -55,19 +58,59 @@ namespace GUI.Control
             }
         }
 
-        private void dgvAdjust_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            //if (e.RowIndex >= 0 && dgvAdjust.Columns[0].Index >= 0)
-            //{
-            //    txtName = dgvClass.Rows[e.RowIndex].Cells[0].Value;
-            //    IEnumerable<Customer> customers = classService.GetCustomersInClass(_selectedClassId);
-            //    IEnumerable<Instructor> instructors = classService.GetInstructorsInClass(_selectedClassId);
-            //}
-        }
-
         private void btnAdd_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void UCtrlCustomer_Load(object sender, EventArgs e)
+        {
+            IEnumerable<Customer> customers = customerService.GetAll();
+            BindGrid(customers);
+            
+        }
+
+        private void dgvAdjust_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0 && dgvAdjust.Columns[0].Index >= 0)
+            {
+                txtId.Text = dgvAdjust.Rows[e.RowIndex].Cells[0].Value.ToString();
+                int Id = Convert.ToInt32(txtId.Text);
+                txtName.Text = dgvAdjust.Rows[e.RowIndex].Cells[1].Value.ToString();
+                if(dgvAdjust.Rows[e.RowIndex].Cells[2].Value.ToString() == "F")
+                {
+                    rdbFemale.Checked = true;
+                }
+                else
+                {
+                    rdbMale.Checked = true;
+                }
+                
+                if (dgvAdjust.Rows[e.RowIndex].Cells[3].Value != null && DateTime.TryParseExact(dgvAdjust.Rows[e.RowIndex].Cells[3].Value.ToString().Trim(), "dd/MM/yyyy", null, System.Globalization.DateTimeStyles.None, out DateTime dateValue))
+                {
+                    dtpBirthdate.Value = dateValue;
+                }
+                else
+                {
+                    MessageBox.Show("Invalid date format in the selected cell. Please ensure the date is in 'dd/MM/yyyy' format.");
+                }
+                txtContact.Text = dgvAdjust.Rows[e.RowIndex].Cells[4].Value.ToString();
+                txtAddress.Text = dgvAdjust.Rows[e.RowIndex].Cells[5].Value.ToString();
+                if (dgvAdjust.Rows[e.RowIndex].Cells[6].Value != null && DateTime.TryParseExact(dgvAdjust.Rows[e.RowIndex].Cells[6].Value.ToString().Trim(), "dd/MM/yyyy", null, System.Globalization.DateTimeStyles.None, out dateValue))
+                {
+                    dtpDateJoin.Value = dateValue;
+                }
+                else
+                {
+                    MessageBox.Show("Invalid date format in the selected cell. Please ensure the date is in 'dd/MM/yyyy' format.");
+                }
+                if(customerService.GetActiveMembershipByCustomerId(Id) != null)
+                {
+                    cbbMembership.SelectedValue = customerService.GetActiveMembershipByCustomerId(Id).MembershipID;
+                    cbbMembership.Enabled = false;
+                }
+                
+            }
         }
     }
 }

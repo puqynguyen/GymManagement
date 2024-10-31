@@ -38,7 +38,7 @@ namespace GUI
             {
                 txtId.Text = dgvBrand.Rows[e.RowIndex].Cells[0].Value.ToString();
                 txtName.Text = dgvBrand.Rows[e.RowIndex].Cells[1].Value.ToString();
-                txtContact.Text = dgvBrand.Rows[e.RowIndex].Cells[2].Value.ToString();
+                txtContract.Text = dgvBrand.Rows[e.RowIndex].Cells[2].Value.ToString();
             }
         }
 
@@ -52,7 +52,7 @@ namespace GUI
                 }
                 if (txtId.Text == "")
                 {
-                    Brand brand = new Brand() { name = txtName.Text, contact_info = txtContact.Text };
+                    Brand brand = new Brand() { name = txtName.Text, contact_info = txtContract.Text };
                     brandService.Add(brand);
                 }
                 else
@@ -62,7 +62,7 @@ namespace GUI
                     if (brand != null)
                     {
                         brand.name = txtName.Text;
-                        brand.contact_info = txtContact.Text;
+                        brand.contact_info = txtContract.Text;
                     }
                     else
                     {
@@ -103,7 +103,7 @@ namespace GUI
         }
         private bool ValidateInput()
         {
-            if (txtId.Text != "" && txtContact.Text != "" && txtName.Text != "")
+            if (txtId.Text != "" && txtContract.Text != "" && txtName.Text != "")
                 return true;
             return false;
         }

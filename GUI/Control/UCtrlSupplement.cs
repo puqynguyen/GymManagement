@@ -20,13 +20,19 @@ namespace GUI.Control
         public UCtrlSupplement()
         {
             InitializeComponent();
+            this.Load += UCtrlSupplement_Load; // Connect the LoadData event to the handler
             dataGridView1.DefaultCellStyle.ForeColor = Color.Black;
             dataGridView1.DefaultCellStyle.BackColor = Color.White;
             dataGridView1.DefaultCellStyle.SelectionForeColor = Color.White;
             dataGridView1.DefaultCellStyle.SelectionBackColor = Color.DarkBlue;
-            Load();
         }
-        private void Load()
+
+        private void UCtrlSupplement_Load(object sender, EventArgs e)
+        {
+            LoadData();
+        }
+
+        private void LoadData()
         {
             IEnumerable<Supplement> supplements = supplementService.GetAll();
             BindGrid(supplements);
@@ -77,7 +83,7 @@ namespace GUI.Control
                     throw new Exception("Supplement Id not found!");
                 }
                 supplementService.DeleteSupplement(Id);
-                Load();
+                LoadData();
             }
             catch (Exception ex)
             {
@@ -101,7 +107,7 @@ namespace GUI.Control
                 supplement.price = Convert.ToInt16(txtPrice.Text);
                 supplement.stock_quantity = Convert.ToInt16(txtQuantity.Text);
                 supplementService.Update(supplement);
-                Load();
+                LoadData();
             }
             catch (Exception ex)
             {
@@ -118,7 +124,7 @@ namespace GUI.Control
                 int quantity = Convert.ToInt32(txtQuantity2.Text);
                 Supplement supplement = new Supplement() { name = txtName2.Text, BrandID = brandId, price = @price, stock_quantity = quantity};
                 supplementService.Add(supplement);
-                Load();
+                LoadData();
             }
             catch (Exception ex)
             {
@@ -126,9 +132,5 @@ namespace GUI.Control
             }
         }
 
-        private void UCtrlSupplement_Load(object sender, EventArgs e)
-        {
-
-        }
     }
 }

@@ -43,8 +43,7 @@ namespace GUI.Control
                 dataGridView1.Rows[index].Cells[2].Value = item.membership_length;
                 dataGridView1.Rows[index].Cells[3].Value = item.price;
                 dataGridView1.Rows[index].Cells[4].Value = item.date_created.HasValue
-    ? item.date_created.Value.ToString("dd/MM/yyyy")
-    : "";
+    ? item.date_created.Value.ToString("dd/MM/yyyy"): "";
             }
         }
 

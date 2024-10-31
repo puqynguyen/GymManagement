@@ -42,12 +42,12 @@
             this.CustomerAdd = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtId = new System.Windows.Forms.TextBox();
             this.label17 = new System.Windows.Forms.Label();
-            this.dtpDataJoin = new System.Windows.Forms.DateTimePicker();
+            this.dtpDateJoin = new System.Windows.Forms.DateTimePicker();
             this.label8 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
-            this.Address = new System.Windows.Forms.TextBox();
+            this.txtAddress = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
             this.txtContact = new System.Windows.Forms.TextBox();
             this.dtpBirthdate = new System.Windows.Forms.DateTimePicker();
@@ -99,6 +99,8 @@
             // 
             // dgvAdjust
             // 
+            this.dgvAdjust.AllowUserToAddRows = false;
+            this.dgvAdjust.AllowUserToDeleteRows = false;
             this.dgvAdjust.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvAdjust.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvAdjust.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -113,59 +115,69 @@
             this.dgvAdjust.Location = new System.Drawing.Point(428, 80);
             this.dgvAdjust.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dgvAdjust.Name = "dgvAdjust";
+            this.dgvAdjust.ReadOnly = true;
             this.dgvAdjust.RowHeadersVisible = false;
             this.dgvAdjust.RowHeadersWidth = 51;
             this.dgvAdjust.RowTemplate.Height = 24;
-            this.dgvAdjust.Size = new System.Drawing.Size(899, 455);
+            this.dgvAdjust.Size = new System.Drawing.Size(876, 455);
             this.dgvAdjust.TabIndex = 2;
+            this.dgvAdjust.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvAdjust_CellContentClick);
             // 
             // Column1
             // 
             this.Column1.HeaderText = "Id";
             this.Column1.MinimumWidth = 6;
             this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
             // 
             // Column2
             // 
             this.Column2.HeaderText = "Name";
             this.Column2.MinimumWidth = 6;
             this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
             // 
             // Column3
             // 
             this.Column3.HeaderText = "Gender";
             this.Column3.MinimumWidth = 6;
             this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
             // 
             // Column4
             // 
             this.Column4.HeaderText = "Birthdate";
             this.Column4.MinimumWidth = 6;
             this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
             // 
             // Column7
             // 
             this.Column7.HeaderText = "Contact Information";
             this.Column7.MinimumWidth = 6;
             this.Column7.Name = "Column7";
+            this.Column7.ReadOnly = true;
             // 
             // Column5
             // 
             this.Column5.HeaderText = "Address";
             this.Column5.MinimumWidth = 6;
             this.Column5.Name = "Column5";
+            this.Column5.ReadOnly = true;
             // 
             // Column6
             // 
             this.Column6.HeaderText = "Date join";
             this.Column6.MinimumWidth = 6;
             this.Column6.Name = "Column6";
+            this.Column6.ReadOnly = true;
             // 
             // Mem
             // 
             this.Mem.HeaderText = "Membership Status";
             this.Mem.MinimumWidth = 6;
             this.Mem.Name = "Mem";
+            this.Mem.ReadOnly = true;
             // 
             // btnHistory
             // 
@@ -216,12 +228,12 @@
             this.tableLayoutPanel1.ColumnCount = 2;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40.92141F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 59.07859F));
-            this.tableLayoutPanel1.Controls.Add(this.textBox1, 1, 0);
+            this.tableLayoutPanel1.Controls.Add(this.txtId, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.label17, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.dtpDataJoin, 1, 7);
+            this.tableLayoutPanel1.Controls.Add(this.dtpDateJoin, 1, 7);
             this.tableLayoutPanel1.Controls.Add(this.label8, 0, 7);
             this.tableLayoutPanel1.Controls.Add(this.label11, 0, 6);
-            this.tableLayoutPanel1.Controls.Add(this.Address, 1, 6);
+            this.tableLayoutPanel1.Controls.Add(this.txtAddress, 1, 6);
             this.tableLayoutPanel1.Controls.Add(this.label13, 0, 5);
             this.tableLayoutPanel1.Controls.Add(this.txtContact, 1, 5);
             this.tableLayoutPanel1.Controls.Add(this.dtpBirthdate, 1, 4);
@@ -249,15 +261,15 @@
             this.tableLayoutPanel1.Size = new System.Drawing.Size(369, 299);
             this.tableLayoutPanel1.TabIndex = 29;
             // 
-            // textBox1
+            // txtId
             // 
-            this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(154, 2);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(212, 28);
-            this.textBox1.TabIndex = 35;
+            this.txtId.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtId.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtId.Location = new System.Drawing.Point(154, 2);
+            this.txtId.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtId.Name = "txtId";
+            this.txtId.Size = new System.Drawing.Size(212, 28);
+            this.txtId.TabIndex = 35;
             // 
             // label17
             // 
@@ -271,17 +283,17 @@
             this.label17.TabIndex = 34;
             this.label17.Text = "ID";
             // 
-            // dtpDataJoin
+            // dtpDateJoin
             // 
-            this.dtpDataJoin.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.dtpDataJoin.CustomFormat = "dd/MM/yyyy";
-            this.dtpDataJoin.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtpDataJoin.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpDataJoin.Location = new System.Drawing.Point(154, 229);
-            this.dtpDataJoin.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.dtpDataJoin.Name = "dtpDataJoin";
-            this.dtpDataJoin.Size = new System.Drawing.Size(212, 28);
-            this.dtpDataJoin.TabIndex = 40;
+            this.dtpDateJoin.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.dtpDateJoin.CustomFormat = "dd/MM/yyyy";
+            this.dtpDateJoin.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpDateJoin.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpDateJoin.Location = new System.Drawing.Point(154, 229);
+            this.dtpDateJoin.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dtpDateJoin.Name = "dtpDateJoin";
+            this.dtpDateJoin.Size = new System.Drawing.Size(212, 28);
+            this.dtpDateJoin.TabIndex = 40;
             // 
             // label8
             // 
@@ -307,15 +319,15 @@
             this.label11.TabIndex = 29;
             this.label11.Text = "Address";
             // 
-            // Address
+            // txtAddress
             // 
-            this.Address.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.Address.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Address.Location = new System.Drawing.Point(154, 194);
-            this.Address.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.Address.Name = "Address";
-            this.Address.Size = new System.Drawing.Size(212, 28);
-            this.Address.TabIndex = 35;
+            this.txtAddress.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtAddress.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtAddress.Location = new System.Drawing.Point(154, 194);
+            this.txtAddress.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtAddress.Name = "txtAddress";
+            this.txtAddress.Size = new System.Drawing.Size(212, 28);
+            this.txtAddress.TabIndex = 35;
             // 
             // label13
             // 
@@ -444,7 +456,7 @@
             this.cbbMembership.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbbMembership.FormattingEnabled = true;
             this.cbbMembership.Location = new System.Drawing.Point(155, 266);
-            this.cbbMembership.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cbbMembership.Margin = new System.Windows.Forms.Padding(4);
             this.cbbMembership.Name = "cbbMembership";
             this.cbbMembership.Size = new System.Drawing.Size(209, 26);
             this.cbbMembership.TabIndex = 41;
@@ -764,7 +776,8 @@
             this.Controls.Add(this.dgvAdjust);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "UCtrlCustomer";
-            this.Size = new System.Drawing.Size(1325, 575);
+            this.Size = new System.Drawing.Size(1318, 575);
+            this.Load += new System.EventHandler(this.UCtrlCustomer_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvAdjust)).EndInit();
             this.CustomerAdd.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
@@ -827,10 +840,10 @@
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.TextBox txtContact;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.TextBox Address;
-        private System.Windows.Forms.DateTimePicker dtpDataJoin;
+        private System.Windows.Forms.TextBox txtAddress;
+        private System.Windows.Forms.DateTimePicker dtpDateJoin;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtId;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.ComboBox cbbMembership;
