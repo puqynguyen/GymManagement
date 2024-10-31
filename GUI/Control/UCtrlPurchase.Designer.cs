@@ -42,13 +42,11 @@
             this.cbbSupp = new System.Windows.Forms.ComboBox();
             this.txtIdCus = new System.Windows.Forms.TextBox();
             this.txtNameCus = new System.Windows.Forms.TextBox();
-            this.txtName = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.txtTotal = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -73,13 +71,11 @@
             this.groupBox1.Controls.Add(this.cbbSupp);
             this.groupBox1.Controls.Add(this.txtIdCus);
             this.groupBox1.Controls.Add(this.txtNameCus);
-            this.groupBox1.Controls.Add(this.txtName);
             this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Location = new System.Drawing.Point(675, 4);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox1.Name = "groupBox1";
@@ -198,14 +194,6 @@
             this.txtNameCus.Size = new System.Drawing.Size(164, 22);
             this.txtNameCus.TabIndex = 2;
             // 
-            // txtName
-            // 
-            this.txtName.Location = new System.Drawing.Point(159, 86);
-            this.txtName.Margin = new System.Windows.Forms.Padding(4);
-            this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(164, 22);
-            this.txtName.TabIndex = 2;
-            // 
             // label7
             // 
             this.label7.AutoSize = true;
@@ -261,17 +249,6 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Name Customer";
             // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label5.Location = new System.Drawing.Point(35, 89);
-            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(119, 16);
-            this.label5.TabIndex = 0;
-            this.label5.Text = "Name Supplement";
-            // 
             // label10
             // 
             this.label10.AutoSize = true;
@@ -280,12 +257,13 @@
             this.label10.Location = new System.Drawing.Point(28, 12);
             this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(185, 44);
+            this.label10.Size = new System.Drawing.Size(232, 55);
             this.label10.TabIndex = 11;
             this.label10.Text = "Purchase";
             // 
             // txtTotal
             // 
+            this.txtTotal.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.txtTotal.Location = new System.Drawing.Point(548, 286);
             this.txtTotal.Name = "txtTotal";
             this.txtTotal.Size = new System.Drawing.Size(100, 22);
@@ -413,8 +391,6 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox txtTotal;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox txtName;
-        private System.Windows.Forms.Label label5;
         private System.Windows.Forms.DataGridViewTextBoxColumn CName;
         private System.Windows.Forms.DataGridView dataGridView2;
         private System.Windows.Forms.Button btnSearch;

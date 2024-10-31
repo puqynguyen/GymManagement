@@ -7,6 +7,7 @@ using DTO.Entities;
 using BUS.Services;
 using BUS.services;
 using BUS;
+using System.Collections.Generic;
 
 namespace GUI.Control
 {
@@ -92,7 +93,7 @@ namespace GUI.Control
                     totalAmount += Convert.ToDecimal(row.Cells["TotalPrice"].Value);
                 }
             }
-            txtTotal.Text = totalAmount.ToString("N0") + " ₫";
+            txtTotal.Text = totalAmount.ToString("N0");
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
@@ -195,15 +196,6 @@ namespace GUI.Control
             dataGridView2.DataSource = customers;
         }
 
-        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (e.RowIndex >= 0)
-            {
-                selectedRow = dataGridView1.Rows[e.RowIndex];
-                txtName.Text = selectedRow.Cells["Name"].Value.ToString();
-            }
-        }
-
         private void dataGridView2_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0)
@@ -223,17 +215,60 @@ namespace GUI.Control
 
                 if (string.IsNullOrWhiteSpace(customerId) || string.IsNullOrWhiteSpace(customerName))
                 {
-                    MessageBox.Show("Select customer before.", "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("Select a customer before proceeding.", "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
 
                 if (invoiceDetails.Rows.Count == 0)
                 {
-                    MessageBox.Show("No product in purchase", "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("No product in the purchase list.", "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
-                DateTime dateCreated = DateTime.Now;
 
+                DateTime dateCreated = DateTime.Now;
+                decimal totalAmount = Convert.ToDecimal(txtTotal.Text);
+
+                // Create the PurchaseInvoice object
+                PurchaseInvoice newInvoice = new PurchaseInvoice
+                {
+                    CustomerID = int.Parse(customerId),
+                    date = dateCreated,
+                    totalAmount = totalAmount
+                };
+
+                // Save the invoice to the database
+                PurchaseInvoiceService purchaseInvoiceService = new PurchaseInvoiceService();
+                purchaseInvoiceService.Add(newInvoice);
+
+                // Prepare a list of PurchaseDetail objects to add to the invoice
+                List<PurchaseDetail> details = new List<PurchaseDetail>();
+
+                foreach (DataGridViewRow row in invoiceDetails.Rows)
+                {
+                    if (row.Cells["SupplementID"].Value != null)
+                    {
+                        int supplementId = Convert.ToInt32(row.Cells["SupplementID"].Value);
+                        int quantity = Convert.ToInt32(row.Cells["Quantity"].Value);
+                        decimal unitPrice = Convert.ToDecimal(row.Cells["UnitPrice"].Value);
+
+                        PurchaseDetail detail = new PurchaseDetail
+                        {
+                            InvoiceID = newInvoice.InvoiceID, // Assuming the InvoiceID is auto-generated after adding
+                            ItemID = supplementId,
+                            quantity = quantity,
+                            price = unitPrice
+                        };
+
+                        details.Add(detail); // Add each detail to the list
+                    }
+                }
+
+                // Use the AddPurchaseDetailsToInvoice method to add all details at once
+                purchaseInvoiceService.AddPurchaseDetailsToInvoice(newInvoice.InvoiceID, details);
+
+                MessageBox.Show("Invoice created successfully.", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                // Optionally, display the new invoice in a form
                 FormInvoice formInvoice = new FormInvoice(invoiceDetails, customerId, customerName, totalAmount, dateCreated);
                 formInvoice.ShowDialog();
             }
@@ -242,6 +277,8 @@ namespace GUI.Control
                 MessageBox.Show(ex.Message);
             }
         }
+
+
 
         private void btnHistory_Click(object sender, EventArgs e)
         {

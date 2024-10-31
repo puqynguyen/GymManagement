@@ -160,9 +160,9 @@ namespace GUI.Control
 
         private void btnHistory_Click(object sender, EventArgs e)
         {
-            if (dgvAdjust.SelectedRows.Count > 0)
-            {
-                int customerId = Convert.ToInt32(dgvAdjust.SelectedRows[0].Cells["Id"].Value);
+            if(txtId.Text != "")
+            {     
+                int customerId = Convert.ToInt32(txtId.Text);
                 FormHistory historyForm = new FormHistory(customerId);
                 historyForm.ShowDialog();
             }
@@ -229,6 +229,20 @@ namespace GUI.Control
             }
             else
                 throw new Exception("Customer Id not found");
+        }
+
+        private void btnAddClass_Click(object sender, EventArgs e)
+        {
+            if (txtId.Text != "")
+            {
+                int customerId = Convert.ToInt32(txtId.Text);
+                FormCusClass form = new FormCusClass(customerId);
+                form.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Please select a customer to add class.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
     }
 }

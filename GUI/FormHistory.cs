@@ -1,4 +1,6 @@
-﻿using BUS.Services;
+﻿using BUS.services;
+using BUS.Services;
+using DTO.Entities;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,13 +15,12 @@ namespace GUI
 {
     public partial class FormHistory : Form
     {
-        private readonly int _customerId;
-        private readonly CustomerService _membershipService;
+        private int _customerId;
+        private CustomerMembershipService customerMembershipService = new CustomerMembershipService();
         public FormHistory(int customerId)
         {
             InitializeComponent();
             _customerId = customerId;
-            _membershipService = new CustomerService();
         }
 
         private void FormHistory_Load(object sender, EventArgs e)
@@ -28,8 +29,19 @@ namespace GUI
         }
         private void LoadMembershipHistory()
         {
-            var memberships = _membershipService.GetActiveMembershipByCustomerId(_customerId);
-            dvgHistory.DataSource = memberships;
+            var customerMembershipHistory = customerMembershipService.GetAll()
+                .Where(p => p.CustomerID == _customerId)
+                .Select(p => new
+                {
+                    MembershipName = p.Membership.name,
+                    StartDate = p.start_date,
+                    EndDate = p.end_date,
+                    Price = p.price,
+                    Status = p.end_date >= DateTime.Now ? "Active" : "Expired"
+                }).ToList();
+
+            dvgHistory.DataSource = customerMembershipHistory;
         }
+
     }
 }

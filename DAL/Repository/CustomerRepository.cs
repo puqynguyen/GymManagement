@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using DAL;
@@ -36,6 +37,16 @@ namespace BUS.Services
 
             return membership;
         }
+        public IEnumerable<Class> GetClassesNotRegisteredByCustomer(int customerId)
+        {
+            var classes = _context.Database.SqlQuery<Class>(
+                "GetClassesNotRegisteredByCustomer @CustomerId",
+                new SqlParameter("@CustomerId", customerId)
+            ).ToList();
+
+            return classes;
+        }
+
 
     }
 }

@@ -22,10 +22,5 @@ namespace GUI
             lblTotal.Text = totalAmount.ToString("N0") + " ₫";
             lblDate.Text = DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss");
         }
-
-        private void FormInvoice_Load(object sender, EventArgs e)
-        {
-
-        }
     }
 }

@@ -68,6 +68,9 @@ namespace BUS.Services
                 }
             }
         }
-
+        public IEnumerable<Class> GetClassesNotRegisteredByCustomer(int customerId)
+        {
+            return _repository.GetClassesNotRegisteredByCustomer(customerId);
+        }
     }
 }
