@@ -43,26 +43,26 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Entites\ACCOUNT.cs" />
-    <Compile Include="Entites\Brand.cs" />
-    <Compile Include="Entites\Class.cs" />
-    <Compile Include="Entites\Customer.cs" />
-    <Compile Include="Entites\CustomerMembership.cs" />
-    <Compile Include="Entites\DBContext.cs" />
-    <Compile Include="Entites\Instructor.cs" />
-    <Compile Include="Entites\Membership.cs" />
-    <Compile Include="Entites\PurchaseDetail.cs" />
-    <Compile Include="Entites\PurchaseInvoice.cs" />
-    <Compile Include="Entites\Supplement.cs" />
+    <Compile Include="Entities\ACCOUNT.cs" />
+    <Compile Include="Entities\Brand.cs" />
+    <Compile Include="Entities\Class.cs" />
+    <Compile Include="Entities\Customer.cs" />
+    <Compile Include="Entities\CustomerMembership.cs" />
+    <Compile Include="Entities\DBContext.cs" />
+    <Compile Include="Entities\Instructor.cs" />
+    <Compile Include="Entities\Membership.cs" />
+    <Compile Include="Entities\PurchaseDetail.cs" />
+    <Compile Include="Entities\PurchaseInvoice.cs" />
+    <Compile Include="Entities\Supplement.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="App.Config" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="EntityFramework">
       <Version>6.5.1</Version>
     </PackageReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

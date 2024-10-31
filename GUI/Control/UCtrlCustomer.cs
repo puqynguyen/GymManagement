@@ -109,8 +109,17 @@ namespace GUI.Control
                     cbbMembership.SelectedValue = customerService.GetActiveMembershipByCustomerId(Id).MembershipID;
                     cbbMembership.Enabled = false;
                 }
+                else
+                {
+                    cbbMembership.Text = "x";
+                }
                 
             }
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

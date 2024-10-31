@@ -10,14 +10,11 @@ namespace DTO.Entities
     public partial class CustomerMembership
     {
         [Key]
-        [Column(Order = 0)]
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
-        public int CustomerID { get; set; }
+        public int MembershipRecordID { get; set; }
 
-        [Key]
-        [Column(Order = 1)]
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
-        public int MembershipID { get; set; }
+        public int? CustomerID { get; set; }
+
+        public int? MembershipID { get; set; }
 
         [Column(TypeName = "date")]
         public DateTime? start_date { get; set; }

@@ -490,6 +490,7 @@
             this.btnCancel.TabIndex = 28;
             this.btnCancel.Text = "Cancel Membership";
             this.btnCancel.UseVisualStyleBackColor = false;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // btnRemove
             // 

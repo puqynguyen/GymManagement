@@ -56,11 +56,6 @@ namespace DTO.Entities
                 .IsFixedLength()
                 .IsUnicode(false);
 
-            modelBuilder.Entity<Customer>()
-                .HasMany(e => e.CustomerMemberships)
-                .WithRequired(e => e.Customer)
-                .WillCascadeOnDelete(false);
-
             modelBuilder.Entity<Instructor>()
                 .Property(e => e.sex)
                 .IsFixedLength()
@@ -73,11 +68,6 @@ namespace DTO.Entities
             modelBuilder.Entity<Membership>()
                 .Property(e => e.price)
                 .HasPrecision(10, 2);
-
-            modelBuilder.Entity<Membership>()
-                .HasMany(e => e.CustomerMemberships)
-                .WithRequired(e => e.Membership)
-                .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<PurchaseDetail>()
                 .Property(e => e.price)
