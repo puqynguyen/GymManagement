@@ -12,14 +12,15 @@ namespace GUI
 {
     public partial class FormInvoice : Form
     {
-        public FormInvoice(DataTable invoiceDetails, string customerId, string customerName, decimal totalAmount)
+        public FormInvoice(DataTable invoiceDetails, string customerId, string customerName, decimal totalAmount, DateTime dateCreated)
         {
             InitializeComponent();
 
             dataGridView1.DataSource = invoiceDetails;
-            label5.Text = customerId;
-            label6.Text = customerName;
-            label3.Text = totalAmount.ToString("N0") + " ₫";
+            lblId.Text = customerId;
+            lblName.Text = customerName;
+            lblTotal.Text = totalAmount.ToString("N0") + " ₫";
+            lblDate.Text = DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss");
         }
 
         private void FormInvoice_Load(object sender, EventArgs e)

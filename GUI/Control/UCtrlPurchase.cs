@@ -232,15 +232,21 @@ namespace GUI.Control
                     MessageBox.Show("No product in purchase", "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
+                DateTime dateCreated = DateTime.Now;
 
-                // Mở form hóa đơn và truyền dữ liệu vào
-                FormInvoice formInvoice = new FormInvoice(invoiceDetails, customerId, customerName, totalAmount);
+                FormInvoice formInvoice = new FormInvoice(invoiceDetails, customerId, customerName, totalAmount, dateCreated);
                 formInvoice.ShowDialog();
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        private void btnHistory_Click(object sender, EventArgs e)
+        {
+            FormHistoryPur formHistory = new FormHistoryPur();
+            formHistory.ShowDialog();
         }
     }
 }
