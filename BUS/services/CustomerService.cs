@@ -1,4 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Data.SqlClient;
+using System.Linq;
 using DAL.Repository;
 using DTO.Entities;
 
@@ -44,5 +47,30 @@ namespace BUS.Services
         {
             return _repository.GetActiveMembershipByCustomerId(customerId);
         }
+        public void CancelActiveMembership(int customerId)
+        {
+            using (var context = new DBContext())
+            {
+                // Use the function to get the active membership for the customer
+                var activeMembership = context.Database.SqlQuery<CustomerMembership>(
+                    "SELECT * FROM GetActiveMembershipByCustomerId(@CustomerId)",
+                    new SqlParameter("@CustomerId", customerId)
+                ).FirstOrDefault();
+
+                // Check if there is an active membership to cancel
+                if (activeMembership != null)
+                {
+                    activeMembership.cancel = 1;
+                    context.CustomerMemberships.Attach(activeMembership);
+                    context.Entry(activeMembership).Property(cm => cm.cancel).IsModified = true;
+                    context.SaveChanges();
+                }
+                else
+                {
+                    throw new Exception("No active membership found for cancellation.");
+                }
+            }
+        }
+
     }
 }
