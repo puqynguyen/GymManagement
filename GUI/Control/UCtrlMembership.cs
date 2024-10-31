@@ -24,13 +24,6 @@ namespace GUI.Control
             dataGridView1.DefaultCellStyle.SelectionBackColor = Color.DarkBlue;
             DateTime dateTime = DateTime.Now;
             dtpDateCreate2.Value = dateTime;
-            Load();
-        }
-        private void Load()
-        {
-            CLear();
-            IEnumerable<Membership> members = membershipService.GetAll();
-            BindGrid(members);
         }
         public void BindGrid(IEnumerable<Membership> memberships)
         {
@@ -85,7 +78,8 @@ namespace GUI.Control
                 membership.membership_length = Convert.ToInt32(txtLength.Text);
                 membership.name = txtName.Text;
                 membershipService.Update(membership);
-                Load();
+                UCtrlMembership_Load(sender, e);
+
             }
             catch (Exception ex)
             {
@@ -104,7 +98,8 @@ namespace GUI.Control
                     throw new Exception("Membership Id not found!");
                 }
                 membershipService.Delete(Id);
-                Load();
+                UCtrlMembership_Load(sender, e);
+
 
             }
             catch (Exception ex)
@@ -122,7 +117,7 @@ namespace GUI.Control
                 DateTime dateTime = dtpDateCreate2.Value.ToUniversalTime();
                 Membership membership = new Membership() { membership_length = length, date_created = dtpCreateDate.Value.ToUniversalTime(), price = @price };
                 membershipService.Add(membership);
-                Load();
+                UCtrlMembership_Load(sender, e);
             }
             catch (Exception ex)
             {
@@ -142,7 +137,9 @@ namespace GUI.Control
 
         private void UCtrlMembership_Load(object sender, EventArgs e)
         {
-
+            CLear();
+            IEnumerable<Membership> members = membershipService.GetAll();
+            BindGrid(members);
         }
     }
 }
