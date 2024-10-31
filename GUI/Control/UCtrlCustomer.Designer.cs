@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.dgvAdjust = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -112,6 +113,14 @@
             this.Column5,
             this.Column6,
             this.Mem});
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvAdjust.DefaultCellStyle = dataGridViewCellStyle1;
             this.dgvAdjust.Location = new System.Drawing.Point(428, 80);
             this.dgvAdjust.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dgvAdjust.Name = "dgvAdjust";
@@ -380,6 +389,7 @@
             this.rdbFemale.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.rdbFemale.AutoSize = true;
             this.rdbFemale.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rdbFemale.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.rdbFemale.Location = new System.Drawing.Point(154, 99);
             this.rdbFemale.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.rdbFemale.Name = "rdbFemale";
@@ -394,6 +404,7 @@
             this.rdbMale.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.rdbMale.AutoSize = true;
             this.rdbMale.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rdbMale.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.rdbMale.Location = new System.Drawing.Point(154, 67);
             this.rdbMale.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.rdbMale.Name = "rdbMale";
@@ -655,6 +666,7 @@
             this.rdbFemale1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.rdbFemale1.AutoSize = true;
             this.rdbFemale1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rdbFemale1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.rdbFemale1.Location = new System.Drawing.Point(154, 122);
             this.rdbFemale1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.rdbFemale1.Name = "rdbFemale1";
@@ -681,6 +693,7 @@
             this.rdbMale1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.rdbMale1.AutoSize = true;
             this.rdbMale1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rdbMale1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.rdbMale1.Location = new System.Drawing.Point(154, 68);
             this.rdbMale1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.rdbMale1.Name = "rdbMale1";
@@ -743,6 +756,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
+            this.label10.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.label10.Location = new System.Drawing.Point(467, 41);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(50, 16);

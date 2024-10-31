@@ -29,8 +29,7 @@ namespace GUI
             reportViewer1.LocalReport.DataSources.Clear();
             reportViewer1.LocalReport.DataSources.Add(rds);
 
-            // Thiết lập tham số tổng tiền
-            ReportParameter paramTotalAmount = new ReportParameter("TotalAmount", totalAmount.ToString("C"));
+            ReportParameter paramTotalAmount = new ReportParameter("TotalAmount", totalAmount.ToString("N0") + " ₫");
             reportViewer1.LocalReport.SetParameters(paramTotalAmount);
 
             reportViewer1.RefreshReport();
