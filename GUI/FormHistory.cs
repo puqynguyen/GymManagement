@@ -12,9 +12,11 @@ namespace GUI
 {
     public partial class FormHistory : Form
     {
+        private int customerId;
         public FormHistory(int customerId)
         {
             InitializeComponent();
+            this.customerId = customerId;
         }
 
         private void FormHistory_Load(object sender, EventArgs e)

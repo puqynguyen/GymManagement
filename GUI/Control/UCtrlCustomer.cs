@@ -130,7 +130,6 @@ namespace GUI.Control
             {
                 MessageBox.Show(ex.Message);
             }
-        }
 
         }
 
@@ -140,8 +139,8 @@ namespace GUI.Control
             {
                 int customerId = Convert.ToInt32(dgvAdjust.SelectedRows[0].Cells["Id"].Value);
 
-                FormHistory historyForm = new FormHistory(customerId);
-                historyForm.ShowDialog();
+        FormHistory historyForm = new FormHistory(customerId);
+        historyForm.ShowDialog();
             }
             else
             {
