@@ -138,9 +138,8 @@ namespace GUI.Control
             if (dgvAdjust.SelectedRows.Count > 0)
             {
                 int customerId = Convert.ToInt32(dgvAdjust.SelectedRows[0].Cells["Id"].Value);
-
-        FormHistory historyForm = new FormHistory(customerId);
-        historyForm.ShowDialog();
+                FormHistory historyForm = new FormHistory(customerId);
+                historyForm.ShowDialog();
             }
             else
             {

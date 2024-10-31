@@ -140,5 +140,9 @@ namespace GUI.Control
             txtPrice2.Text = "";
         }
 
+        private void UCtrlMembership_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
