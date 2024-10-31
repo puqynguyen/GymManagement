@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Data.SqlClient;
 using System.Linq;
 using DAL.Repository;
@@ -51,18 +52,14 @@ namespace BUS.Services
         {
             using (var context = new DBContext())
             {
-                // Use the function to get the active membership for the customer
-                var activeMembership = context.Database.SqlQuery<CustomerMembership>(
-                    "SELECT * FROM GetActiveMembershipByCustomerId(@CustomerId)",
-                    new SqlParameter("@CustomerId", customerId)
-                ).FirstOrDefault();
+                // Lấy bản ghi membership đang hoạt động
+                var activeMembership = context.CustomerMemberships
+                    .FirstOrDefault(cm => cm.CustomerID == customerId && cm.cancel == 0 && cm.end_date > DateTime.Now);
 
-                // Check if there is an active membership to cancel
                 if (activeMembership != null)
                 {
                     activeMembership.cancel = 1;
-                    context.CustomerMemberships.Attach(activeMembership);
-                    context.Entry(activeMembership).Property(cm => cm.cancel).IsModified = true;
+                    context.Entry(activeMembership).State = EntityState.Modified;
                     context.SaveChanges();
                 }
                 else
