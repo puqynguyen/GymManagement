@@ -22,20 +22,7 @@ namespace GUI
             this.classId = classId;
             this.customer = customer;
             InitializeComponent();
-            btnAdd.Enabled = false;
-
-            if (customer)
-            {
-                LABEL.Text = "ADD CUSTOMER INTO CLASS";
-                IEnumerable<Customer> customers = classService.GetCustomersNotInClass(classId);
-                BindGridCustomer(customers);
-            }
-            else
-            {
-                LABEL.Text = "ADD INSTRUCTOR INTO CLASS"; 
-                IEnumerable<Instructor> instructors = classService.GetInstructorsNotInClass(classId);
-                BindGridInstructor(instructors);
-            }    
+            
         }
         private void BindGridCustomer(IEnumerable<Customer> customers)
         {
@@ -92,14 +79,45 @@ namespace GUI
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            int Id = Convert.ToInt32(lblId.Text);
-            if(customer)
+            try
             {
-                classService.RegisterCustomerToClass(Id, classId);
+                if (lblId.Text != "...")
+                {
+                    int Id = Convert.ToInt32(lblId.Text);
+                    if (customer)
+                    {
+                        classService.RegisterCustomerToClass(Id, classId);
+                        FormAddToClass_Load(sender, e);
+                    }
+                    else
+                    {
+                        classService.AssignInstructorToClass(Id, classId);
+                    }
+                    FormAddToClass_Load(sender, e);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            
+        }
+
+        private void FormAddToClass_Load(object sender, EventArgs e)
+        {
+            btnAdd.Enabled = false;
+
+            if (customer)
+            {
+                LABEL.Text = "ADD CUSTOMER INTO CLASS";
+                IEnumerable<Customer> customers = classService.GetCustomersNotInClass(classId);
+                BindGridCustomer(customers);
             }
             else
             {
-                classService.AssignInstructorToClass(Id, classId);
+                LABEL.Text = "ADD INSTRUCTOR INTO CLASS";
+                IEnumerable<Instructor> instructors = classService.GetInstructorsNotInClass(classId);
+                BindGridInstructor(instructors);
             }
         }
     }
