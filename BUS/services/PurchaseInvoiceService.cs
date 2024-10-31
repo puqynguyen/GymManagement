@@ -5,7 +5,7 @@ using DTO.Entities;
 
 namespace BUS
 {
-    internal class PurchaseInvoiceService
+    public class PurchaseInvoiceService
     {
         private readonly PurchaseInvoiceRepository _invoiceRepository;
 

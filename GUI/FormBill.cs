@@ -15,11 +15,11 @@ namespace GUI
     {
         private DataTable invoiceDetails;
         private decimal totalAmount;
-        public FormBill()
+        public FormBill(DataTable invoiceDetails, decimal totalAmount)
         {
             InitializeComponent();
-            InitializeComponent();
-
+            this.invoiceDetails = invoiceDetails;
+            this.totalAmount = totalAmount;
         }
 
         private void Bill_Load(object sender, EventArgs e)
