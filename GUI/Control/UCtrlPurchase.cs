@@ -125,6 +125,7 @@ namespace GUI.Control
                     if (!row.IsNewRow)
                     {
                         int supplementId = (int)row.Cells["SupplementID"].Value;
+                        Console.WriteLine($"Selected SupplementID: {supplementId}");
                         DataRow[] rowsToDelete = invoiceDetails.Select("SupplementID = " + supplementId);
 
                         foreach (DataRow dataRow in rowsToDelete)

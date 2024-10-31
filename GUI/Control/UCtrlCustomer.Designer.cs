@@ -203,6 +203,7 @@
             this.btnHistory.TabIndex = 7;
             this.btnHistory.Text = "History";
             this.btnHistory.UseVisualStyleBackColor = false;
+            this.btnHistory.Click += new System.EventHandler(this.btnHistory_Click);
             // 
             // CustomerAdd
             // 

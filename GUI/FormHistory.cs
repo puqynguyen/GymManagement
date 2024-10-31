@@ -12,9 +12,14 @@ namespace GUI
 {
     public partial class FormHistory : Form
     {
-        public FormHistory()
+        public FormHistory(int customerId)
         {
             InitializeComponent();
+        }
+
+        private void FormHistory_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

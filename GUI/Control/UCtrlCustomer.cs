@@ -112,5 +112,20 @@ namespace GUI.Control
                 
             }
         }
+
+        private void btnHistory_Click(object sender, EventArgs e)
+        {
+            if (dgvAdjust.SelectedRows.Count > 0)
+            {
+                int customerId = Convert.ToInt32(dgvAdjust.SelectedRows[0].Cells["Id"].Value);
+
+                FormHistory historyForm = new FormHistory(customerId);
+                historyForm.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Please select a customer to view history.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
     }
 }
